@@ -1,0 +1,14 @@
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - Peptoid Data Bank</title>
+      {% else %}
+      <title>Welcome to the Peptoid Data Bank</title>
+      {% endif %}
+    </head>
+    <body>
+        <div>Peptoid Data Bank: <a href="/index">Home</a></div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>
