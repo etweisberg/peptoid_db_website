@@ -1,15 +1,16 @@
 from flask import render_template, flash, redirect, url_for
 from app import app
 from app.forms import SearchForm
-from app.models import Peptoid
+from app.models import Peptoid, Author
 
 @app.route('/')
-@app.route('/index')
-def index():
-    peptoid = Peptoid.query.all()[0]
-    code = peptoid.code
-    return render_template('index.html',title = 'Home',code = code)
 
+#home route
+@app.route('/home')
+def home():
+    return render_template('home.html',title = 'Home')
+
+#search route
 @app.route('/search',methods = ['GET','POST'])
 def search():
     form = SearchForm()
