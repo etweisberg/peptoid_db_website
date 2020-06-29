@@ -8,7 +8,10 @@ peptoid_author = db.Table('peptoid-author',
 )
 
 #peptoid-residue helper table
-
+peptoid_residue = db.Table('peptoid-residue',
+    db.Column('peptoid_id',db.Integer,db.ForeignKey('peptoid.id'),primary_key = True),
+    db.Column('residue_id',db.Integer,db.ForeignKey('residue.id'),primary_key = True)
+)
 #peptoid table
 class Peptoid(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -18,6 +21,8 @@ class Peptoid(db.Model):
     experiment = db.Column(db.Text, index=True, unique=True)
     doi = db.Column(db.Text, index=True, unique=True)
     peptoid_author = db.relationship('Author',secondary = peptoid_author, lazy = 'subquery',
+        backref = db.backref('peptoids', lazy = True))
+    peptoid_residue = db.relationship('Residue',secondary = peptoid_residue, lazy = 'subquery',
         backref = db.backref('peptoids', lazy = True))
     def __repr__(self):
         return '<Peptoid {}>'.format(self.title) 
@@ -32,3 +37,6 @@ class Author(db.Model):
         return '<Author {}>'.format(self.name)
 
 #residues table
+class Residue(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    nomenclature = db.Column(db.Text, index = True, unique = True)
