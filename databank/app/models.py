@@ -12,6 +12,7 @@ peptoid_residue = db.Table('peptoid-residue',
     db.Column('peptoid_id',db.Integer,db.ForeignKey('peptoid.id'),primary_key = True),
     db.Column('residue_id',db.Integer,db.ForeignKey('residue.id'),primary_key = True)
 )
+
 #peptoid table
 class Peptoid(db.Model):
     id = db.Column(db.Integer, primary_key=True)

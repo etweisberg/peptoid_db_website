@@ -17,5 +17,5 @@ def search():
     if form.validate_on_submit():
         flash('Search requested for {}'.format(
         form.search.data))
-        return redirect(url_for('index'))
+        return redirect(url_for('home'))
     return render_template('search.html', title='Search', form=form)
