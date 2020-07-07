@@ -77,3 +77,5 @@ for res in p1.peptoid_residue:
 print('ALL THE AUTHORS FOR PEPTOID 2 | SHOULD BE VV AND KK')
 for res in p2.peptoid_author:
     print(res)
+
+db.session.commit()
