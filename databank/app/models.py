@@ -18,13 +18,14 @@ class Peptoid(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.Text, index=True, unique=True)
     release = db.Column(db.DateTime, index=True, unique=True)
-    authors = db.Column(db.Text, index=True, unique=True)
-    experiment = db.Column(db.Text, index=True, unique=True)
+    experiment = db.Column(db.Text, index=True, unique=False)
     doi = db.Column(db.Text, index=True, unique=True)
-    peptoid_author = db.relationship('Author',secondary = peptoid_author, lazy = 'subquery',
-        backref = db.backref('peptoids', lazy = True))
-    peptoid_residue = db.relationship('Residue',secondary = peptoid_residue, lazy = 'subquery',
-        backref = db.backref('peptoids', lazy = True))
+    
+    peptoid_author = db.relationship('Author',secondary = peptoid_author, lazy = 'dynamic',
+        backref = db.backref('peptoids'))
+    peptoid_residue = db.relationship('Residue',secondary = peptoid_residue, lazy = 'dynamic',
+        backref = db.backref('peptoids'))
+    
     def __repr__(self):
         return '<Peptoid {}>'.format(self.title) 
 
@@ -41,3 +42,6 @@ class Author(db.Model):
 class Residue(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     nomenclature = db.Column(db.Text, index = True, unique = True)
+
+    def __repr__(self):
+        return '<Residue {}>'.format(self.nomenclature)
