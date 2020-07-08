@@ -6,7 +6,7 @@
     <img src="{{image}}"/>
     <p>Release date: {{ release }}</p>
     <p>Experiment: <a href = {{ url_for('experiment',var = peptoid.experiment) }}>{{ experiment }}</a></p>
-    <p>DOI: <a href = {{ url_for('doi',var=peptoid.doi) }}>{{ doi }}</a></p>
+    <p>DOI: <a href = {{ url_for('doi', var = peptoid.doi.replace('/','$') ) }}>{{ doi }}</a></p>
     <p>Database Code: {{ code }}</p>
     <p>
     Authors:
