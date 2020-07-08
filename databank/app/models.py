@@ -16,10 +16,12 @@ peptoid_residue = db.Table('peptoid-residue',
 #peptoid table
 class Peptoid(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    image = db.Column(db.Text, index=True, unique=True)
     title = db.Column(db.Text, index=True, unique=True)
+    code = db.Column(db.String(16), index=True, unique=True)
     release = db.Column(db.DateTime, index=True, unique=True)
     experiment = db.Column(db.Text, index=True, unique=False)
-    doi = db.Column(db.Text, index=True, unique=True)
+    doi = db.Column(db.String(32), index=True, unique=True)
     
     peptoid_author = db.relationship('Author',secondary = peptoid_author, lazy = 'dynamic',
         backref = db.backref('peptoids'))

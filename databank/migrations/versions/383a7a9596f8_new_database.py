@@ -1,8 +1,8 @@
-"""model 1
+"""new database
 
-Revision ID: 21dfe37a4440
+Revision ID: 383a7a9596f8
 Revises: 
-Create Date: 2020-07-06 22:52:41.484147
+Create Date: 2020-07-07 16:24:36.952143
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '21dfe37a4440'
+revision = '383a7a9596f8'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -26,14 +26,18 @@ def upgrade():
     op.create_index(op.f('ix_author_name'), 'author', ['name'], unique=True)
     op.create_table('peptoid',
     sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('image', sa.Text(), nullable=True),
     sa.Column('title', sa.Text(), nullable=True),
+    sa.Column('code', sa.String(length=16), nullable=True),
     sa.Column('release', sa.DateTime(), nullable=True),
     sa.Column('experiment', sa.Text(), nullable=True),
-    sa.Column('doi', sa.Text(), nullable=True),
+    sa.Column('doi', sa.String(length=32), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
+    op.create_index(op.f('ix_peptoid_code'), 'peptoid', ['code'], unique=True)
     op.create_index(op.f('ix_peptoid_doi'), 'peptoid', ['doi'], unique=True)
     op.create_index(op.f('ix_peptoid_experiment'), 'peptoid', ['experiment'], unique=False)
+    op.create_index(op.f('ix_peptoid_image'), 'peptoid', ['image'], unique=True)
     op.create_index(op.f('ix_peptoid_release'), 'peptoid', ['release'], unique=True)
     op.create_index(op.f('ix_peptoid_title'), 'peptoid', ['title'], unique=True)
     op.create_table('residue',
@@ -67,8 +71,10 @@ def downgrade():
     op.drop_table('residue')
     op.drop_index(op.f('ix_peptoid_title'), table_name='peptoid')
     op.drop_index(op.f('ix_peptoid_release'), table_name='peptoid')
+    op.drop_index(op.f('ix_peptoid_image'), table_name='peptoid')
     op.drop_index(op.f('ix_peptoid_experiment'), table_name='peptoid')
     op.drop_index(op.f('ix_peptoid_doi'), table_name='peptoid')
+    op.drop_index(op.f('ix_peptoid_code'), table_name='peptoid')
     op.drop_table('peptoid')
     op.drop_index(op.f('ix_author_name'), table_name='author')
     op.drop_table('author')

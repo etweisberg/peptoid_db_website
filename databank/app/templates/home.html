@@ -1,4 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
         <h1>{{ title }}</h1>
+        {% for i in range(peptoid_codes.__len__())%}
+        <hr>
+        <img src="{{images[i]}}"/>
+        <h2><a href = "{{ peptoid_urls[i] }}">{{ peptoid_codes[i] }}</a></h2>
+        {% endfor %}
 {% endblock %}
