@@ -44,11 +44,17 @@ def peptoid(code):
     release = peptoid.release
     experiment = peptoid.experiment
     doi = peptoid.doi
-    authors = str()
-    for auth in peptoid.peptoid_author:
-        authors += auth.first_name + ' ' + auth.last_name + ', '
-    authors = authors[:-2]
-    print(image)
+    
+    #lists of objects also passed to front end
+    authors = []
+    residues = []
+
+    for author in peptoid.peptoid_author:
+        authors.append(author)
+
+    for residue in peptoid.peptoid_residue:
+        residues.append(residue)
+
     #rendering html template
     return render_template('peptoid.html',
         peptoid = peptoid,
@@ -58,7 +64,8 @@ def peptoid(code):
         release = release,
         experiment = experiment,
         doi = doi,
-        authors = authors
+        authors = authors,
+        residues = residues
     )
 
 @app.route('/residue/<var>')
