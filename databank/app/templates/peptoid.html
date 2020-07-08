@@ -5,8 +5,23 @@
     <hr>
     <img src="{{image}}"/>
     <p>Release date: {{ release }}</p>
-    <p>Experiment: {{ experiment }}</p>
-    <p>Authors: {{ authors }}</p>
-    <p>Doi: {{ doi }}</p>
+    <p>Experiment: <a href = {{ url_for('experiment',var = peptoid.experiment) }}>{{ experiment }}</a></p>
+    <p>DOI: <a href = {{ url_for('doi',var=peptoid.doi) }}>{{ doi }}</a></p>
     <p>Database Code: {{ code }}</p>
+    <p>
+    Authors:
+    {% for auth in authors %}
+            <tr>
+                <a href = {{ url_for('author',var = auth.first_name + ' ' + auth.last_name) }}><td>{{ auth.first_name }} {{ auth.last_name }}</td></a>
+            </tr>
+    {% endfor %}
+    </p>
+    <p>
+    Residues:
+    {% for res in residues %}
+            <tr>
+                <a href = {{ url_for('residue',var = res.nomenclature) }}><td>{{ res.nomenclature }}</td></a>
+            </tr>
+    {% endfor %}
+    </p>
 {% endblock %}

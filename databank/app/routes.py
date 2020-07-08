@@ -11,7 +11,7 @@ def home():
     peptoid_codes = []
     peptoid_urls = []
     images = []
-    for p in Peptoid.query.all():
+    for p in Peptoid.query.order_by(Peptoid.release.desc()).all():
         peptoid_codes.append(p.code)
         peptoid_urls.append(url_for('peptoid',code=p.code))
         images.append(url_for('static', filename = p.image))
@@ -27,9 +27,10 @@ def home():
 def search():
     form = SearchForm()
     if form.validate_on_submit():
-        flash('Search requested for {}'.format(
-        form.search.data))
-        return redirect(url_for('home'))
+        var = form.search.data
+        if '/' in var:
+            var = var.replace('/','$')
+        return redirect(url_for(form.option.data, var = var))
     return render_template('search.html', title='Search', form=form)
 
 #route for each peptoid
@@ -43,11 +44,17 @@ def peptoid(code):
     release = peptoid.release
     experiment = peptoid.experiment
     doi = peptoid.doi
-    authors = str()
-    for auth in peptoid.peptoid_author:
-        authors += auth.name + ', '
-    authors = authors[:-2]
-    print(image)
+    
+    #lists of objects also passed to front end
+    authors = []
+    residues = []
+
+    for author in peptoid.peptoid_author:
+        authors.append(author)
+
+    for residue in peptoid.peptoid_residue:
+        residues.append(residue)
+
     #rendering html template
     return render_template('peptoid.html',
         peptoid = peptoid,
@@ -57,5 +64,88 @@ def peptoid(code):
         release = release,
         experiment = experiment,
         doi = doi,
-        authors = authors
+        authors = authors,
+        residues = residues
     )
+
+@app.route('/residue/<var>')
+def residue(var):
+    peptoid_codes = []
+    peptoid_urls = []
+    images = []
+    residue = Residue.query.filter_by(nomenclature = var).first_or_404()
+    
+    for p in residue.peptoids:
+        peptoid_codes.append(p.code)
+        peptoid_urls.append(url_for('peptoid',code=p.code))
+        images.append(url_for('static', filename = p.image))
+
+    return render_template('home.html',
+            title = 'Filtered by Residue: ' + var,
+            peptoid_codes = peptoid_codes,
+            peptoid_urls = peptoid_urls,
+            images = images
+        )
+
+@app.route('/author/<var>')
+def author(var):
+    name_split = []
+    peptoid_codes = []
+    peptoid_urls = []
+    images = []
+    space = " "
+    if space in var:
+        name_split = var.split()
+        first_name = name_split[0]
+        last_name = name_split[1]
+        author = Author.query.filter_by(first_name = first_name, last_name = last_name).first_or_404()
+    else:
+        author = Author.query.filter((Author.first_name == var) | (Author.last_name == var)).first_or_404()
+    
+    for p in author.peptoids:
+        peptoid_codes.append(p.code)
+        peptoid_urls.append(url_for('peptoid',code=p.code))
+        images.append(url_for('static', filename = p.image))
+    
+    return render_template('home.html',
+            title = 'Filtered by Author: ' + var,
+            peptoid_codes = peptoid_codes,
+            peptoid_urls = peptoid_urls,
+            images = images
+        )
+
+@app.route('/experiment/<var>')
+def experiment(var):
+    peptoid_codes = []
+    peptoid_urls = []
+    images = []
+    for p in Peptoid.query.filter_by(experiment = var).all():
+        peptoid_codes.append(p.code)
+        peptoid_urls.append(url_for('peptoid',code=p.code))
+        images.append(url_for('static', filename = p.image))
+    
+    return render_template('home.html',
+            title = 'Filtered by Experiment: ' + var,
+            peptoid_codes = peptoid_codes,
+            peptoid_urls = peptoid_urls,
+            images = images
+        )
+
+@app.route('/doi/<var>')
+def doi(var):
+    var = var.replace('$','/')
+    peptoid_codes = []
+    peptoid_urls = []
+    images = []
+    
+    for p in Peptoid.query.filter_by(doi = var).all():
+        peptoid_codes.append(p.code)
+        peptoid_urls.append(url_for('peptoid',code=p.code))
+        images.append(url_for('static', filename = p.image))
+    
+    return render_template('home.html',
+            title = 'Filtered by DOI: ' + var,
+            peptoid_codes = peptoid_codes,
+            peptoid_urls = peptoid_urls,
+            images = images
+        )

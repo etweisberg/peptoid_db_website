@@ -2,56 +2,54 @@ import datetime
 from app import app, db
 from app.models import Peptoid, Author, Residue
 
-def create_objects():
-    #instantiating two residue examples
-    Nspe = Residue(nomenclature='Nspe')
-    NLeu = Residue(nomenclature='NLeu')
 
-    KK = Author(name='Kent Kirshenbaum')
-    VV = Author(name='Vincent Voelz')
-    JE = Author(name='James Eastwood')
+#instantiating two residue examples
+Nspe = Residue(nomenclature='Nspe')
+NLeu = Residue(nomenclature='NLeu')
 
-    #adding new objects to database
-    db.session.add(Nspe)
-    db.session.add(NLeu)
-    db.session.add(KK)
-    db.session.add(VV)
-    db.session.add(JE)
+KK = Author(first_name = 'Kent', last_name = 'Kirshenbaum')
+VV = Author(first_name = 'Vince', last_name = 'Voelz')
+JE = Author(first_name='James', last_name = 'Eastwood')
 
-    #testing new objects
-    for r in Residue.query.all():
-        print (r.id,r.nomenclature)
-    for a in Author.query.all():
-        print(a.id,a.name)
+#adding new objects to database
+db.session.add(Nspe)
+db.session.add(NLeu)
+db.session.add(KK)
+db.session.add(VV)
+db.session.add(JE)
 
-    #making a peptoid object
-    p1 = Peptoid(
-        image = 'pep1.png',
-        title = 'Peptoid 1',
-        code = '19AB1-2-A',
-        release = datetime.date(2020,7,4),
-        experiment = 'X-ray crystallography',
-        doi = '10.107hj1/adk2'
-    )
+#testing new objects
+for r in Residue.query.all():
+    print (r.id,r.nomenclature)
+for a in Author.query.all():
+    print(a.id,a.first_name,a.last_name)
 
-    p2 = Peptoid(
-        image = 'pep2.png',
-        title = 'Peptoid 2',
-        code = '19AA1-8-C',
-        release = datetime.date(2020,7,5),
-        experiment = 'X-ray crystallography',
-        doi = '10.107hj1/as123'
-    )
+#making a peptoid object
+p1 = Peptoid(
+    image = 'pep1.png',
+    title = 'Peptoid 1',
+    code = '19AB1-2-A',
+    release = datetime.date(2020,7,4),
+    experiment = 'X-ray crystallography',
+    doi = '10.107hj1/adk2'
+)
 
-    #adding new objects to database
-    db.session.add(p1)
-    db.session.add(p2)
+p2 = Peptoid(
+    image = 'pep2.png',
+    title = 'Peptoid 2',
+    code = '19AA1-8-C',
+    release = datetime.date(2020,7,5),
+    experiment = 'X-ray crystallography',
+    doi = '10.107hj1/as123'
+)
 
-    #query for peptoid objects
-    for p in Peptoid.query.all():
-        print(p)
+#adding new objects to database
+db.session.add(p1)
+db.session.add(p2)
 
-create_objects()
+#query for peptoid objects
+for p in Peptoid.query.all():
+    print(p)
 
 #creating many to many relationships
 p1.peptoid_author.append(KK)
