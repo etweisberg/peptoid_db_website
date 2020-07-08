@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <hr>
+    <img src="{{image}}"/>
+    <p>Release date: {{ release }}</p>
+    <p>Experiment: {{ experiment }}</p>
+    <p>Authors: {{ authors }}</p>
+    <p>Doi: {{ doi }}</p>
+    <p>Database Code: {{ code }}</p>
+{% endblock %}
