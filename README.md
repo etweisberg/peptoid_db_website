@@ -1,5 +1,10 @@
 # Website for the peptoid data bank
 
+## Running for development
+
+- enter the databank directory using `cd databank`
+- run the Flask application using `flask run`
+
 ## Required Python packages
 - flask
 - flask-migrate
