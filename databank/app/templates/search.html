@@ -5,6 +5,18 @@
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p>
+            {{ form.option.label }}<br>
+            {% for subfield in form.option %}
+            <tr>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.option.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
             {{ form.search.label }}<br>
             {{ form.search(size=32) }}
             {% for error in form.search.errors %}
