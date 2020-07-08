@@ -29,7 +29,7 @@ def search():
     if form.validate_on_submit():
         flash('Search requested for {}'.format(
         form.search.data))
-        return redirect(url_for('home'))
+        return redirect(url_for('residue', res = form.search.data))
     return render_template('search.html', title='Search', form=form)
 
 #route for each peptoid
@@ -45,7 +45,7 @@ def peptoid(code):
     doi = peptoid.doi
     authors = str()
     for auth in peptoid.peptoid_author:
-        authors += auth.name + ', '
+        authors += auth.first_name + ' ' + auth.last_name + ', '
     authors = authors[:-2]
     print(image)
     #rendering html template
@@ -59,3 +59,21 @@ def peptoid(code):
         doi = doi,
         authors = authors
     )
+
+@app.route('/residue/<res>')
+def residue(res):
+    peptoid_codes = []
+    peptoid_urls = []
+    images = []
+    residue = Residue.query.filter_by(nomenclature = res).first_or_404()
+    for p in residue.peptoids:
+        peptoid_codes.append(p.code)
+        peptoid_urls.append(url_for('peptoid',code=p.code))
+        images.append(url_for('static', filename = p.image))
+
+    return render_template('home.html',
+            title = 'Residue Search',
+            peptoid_codes = peptoid_codes,
+            peptoid_urls = peptoid_urls,
+            images = images
+        )

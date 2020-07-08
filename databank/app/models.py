@@ -35,10 +35,11 @@ class Peptoid(db.Model):
 
 class Author(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.Text, index = True, unique = True)
+    first_name = db.Column(db.Text, index = True, unique = True)
+    last_name = db.Column(db.Text, index = True, unique = True)
 
     def __repr__(self):
-        return '<Author {}>'.format(self.name)
+        return '<Author {}>'.format(self.last_name)
 
 #residues table
 class Residue(db.Model):
