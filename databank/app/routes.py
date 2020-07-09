@@ -1,7 +1,11 @@
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, abort
 from app import app
 from app.forms import SearchForm
 from app.models import Peptoid, Author, Residue
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 @app.route('/')
 
@@ -29,6 +33,7 @@ def home():
 def search():
     form = SearchForm()
     if form.validate_on_submit():
+        flash('{cat} search requested for {term}'.format(cat = form.option.data.upper(), term = form.search.data))
         var = form.search.data
         if '/' in var:
             var = var.replace('/','$')
@@ -128,6 +133,9 @@ def experiment(var):
         peptoid_urls.append(url_for('peptoid',code=p.code))
         images.append(url_for('static', filename = p.image))
     
+    if len(peptoid_codes) == 0:
+        abort(404)
+    
     return render_template('home.html',
             title = 'Filtered by Experiment: ' + var,
             peptoid_codes = peptoid_codes,
@@ -146,6 +154,9 @@ def doi(var):
         peptoid_codes.append(p.code)
         peptoid_urls.append(url_for('peptoid',code=p.code))
         images.append(url_for('static', filename = p.image))
+
+    if len(peptoid_codes) == 0:
+        abort(404)
     
     return render_template('home.html',
             title = 'Filtered by DOI: ' + var,
@@ -153,3 +164,4 @@ def doi(var):
             peptoid_urls = peptoid_urls,
             images = images
         )
+

@@ -20,16 +20,19 @@
           </div>
         </nav>
         {% endblock %}
-        <hr>
-      {% with messages = get_flashed_messages() %}
-      {% if messages %}
-      <ul>
-          {% for message in messages %}
-          <span style="color: red;">{{ message }}</span>
-          {% endfor %}
-      </ul>
-      {% endif %}
-      {% endwith %}
-        {% block content %}{% endblock %}
+  {% block content %}
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {# application content needs to be provided in the app_content block #}
+        {% block app_content %}{% endblock %}
+    </div>
+  {% endblock %}
     </body>
 </html>
