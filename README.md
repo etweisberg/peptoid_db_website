@@ -10,6 +10,7 @@
 - flask-migrate
 - flask-sqlalchemy
 - flask-wtf
+- flask-bootstrap
 
 Reccomended installation method: [Anaconda package manager](https://www.anaconda.com/products/individual)
 
