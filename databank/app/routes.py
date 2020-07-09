@@ -8,6 +8,7 @@ from app.models import Peptoid, Author, Residue
 #home route
 @app.route('/home')
 def home():
+    logo = url_for('static', filename = 'pep1.png')
     peptoid_codes = []
     peptoid_urls = []
     images = []
@@ -16,6 +17,7 @@ def home():
         peptoid_urls.append(url_for('peptoid',code=p.code))
         images.append(url_for('static', filename = p.image))
     return render_template('home.html',
+            logo = logo,
             title = 'Gallery',
             peptoid_codes = peptoid_codes,
             peptoid_urls = peptoid_urls,
@@ -38,7 +40,9 @@ def search():
 def peptoid(code):
     #data passed to front end
     peptoid = Peptoid.query.filter_by(code=code).first_or_404()
-    image = url_for('static', filename = peptoid.image)
+    i = peptoid.image
+    i = i[:-4]
+    image = url_for('static', filename = i + '_full.png')
     title = peptoid.title
     code = peptoid.code
     release = peptoid.release

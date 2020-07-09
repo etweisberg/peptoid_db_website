@@ -1,16 +1,25 @@
 <html>
-    <head>
-      {% if title %}
-      <title>{{ title }} - Peptoid Data Bank</title>
-      {% else %}
-      <title>Welcome to the Peptoid Data Bank</title>
-      {% endif %}
+  {% extends 'bootstrap/base.html' %}
+  {% block title %}
+  {% if title %}{{ title }} - PeptoidDB{% else %}Welcome to the PeptoidDB{% endif %}
+  {% endblock %}
     </head>
     <body>
-        <div>Peptoid Data Bank:
-          <a href="{{  url_for('home')  }}">Gallery</a>
-          <a href="{{  url_for('search')  }}">Search</a>
-        </div>
+        {% block navbar %}
+        <nav class="navbar navbar-default">
+          <div class="container">
+            <div class="navbar-header navbar-center">
+              <a class="navbar-brand" href="{{ url_for('home') }}">PeptoidDB</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-center">
+                  <li><a href="{{ url_for('home') }}">Gallery</a></li>
+                  <li><a href="{{ url_for('search') }}">Explore</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        {% endblock %}
         <hr>
       {% with messages = get_flashed_messages() %}
       {% if messages %}
