@@ -50,7 +50,7 @@ def peptoid(code):
     image = url_for('static', filename = i + '_full.png')
     title = peptoid.title
     code = peptoid.code
-    release = peptoid.release
+    release = str(peptoid.release.month) + "/" + str(peptoid.release.day) + "/" + str(peptoid.release.year)
     experiment = peptoid.experiment
     doi = peptoid.doi
     
