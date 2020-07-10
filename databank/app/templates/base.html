@@ -1,26 +1,37 @@
 <html>
-    <head>
-      {% if title %}
-      <title>{{ title }} - Peptoid Data Bank</title>
-      {% else %}
-      <title>Welcome to the Peptoid Data Bank</title>
-      {% endif %}
-    </head>
+  {% extends 'bootstrap/base.html' %}
+  {% block title %}
+  {% if title %}{{ title }} - PeptoidDB{% else %}Welcome to the PeptoidDB{% endif %}
+  {% endblock %}
     <body>
-        <div>Peptoid Data Bank:
-          <a href="{{  url_for('home')  }}">Gallery</a>
-          <a href="{{  url_for('search')  }}">Search</a>
-        </div>
-        <hr>
-      {% with messages = get_flashed_messages() %}
-      {% if messages %}
-      <ul>
-          {% for message in messages %}
-          <span style="color: red;">{{ message }}</span>
-          {% endfor %}
-      </ul>
-      {% endif %}
-      {% endwith %}
-        {% block content %}{% endblock %}
+        {% block navbar %}
+        <nav class="navbar navbar-default">
+          <div class="container">
+            <div class="navbar-header navbar-center">
+              <a class="navbar-brand" href="{{ url_for('home') }}">PeptoidDB</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-center">
+                  <li><a href="{{ url_for('search') }}">Explore</a></li>
+                  <li><a href="{{ url_for('about') }}">About</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        {% endblock %}
+  {% block content %}
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {# application content needs to be provided in the app_content block #}
+        {% block app_content %}{% endblock %} 
+    </div>
+  {% endblock %}
     </body>
 </html>

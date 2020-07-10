@@ -1,9 +1,34 @@
 {% extends "base.html" %}
-{% block content %}
-        <h1>{{ title }}</h1>
-        {% for i in range(peptoid_codes.__len__())%}
-        <hr>
-        <img src="{{images[i]}}"/>
-        <h2><a href = "{{ peptoid_urls[i] }}">{{ peptoid_codes[i] }}</a></h2>
-        {% endfor %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='bootstrap-grid.css')}}">
+{% endblock %}
+{% block app_content %}
+        <div class="jumbotron">
+                <h1 class="display-4">Gallery</h1>
+                <p>This is a gallery of all the published peptoid structures in the Peptoid Data Bank</p>
+                <hr class="my-4">
+                <p style="font-size: 1.5rem; font-weight: 300;">Utilize the advanced search option, "Explore," to filter the database by specific peptoid properties</p>
+        </div>
+        <div class="container">
+                <div class="row">
+                        {% for i in range(peptoid_codes.__len__())%}
+                        <div class="col-sm">
+                                <div class="col text-center">
+                                        <img src="{{images[i]}}"/>
+                                <div class="col text-center">
+                                        <a class="btn btn-primary" href="{{ peptoid_urls[i] }}" role="button">{{peptoid_codes[i]}}</a>
+                                </div>
+                                </div>
+                        </div>
+                        {% if (i+1) % 4 == 0 and i != (peptoid_codes.__len__()-1)%}
+                                </div> 
+                                <hr>
+                                <div class = 'row'>
+                        {% endif %}
+                {% endfor %}
+         </div>
+         <br>
+         <br>
+         <br>
 {% endblock %}
