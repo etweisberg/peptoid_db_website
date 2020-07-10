@@ -12,7 +12,7 @@ def page_not_found(e):
 #home route
 @app.route('/home')
 def home():
-    logo = url_for('static', filename = 'pep1.png')
+    title = "Gallery"
     peptoid_codes = []
     peptoid_urls = []
     images = []
@@ -21,8 +21,7 @@ def home():
         peptoid_urls.append(url_for('peptoid',code=p.code))
         images.append(url_for('static', filename = p.image))
     return render_template('home.html',
-            logo = logo,
-            title = 'Gallery',
+            title = title,
             peptoid_codes = peptoid_codes,
             peptoid_urls = peptoid_urls,
             images = images
