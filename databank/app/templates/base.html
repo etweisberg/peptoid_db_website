@@ -12,8 +12,8 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-center">
-                  <li><a href="{{ url_for('home') }}">Gallery</a></li>
                   <li><a href="{{ url_for('search') }}">Explore</a></li>
+                  <li><a href="{{ url_for('about') }}">About</a></li>
               </ul>
             </div>
           </div>
@@ -30,7 +30,7 @@
         {% endwith %}
 
         {# application content needs to be provided in the app_content block #}
-        {% block app_content %}{% endblock %}
+        {% block app_content %}{% endblock %} 
     </div>
   {% endblock %}
     </body>

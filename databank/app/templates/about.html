@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='bootstrap-grid.css')}}">
+{% endblock %}
+{% block app_content %}
+    <div class="jumbotron">
+        <h1 class="display-4">About</h1>
+        <p>The Peptoid Data Bank</p>
+        <hr class="my-4">
+        <p style="font-size: 1.5rem; font-weight: 300;">The peptoid databank was first created by the Kirshenbaum Lab in {}. Now it has been remade and given additional features.</p>
+    </div>
+    <div class="card" style = 'width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    padding: 1rem !important; margin-bottom: 3rem !important;
+    background-color: #f8f9fa !important;
+    border-radius: 0.25rem !important;'>
+        <div class="card-body">
+            <h1>Motivation</h1>
+            {information}
+        </div>
+    </div>
+    <div class="card" style = 'width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    padding: 1rem !important; margin-bottom: 3rem !important;
+    background-color: #f8f9fa !important;
+    border-radius: 0.25rem !important;'>
+        <div class="card-body">
+            <h1>Design</h1>
+            {information}
+        </div>
+    </div>
+    <div class="card" style = 'width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    padding: 1rem !important; margin-bottom: 3rem !important;
+    background-color: #f8f9fa !important;
+    border-radius: 0.25rem !important;'>
+        <div class="card-body">
+            <h1>Nomenclature</h1>
+            {information}
+        </div>
+    </div>
+    <div class="card" style = 'width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    padding: 1rem !important; margin-bottom: 3rem !important;
+    background-color: #f8f9fa !important;
+    border-radius: 0.25rem !important;'>
+            <h1>How to</h1>
+            {information}
+        </div>
+    </div>
+<br>
+<br>
+<br>
+            {% endblock %}

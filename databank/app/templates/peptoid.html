@@ -1,27 +1,111 @@
-{% extends 'base.html' %}
-
+{% extends "base.html" %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='bootstrap-grid.css')}}">
+{% endblock %}
 {% block app_content %}
-    <h1>{{ title }}</h1>
-    <hr>
-    <img src="{{image}}"/>
-    <p>Release date: {{ release }}</p>
-    <p>Experiment: <a href = {{ url_for('experiment',var = peptoid.experiment) }}>{{ experiment }}</a></p>
-    <p>DOI: <a href = {{ url_for('doi', var = peptoid.doi.replace('/','$') ) }}>{{ doi }}</a></p>
-    <p>Database Code: {{ code }}</p>
-    <p>
-    Authors:
-    {% for auth in authors %}
-            <tr>
-                <a href = {{ url_for('author',var = auth.first_name + ' ' + auth.last_name) }}><td>{{ auth.first_name }} {{ auth.last_name }}</td></a>
-            </tr>
-    {% endfor %}
-    </p>
-    <p>
-    Residues:
+<div class="jumbotron">
+    <h2 class="display-4">{{ title }}</h2>
+    <p>This is a detailed list of advanced information about peptoid {{ code }}</p>
+    <hr class="my-4">
+    <p style="font-size: 1.5rem; font-weight: 300;">Use the buttons to find other peptoids with the same author, residue, or exprimental technique</p>
+</div>
+<br>
+    <img src="{{image}}" class="center"/>
+    <div class="card" style = 'width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    padding: 1rem !important; margin-bottom: 3rem !important;
+    background-color: #f8f9fa !important;
+    border-radius: 0.25rem !important;'>
+        <div class="card-body">
+            <h3>Advanced Information</h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="col text-left">
+                            <h4>Release</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="col text-left">
+                            <h4>{{ release }}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="col text-left">
+                            <h4>Experiment</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="col text-left">
+                            <a class="btn btn-primary" href = {{ url_for('experiment',var = peptoid.experiment) }}>{{ experiment }}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="col text-left">
+                            <h4>DOI</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="col text-left">
+                            <a class="btn btn-primary" href = {{ url_for('doi', var = peptoid.doi.replace('/','$') ) }}>{{ doi }}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="col text-left">
+                            <h4>Datbase Code</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="col text-left">
+                            <h4>{{ code }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="card" style = 'width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    padding: 1rem !important; margin-bottom: 3rem !important;
+    background-color: #f8f9fa !important;
+    border-radius: 0.25rem !important;'>
+        <div class="card-body">
+            <h3>Authors</h3>
+            {% for auth in authors %}
+            <a class="btn btn-primary" href = {{ url_for('author',var = auth.first_name + ' ' + auth.last_name) }}>{{ auth.first_name }} {{ auth.last_name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+    <div class="card" style = 'width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    padding: 1rem !important; margin-bottom: 3rem !important;
+    background-color: #f8f9fa !important;
+    border-radius: 0.25rem !important;'>
+        <div class="card-body">
+            <h3>Residues</h3>
     {% for res in residues %}
-            <tr>
-                <a href = {{ url_for('residue',var = res.nomenclature) }}><td>{{ res.nomenclature }}</td></a>
-            </tr>
+                <a class="btn btn-primary" href = {{ url_for('residue',var = res.nomenclature) }}>{{ res.nomenclature }}</a>
     {% endfor %}
-    </p>
+    </div>
+    </div>
+    </div>
+<br>
+<br>
+<br>
+
 {% endblock %}

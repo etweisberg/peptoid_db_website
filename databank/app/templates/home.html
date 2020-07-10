@@ -15,10 +15,9 @@
                         {% for i in range(peptoid_codes.__len__())%}
                         <div class="col-sm">
                                 <div class="col text-center">
-                                        <img src="{{images[i]}}" />
+                                        <img src="{{images[i]}}"/>
                                 <div class="col text-center">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary"><a
-                                                href="{{ peptoid_urls[i] }}">{{ peptoid_codes[i] }}</a></button>
+                                        <a class="btn btn-primary" href="{{ peptoid_urls[i] }}" role="button">{{peptoid_codes[i]}}</a>
                                 </div>
                                 </div>
                         </div>
@@ -29,24 +28,7 @@
                         {% endif %}
                 {% endfor %}
          </div>
-
-        
-        <!-- {% for i in range(peptoid_codes.__len__())%}
-        <hr>
-        <img src="{{images[i]}}"/>
-        <button type="button" class="btn btn-sm btn-outline-secondary"><a href = "{{ peptoid_urls[i] }}">{{ peptoid_codes[i] }}</a></button>
-        {% endfor %}
-        <div class="container">
-                <div class="row">
-                        <div class="col-sm">
-                                One of three columns
-                        </div>
-                        <div class="col-sm">
-                                One of three columns
-                        </div>
-                        <div class="col-sm">
-                                One of three columns
-                        </div>
-                </div>
-        </div> -->
+         <br>
+         <br>
+         <br>
 {% endblock %}
