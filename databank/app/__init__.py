@@ -1,3 +1,4 @@
+#importing essential modules for instantiating application and extensions
 from flask import Flask
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
@@ -13,4 +14,5 @@ migrate = Migrate(app, db)
 #initializing bootstrap app to use bootstrap css styles
 bootstrap = Bootstrap(app)
 
+#importing routes and models from app module
 from app import routes, models

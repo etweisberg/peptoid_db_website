@@ -1,15 +1,21 @@
+#importing important route-related flask functions
 from flask import render_template, flash, redirect, url_for, abort
+#importing flask application from app module
 from app import app
+#importing form for searching database
 from app.forms import SearchForm
+#importing database models
 from app.models import Peptoid, Author, Residue
 
+#custom 404 error handler
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
+#bae route
 @app.route('/')
 
-#home route
+#home route displaying all petoids in reverse chron order using home.html template
 @app.route('/home')
 def home():
     title = "Gallery"
@@ -27,7 +33,9 @@ def home():
             images = images
         )
 
-#search route
+#search route renders the form using the search.html template and the SearchForm() from forms.py
+#if the user has submitted the form they are redirected to the route for the serial choice with
+#var = their search box input
 @app.route('/search',methods = ['GET','POST'])
 def search():
     form = SearchForm()
@@ -39,7 +47,7 @@ def search():
         return redirect(url_for(form.option.data, var = var))
     return render_template('search.html', title='Search', form=form)
 
-#route for each peptoid
+#route for each peptoid for a given code renders peptoid.html
 @app.route('/peptoid/<code>')
 def peptoid(code):
     #data passed to front end
@@ -76,6 +84,7 @@ def peptoid(code):
         residues = residues
     )
 
+#residue route for residue, nomenclature = var, returns home.html (gallery view)
 @app.route('/residue/<var>')
 def residue(var):
     peptoid_codes = []
@@ -95,6 +104,9 @@ def residue(var):
             images = images
         )
 
+#author route for author. If name entered has a space search by both words for first name and last name.
+#if name entered is just one word check if it is an author's first name or last name
+#returns home.html (gallery view)
 @app.route('/author/<var>')
 def author(var):
     name_split = []
@@ -122,6 +134,7 @@ def author(var):
             images = images
         )
 
+#experiment route for Peptoid.experimet = var, returns home.html (gallery view), if no peptoid found returns a 404
 @app.route('/experiment/<var>')
 def experiment(var):
     peptoid_codes = []
@@ -142,6 +155,7 @@ def experiment(var):
             images = images
         )
 
+#doi route for Peptoid.doi = var, returns home.html (gallery view), if no peptoid found returns a 404
 @app.route('/doi/<var>')
 def doi(var):
     var = var.replace('$','/')
@@ -164,6 +178,7 @@ def doi(var):
             images = images
         )
 
+#about route returns about.html template
 @app.route('/about')
 def about():
     return render_template('about.html')
