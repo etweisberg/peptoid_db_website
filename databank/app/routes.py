@@ -87,12 +87,25 @@ def peptoid(code):
 #residue route for residue, nomenclature = var, returns home.html (gallery view)
 @app.route('/residue/<var>')
 def residue(var):
+    initial_peps = {}
     peptoid_codes = []
     peptoid_urls = []
     images = []
     residue = Residue.query.filter_by(nomenclature = var).first_or_404()
     
+    #making dictionary of release date keys and Peptoid values
     for p in residue.peptoids:
+        initial_peps[p.release] = p
+    
+    #sorting list of datetime keys
+    chronological = []
+    for key in initial_peps.keys():
+        chronological.append(key)
+    chronological = sorted(chronological, True)
+
+    #generating list of peptoid proerties using sorted list
+    for date in chronological:
+        p = initial_peps[date]
         peptoid_codes.append(p.code)
         peptoid_urls.append(url_for('peptoid',code=p.code))
         images.append(url_for('static', filename = p.image))
@@ -109,6 +122,7 @@ def residue(var):
 #returns home.html (gallery view)
 @app.route('/author/<var>')
 def author(var):
+    initial_peps = {}
     name_split = []
     peptoid_codes = []
     peptoid_urls = []
@@ -122,7 +136,19 @@ def author(var):
     else:
         author = Author.query.filter((Author.first_name == var) | (Author.last_name == var)).first_or_404()
     
+    #making dictionary of release date keys and Peptoid values
     for p in author.peptoids:
+        initial_peps[p.release] = p
+    
+    #sorting list of datetime keys
+    chronological = []
+    for key in initial_peps.keys():
+        chronological.append(key)
+    chronological = sorted(chronological, reverse = True)
+
+    #generating peptoids according to sorted list date keys
+    for date in chronological:
+        p = initial_peps[date]
         peptoid_codes.append(p.code)
         peptoid_urls.append(url_for('peptoid',code=p.code))
         images.append(url_for('static', filename = p.image))
@@ -140,7 +166,7 @@ def experiment(var):
     peptoid_codes = []
     peptoid_urls = []
     images = []
-    for p in Peptoid.query.filter_by(experiment = var).all():
+    for p in Peptoid.query.order_by(Peptoid.release.desc()).filter_by(experiment = var).all():
         peptoid_codes.append(p.code)
         peptoid_urls.append(url_for('peptoid',code=p.code))
         images.append(url_for('static', filename = p.image))
@@ -163,7 +189,7 @@ def doi(var):
     peptoid_urls = []
     images = []
     
-    for p in Peptoid.query.filter_by(doi = var).all():
+    for p in Peptoid.query.order_by(Peptoid.release.desc()).filter_by(doi = var).all():
         peptoid_codes.append(p.code)
         peptoid_urls.append(url_for('peptoid',code=p.code))
         images.append(url_for('static', filename = p.image))
