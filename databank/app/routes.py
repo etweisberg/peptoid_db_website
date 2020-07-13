@@ -101,7 +101,7 @@ def residue(var):
     chronological = []
     for key in initial_peps.keys():
         chronological.append(key)
-    chronological = sorted(chronological, True)
+    chronological = sorted(chronological, reverse = True)
 
     #generating list of peptoid proerties using sorted list
     for date in chronological:
