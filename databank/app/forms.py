@@ -9,10 +9,21 @@ class SearchForm(FlaskForm):
     option = RadioField('Select an option for searching the peptoid data bank',
     validators = [InputRequired()],
     choices=[
-        ('residue','Peptoid Residue'),
-        ('author','Name of Author'),
-        ('experiment','Experimental Technique'),
-        ('doi','DOI'),
+        ('residue','Search by a residue'),
+        ('author','Search by an author'),
+        ('topology','Search by a topology type'),
+        ('experiment','Search by an experimental technique'),
+        ('doi',"Search by DOI"),
+        ('sequence', "Search for a specific sequence"),
+        ('author_list',"Search for a specific list of authors")
         ])
     search = StringField('Enter search terms', validators=[DataRequired()])
+    submit = SubmitField('Go')
+
+class AdvancedQuery(FlaskForm):
+    sequence = StringField('Sequence')
+    residue = StringField('Residues')
+    author = StringField('Authors')
+    topology = StringField('Topologies')
+    expriment = StringField('Experiments')
     submit = SubmitField('Go')

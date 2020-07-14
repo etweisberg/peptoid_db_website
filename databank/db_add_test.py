@@ -4,12 +4,12 @@ from app.models import Peptoid, Author, Residue
 
 
 #instantiating two residue examples
-Nspe = Residue(nomenclature='Nspe')
-NLeu = Residue(nomenclature='NLeu')
-Nme = Residue(nomenclature='Nme')
-Nspm = Residue(nomenclature='Nspm')
-Nsrd = Residue(nomenclature='Nsrd')
-Nabc = Residue(nomenclature='Nabc')
+Nspe = Residue(nomenclature='Nspe',pep_type = 'alpha',CSD = 'BABTAA',SMILES='C1=CC=C(C=C1)C[N+](=CC2=CC=CC=C2)[O-]')
+NLeu = Residue(nomenclature='NLeu',pep_type = 'beta')
+Nme = Residue(nomenclature='Nme',pep_type = 'alpha')
+Nspm = Residue(nomenclature='Nspm',pep_type = 'beta')
+Nsrd = Residue(nomenclature='Nsrd',pep_type = 'alpha')
+Nabc = Residue(nomenclature='Nabc',pep_type = 'alpha')
 
 KK = Author(first_name = 'Kent', last_name = 'Kirshenbaum')
 VV = Author(first_name = 'Vince', last_name = 'Voelz')
@@ -45,7 +45,8 @@ p1 = Peptoid(
     code = '19AB1-2-A',
     release = datetime.date(2019,7,4),
     experiment = 'X-ray crystallography',
-    doi = '10.107hj1/adk2'
+    doi = '10.1039/C9CC02335F',
+    topology = 'A'
 )
 
 p2 = Peptoid(
@@ -54,7 +55,8 @@ p2 = Peptoid(
     code = '19AA1-8-C',
     release = datetime.date(2019,7,5),
     experiment = 'X-ray crystallography',
-    doi = '10.107hj1/as123'
+    doi = '10.1021/acs.cgd.8b01137',
+    topology = 'M'
 )
 
 p3 = Peptoid(
@@ -63,7 +65,8 @@ p3 = Peptoid(
     code='17AD2-5-A',
     release=datetime.date(2017, 7, 6),
     experiment='X-ray crystallography',
-    doi='10.107hj1/ad12'
+    doi='10.1021/jacs.7b07475',
+    topology = 'C'
 )
 
 p4 = Peptoid(
@@ -72,7 +75,7 @@ p4 = Peptoid(
     code='17AD1-7-A',
     release=datetime.date(2017, 7, 5),
     experiment='X-ray crystallography',
-    doi='10.1071279s/s123'
+    doi='10.1021/acs.joc.7b00965'
 )
 
 p5 = Peptoid(
@@ -81,7 +84,7 @@ p5 = Peptoid(
     code='17AC3-6-C',
     release=datetime.date(2017, 6, 5),
     experiment='X-ray crystallography',
-    doi='10.10128i/2asd3'
+    doi='10.1021/jacs.7b02319'
 )
 
 p6 = Peptoid(
@@ -90,7 +93,7 @@ p6 = Peptoid(
     code='17AC2-6-C',
     release=datetime.date(2017, 6, 4),
     experiment='X-ray crystallography',
-    doi='10.10122i/2abd3'
+    doi='10.1038/ncomms8013'
 )
 
 p7 = Peptoid(
@@ -99,7 +102,7 @@ p7 = Peptoid(
     code='17AB2-8-A',
     release=datetime.date(2017, 3, 4),
     experiment='NMR',
-    doi='10.101iasj/12'
+    doi='10.1039/C3CE42456A'
 )
 
 p8 = Peptoid(
@@ -108,7 +111,7 @@ p8 = Peptoid(
     code='17AB1-5-A',
     release=datetime.date(2017, 1, 5),
     experiment='NMR',
-    doi='10.101.123/2'
+    doi='doi.org/10.1021/ol400820y'
 )
 
 #adding new objects to database

@@ -67,7 +67,11 @@
                     </div>
                     <div class="col-sm">
                         <div class="col text-left">
-                            <a class="btn btn-primary" href = {{ url_for('doi', var = peptoid.doi.replace('/','$') ) }}>{{ doi }}</a>
+                        {% if peptoid.experiment != "X-ray crystallography" %}
+                            <a target = '_blank' class="btn btn-primary" href = {{"https://doi.org/{doi}".format(doi = doi)}}>{{doi}}</a>
+                        {% else %}
+                            <a target = '_blank' class="btn btn-primary" href = {{"https://www.ccdc.cam.ac.uk/structures/Search?Doi={doi}&DatabaseToSearch=Published".format(doi = doi)}}>{{doi}}</a>
+                        {% endif %}
                         </div>
                     </div>
                 </div>
@@ -96,9 +100,35 @@
     border-radius: 0.25rem !important;'>
         <div class="card-body">
             <h3>Authors</h3>
-            {% for auth in authors %}
-            <a class="btn btn-primary" href = {{ url_for('author',var = auth.first_name + ' ' + auth.last_name) }}>{{ auth.first_name }} {{ auth.last_name }}</a>
-            {% endfor %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="col text-left">
+                            <h4>Author List</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="col text-left">
+                            <h4>{{ author_list }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <br>
+        <br>
+        <div class = 'container'>
+            <div class = 'row'>
+                <div class = "col-sm">
+                    <div class = "col text-center">
+                    {% for auth in authors %}
+                    <a class="btn btn-primary" href = {{ url_for('author',var = auth.first_name + ' ' + auth.last_name) }}>{{ auth.first_name }} {{ auth.last_name }}</a>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
         </div>
     </div>
     <br>
@@ -111,13 +141,38 @@
     border-radius: 0.25rem !important;'>
         <div class="card-body">
             <h3>Residues</h3>
-    {% for res in residues %}
-                <a class="btn btn-primary" href = {{ url_for('residue',var = res.nomenclature) }}>{{ res.nomenclature }}</a>
-    {% endfor %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="col text-left">
+                            <h4>Sequence</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="col text-left">
+                            <h4>{{ sequence }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <br>
+        <br> 
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = "col-sm">
+                <div class = "col text-center">
+                    {% for res in residues %}
+                    <a class="btn btn-primary" href = {{ url_for('residue',var = res.nomenclature) }}>{{ res.nomenclature }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div> 
+        <br>
+        <br>
     </div>
     </div>
     </div>
-<br>
+    </div>
 <br>
 <br>
 

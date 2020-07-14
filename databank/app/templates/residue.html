@@ -1,0 +1,52 @@
+{% extends "home.html" %}
+{% block additional_info %}
+        <div class="card" style = 'width: 75%;
+        margin-right: auto;
+        margin-left: auto;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        padding: 1rem !important; margin-bottom: 3rem !important;
+        background-color: #f8f9fa !important;
+        border-radius: 0.25rem !important;'>
+        <div class="card-body">
+            <h3>Residue Information</h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="col text-left">
+                            <h4>Peptoid type</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="col text-left">
+                            <h4>{{ residue.pep_type }}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-sm">
+                            <div class="col text-left">
+                                <h4>SMILES</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="col text-left">
+                                <h4>{{ residue.SMILES }}</h4>
+                            </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-sm">
+                            <div class="col text-left">
+                                <h4>CSD Link</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="col text-left">
+                                <a target = '_blank' class="btn btn-primary" href = {{"https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid={code}&DatabaseToSearch=Published".format(code = residue.CSD)}}>CSD LINK</a>
+                            </div>
+                        </div>
+                </div>
+        </div>
+        </div>
+        </div>
+{% endblock %}

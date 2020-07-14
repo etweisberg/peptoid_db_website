@@ -5,10 +5,21 @@
 
 {# loads in form #}
 {% block app_content %}
-    <h1>Peptoid Data Bank Advanced Search</h1>
-    <div class="row">
-        <div class="col-md-4">
-            {{ wtf.quick_form(form) }}
+    <div class="jumbotron">
+        <h2 class="display-4">{{ title }}</h2>
+        <p>{{description}}</p>
+        <hr class="my-4">
+        <p style="font-size: 1.5rem; font-weight: 300;">{{info}}</p>
+    </div>
+    <div class = container>
+        <div class = "row">
+            <div class = "col-md-4 text-left">    
+            </div>
+            <div class = "col-md-4 text-left">
+                {{ wtf.quick_form(form) }}   
+            </div>
         </div>
     </div>
 {% endblock %}
+
+
