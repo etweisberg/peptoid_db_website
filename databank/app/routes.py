@@ -6,8 +6,9 @@ from app import app
 from app.forms import SearchForm, AdvancedQuery
 #importing database models
 from app.models import Peptoid, Author, Residue
-#for query dictionary
-import json
+# #for query dictionary
+# import json
+# import re
 
 #custom 404 error handler
 @app.errorhandler(404)
@@ -35,6 +36,12 @@ def home():
             images = images
         )
 
+#route for all residues renders residues.html
+@app.route('/residues')
+def residues():
+    title = 'Residues'
+    residues = [r for r in Residue.query.all()]
+    return render_template('residues.html', title = title, residues = residues)
 #search route renders the form using the search.html template and the SearchForm() from forms.py
 #if the user has submitted the form they are redirected to the route for the serial choice with
 #var = their search box input
@@ -51,27 +58,27 @@ def search():
     return render_template('search.html',
     title='Search',
     form=form,
-    info = 'Filter by a specific property',
+    info = 'Filter by a specific property. To search for a specific sequence or author list separate residues/author last names by commas.',
     description = 'Peptoid Data Bank - Explore by Property')
 
-@app.route('/advanced-query',methods=['GET','POST'])
-def advanced_query():
-    form = AdvancedQuery()
-    if form.validate_on_submit():
-        query = {'seq':form.sequence.data,
-            'res':form.residue.data,
-            'auth':form.author.data,
-            'top':form.topology.data,
-            'exp':form.expriment.data}
-        flash(json.dumps(query))
-        return redirect(url_for('home'))
-    return render_template('search.html',
-    title = 'Advanced Query',
-    form = form,
-    info = 'Query by multiple properties using AND or OR statements',
-    description = 'Peptoid Data Bank - Search with Advanced Query'
-    )
-        
+# #UNUSED route for advanced query boxes
+# @app.route('/advanced-query',methods=['GET','POST'])
+# def advanced_query():
+#     form = AdvancedQuery()
+#     if form.validate_on_submit():
+#         query = {'seq':form.sequence.data,
+#             'res':form.residue.data,
+#             'auth':form.author.data,
+#             'top':form.topology.data,
+#             'exp':form.expriment.data}
+#         flash(json.dumps(query))
+#         return redirect(url_for('advanced_results',query = json.dumps(query)))
+#     return render_template('search.html',
+#     title = 'Advanced Query',
+#     form = form,
+#     info = 'Query by multiple properties using AND or OR statements',
+#     description = 'Peptoid Data Bank - Search with Advanced Query'
+#     )                   
 
 #route for each peptoid for a given code renders peptoid.html
 @app.route('/peptoid/<code>')

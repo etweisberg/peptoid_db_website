@@ -12,7 +12,7 @@
     <h2 class="display-4">{{ title }}</h2>
     <p>This is a detailed list of advanced information about peptoid {{ code }}</p>
     <hr class="my-4">
-    <p style="font-size: 1.5rem; font-weight: 300;">Use the buttons to find other peptoids with the same author, residue, or exprimental technique</p>
+    <p style="font-size: 1.5rem; font-weight: 300;">Use the buttons to find other peptoids with the same properties. Use the DOI to go to a source for the structure.</p>
 </div>
 <br>
     <div class = container>
@@ -68,9 +68,9 @@
                     <div class="col-sm">
                         <div class="col text-left">
                         {% if peptoid.experiment != "X-ray crystallography" %}
-                            <a target = '_blank' class="btn btn-primary" href = {{"https://doi.org/{doi}".format(doi = doi)}}>{{doi}}</a>
+                            <a target = '_blank' class="btn btn-success" href = {{"https://doi.org/{doi}".format(doi = doi)}}>{{doi}}</a>
                         {% else %}
-                            <a target = '_blank' class="btn btn-primary" href = {{"https://www.ccdc.cam.ac.uk/structures/Search?Doi={doi}&DatabaseToSearch=Published".format(doi = doi)}}>{{doi}}</a>
+                            <a target = '_blank' class="btn btn-success" href = {{"https://www.ccdc.cam.ac.uk/structures/Search?Doi={doi}&DatabaseToSearch=Published".format(doi = doi)}}>{{doi}}</a>
                         {% endif %}
                         </div>
                     </div>
@@ -120,9 +120,11 @@
             <div class = 'row'>
                 <div class = "col-sm">
                     <div class = "col text-center">
+                    <div class = 'btn-group' role = 'group' aria-label="Residues">
                     {% for auth in authors %}
                     <a class="btn btn-primary" href = {{ url_for('author',var = auth.first_name + ' ' + auth.last_name) }}>{{ auth.first_name }} {{ auth.last_name }}</a>
                     {% endfor %}
+                    </div>
                     </div>
                 </div>
             </div>
@@ -161,9 +163,11 @@
         <div class = 'row'>
             <div class = "col-sm">
                 <div class = "col text-center">
+                    <div class = 'btn-group' role = 'group' aria-label="Residues">
                     {% for res in residues %}
                     <a class="btn btn-primary" href = {{ url_for('residue',var = res.nomenclature) }}>{{ res.nomenclature }}</a>
                     {% endfor %}
+                    </div>
                 </div>
             </div>
         </div> 

@@ -8,12 +8,10 @@
 
 {# home page content #}
 {% block app_content %}
-        <div class="alert alert-danger" role="alert">This is is a technical demonstration. The information presented is not accurate.</div>
         <div class="jumbotron">
-                <h1 class="display-4">{{ title }}</h1>
-                <p>Gallery view of peptoids in the Peptoid Data Bank</p>
+                <h2 class="display-4">{{ title }}</h2>
                 <hr class="my-4">
-                <p style="font-size: 1.5rem; font-weight: 300;">Utilize the advanced search option, "Explore," to search the database by specific peptoid properties</p>
+                <p style="font-size: 1.5rem; font-weight: 300;">Utilize the search option, "Explore," to filter the database by specific peptoid properties</p>
         </div>
         {% block additional_info %}{% endblock %}
         <div class="container">

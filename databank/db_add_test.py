@@ -5,11 +5,11 @@ from app.models import Peptoid, Author, Residue
 
 #instantiating two residue examples
 Nspe = Residue(nomenclature='Nspe',pep_type = 'alpha',CSD = 'BABTAA',SMILES='C1=CC=C(C=C1)C[N+](=CC2=CC=CC=C2)[O-]')
-NLeu = Residue(nomenclature='NLeu',pep_type = 'beta')
-Nme = Residue(nomenclature='Nme',pep_type = 'alpha')
-Nspm = Residue(nomenclature='Nspm',pep_type = 'beta')
-Nsrd = Residue(nomenclature='Nsrd',pep_type = 'alpha')
-Nabc = Residue(nomenclature='Nabc',pep_type = 'alpha')
+NLeu = Residue(nomenclature='NLeu',pep_type = 'beta',CSD = 'BABTAA',SMILES='C1=CC=C(C=C1)C[N+](=CC2=CC=CC=C2)[O-]')
+Nme = Residue(nomenclature='Nme',pep_type = 'alpha',CSD = 'BABTAA',SMILES='C1=CC=C(C=C1)C[N+](=CC2=CC=CC=C2)[O-]')
+Nspm = Residue(nomenclature='Nspm',pep_type = 'beta',CSD = 'BABTAA',SMILES='C1=CC=C(C=C1)C[N+](=CC2=CC=CC=C2)[O-]')
+Nsrd = Residue(nomenclature='Nsrd',pep_type = 'alpha',CSD = 'BABTAA',SMILES='C1=CC=C(C=C1)C[N+](=CC2=CC=CC=C2)[O-]')
+Nabc = Residue(nomenclature='Nabc',pep_type = 'alpha',CSD = 'BABTAA',SMILES='C1=CC=C(C=C1)C[N+](=CC2=CC=CC=C2)[O-]')
 
 KK = Author(first_name = 'Kent', last_name = 'Kirshenbaum')
 VV = Author(first_name = 'Vince', last_name = 'Voelz')

@@ -1,6 +1,6 @@
 {% extends "home.html" %}
 {% block additional_info %}
-        <div class="card" style = 'width: 75%;
+        <div class="card" style = 'width: 100%;
         margin-right: auto;
         margin-left: auto;
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-sm">
                             <div class="col text-left">
-                                <a target = '_blank' class="btn btn-primary" href = {{"https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid={code}&DatabaseToSearch=Published".format(code = residue.CSD)}}>CSD LINK</a>
+                                <a target = '_blank' class="btn btn-success" href = {{"https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid={code}&DatabaseToSearch=Published".format(code = residue.CSD)}}>CSD</a>
                             </div>
                         </div>
                 </div>

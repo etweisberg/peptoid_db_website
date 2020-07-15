@@ -48,8 +48,8 @@ class Residue(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     nomenclature = db.Column(db.Text, index = True, unique = True)
     pep_type = db.Column(db.Text, index = True, unique = False)
-    CSD = db.Column(db.Text, index = True, unique = True)
-    SMILES = db.Column(db.Text, index = True, unique = True)
+    CSD = db.Column(db.Text, index = True, unique = False) #made false for tech demo
+    SMILES = db.Column(db.Text, index = True, unique = False) #made false for tech demo
 
     def __repr__(self):
         return '<Residue {}>'.format(self.nomenclature)
