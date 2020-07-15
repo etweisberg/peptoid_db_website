@@ -1,4 +1,7 @@
 # Website for the peptoid data bank
+<button href = "ethan-dev.tech" style = "color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;">Development Domain</button>
 
 ## Running for development
 
