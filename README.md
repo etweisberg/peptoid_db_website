@@ -1,8 +1,5 @@
 # Website for the peptoid data bank
-<button href = "ethan-dev.tech" style = "color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;">Development Domain</button>
-
+[Development Domain](ethan-dev.tech)
 ## Running for development
 
 - enter the databank directory using `cd databank`
