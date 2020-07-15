@@ -23,6 +23,7 @@ class Peptoid(db.Model):
     release = db.Column(db.DateTime, index=True, unique=True)
     experiment = db.Column(db.Text, index=True, unique=False)
     doi = db.Column(db.String(32), index=True, unique=True)
+    topology = db.Column(db.String(1), index = True, unique = False)
     
     peptoid_author = db.relationship('Author',secondary = peptoid_author, lazy = 'dynamic',
         backref = db.backref('peptoids'))
@@ -46,6 +47,9 @@ class Author(db.Model):
 class Residue(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     nomenclature = db.Column(db.Text, index = True, unique = True)
+    pep_type = db.Column(db.Text, index = True, unique = False)
+    CSD = db.Column(db.Text, index = True, unique = False) #made false for tech demo
+    SMILES = db.Column(db.Text, index = True, unique = False) #made false for tech demo
 
     def __repr__(self):
         return '<Residue {}>'.format(self.nomenclature)
