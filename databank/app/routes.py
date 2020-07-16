@@ -15,7 +15,7 @@ from app.models import Peptoid, Author, Residue
 def page_not_found(e):
     return render_template('404.html', title = "oops"), 404
 
-#bae route
+#base route
 @app.route('/')
 
 #home route displaying all petoids in reverse chron order using home.html template
