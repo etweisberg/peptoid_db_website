@@ -1,5 +1,5 @@
 # Website for the peptoid data bank
-[Development Domain](http://ethan-dev.tech/)
+<a href = "http://ethan-dev.tech/" target="_blank">Development Domain</a>
 ## Running for development
 
 - enter the databank directory using `cd databank`
