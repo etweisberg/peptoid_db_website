@@ -59,7 +59,7 @@ def search():
     title='Search',
     form=form,
     info = 'Filter by a specific property. To search for a specific sequence or author list separate residues/author last names by commas.',
-    description = 'Peptoid Data Bank - Explore by Property')
+    description = 'Peptoid Data Bank - Explore by property')
 
 # #UNUSED route for advanced query boxes
 # @app.route('/advanced-query',methods=['GET','POST'])

@@ -17,7 +17,7 @@ class SearchForm(FlaskForm):
         ('sequence', "Search for a specific sequence"),
         ('author_list',"Search for a specific list of authors")
         ])
-    search = StringField('Enter search terms', validators=[DataRequired()])
+    search = StringField('Enter a search term', validators=[DataRequired()])
     submit = SubmitField('Go')
 
 class AdvancedQuery(FlaskForm):
