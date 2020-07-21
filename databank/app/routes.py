@@ -10,6 +10,26 @@ from app.models import Peptoid, Author, Residue
 # import json
 # import re
 
+def get_home(peptoids):
+    peptoid_codes = []
+    peptoid_urls = []
+    peptoid_titles = []
+    peptoid_sequences = []
+    images = []
+    
+    for p in peptoids:
+        peptoid_codes.append(p.code)
+        peptoid_titles.append(p.title)
+        peptoid_urls.append(url_for('peptoid',code=p.code))
+        images.append(url_for('static',filename = p.image))
+        residues = []
+        for residue in p.peptoid_residue:
+            residues.append(residue)
+        peptoid_sequences.append(", ".join([r.nomenclature for r in residues]))
+
+    return [peptoid_codes, peptoid_urls, peptoid_titles, peptoid_sequences, images]
+
+
 #custom 404 error handler
 @app.errorhandler(404)
 def page_not_found(e):
@@ -21,19 +41,14 @@ def page_not_found(e):
 #home route displaying all petoids in reverse chron order using home.html template
 @app.route('/home')
 def home():
-    title = "Gallery"
-    peptoid_codes = []
-    peptoid_urls = []
-    images = []
-    for p in Peptoid.query.order_by(Peptoid.release.desc()).all():
-        peptoid_codes.append(p.code)
-        peptoid_urls.append(url_for('peptoid',code=p.code))
-        images.append(url_for('static', filename = p.image))
+    properties = get_home([p for p in Peptoid.query.order_by(Peptoid.release.desc()).all()])
     return render_template('home.html',
-            title = title,
-            peptoid_codes = peptoid_codes,
-            peptoid_urls = peptoid_urls,
-            images = images
+            title = 'Gallery',
+            peptoid_codes = properties[0],
+            peptoid_urls = properties[1],
+            peptoid_titles = properties[2],
+            peptoid_sequences = properties[3],
+            images = properties[4]
         )
 
 #route for all residues renders residues.html
@@ -85,9 +100,7 @@ def search():
 def peptoid(code):
     #data passed to front end
     peptoid = Peptoid.query.filter_by(code=code).first_or_404()
-    i = peptoid.image
-    i = i[:-4]
-    image = url_for('static', filename = i + '_full.png')
+    image = url_for('static', filename = peptoid.image)
     title = peptoid.title
     code = peptoid.code
     release = str(peptoid.release.month) + "/" + str(peptoid.release.day) + "/" + str(peptoid.release.year)
@@ -125,35 +138,25 @@ def peptoid(code):
 @app.route('/residue/<var>')
 def residue(var):
     initial_peps = {}
-    peptoid_codes = []
-    peptoid_urls = []
-    images = []
-    
     residue = Residue.query.filter_by(nomenclature = var).first_or_404()
-    
     #making dictionary of release date keys and Peptoid values
     for p in residue.peptoids:
         initial_peps[p.release] = p
-    
     #sorting list of datetime keys
     chronological = []
     for key in initial_peps.keys():
         chronological.append(key)
     chronological = sorted(chronological, reverse = True)
-
     #generating list of peptoid proerties using sorted list
-    for date in chronological:
-        p = initial_peps[date]
-        peptoid_codes.append(p.code)
-        peptoid_urls.append(url_for('peptoid',code=p.code))
-        images.append(url_for('static', filename = p.image))
+    properties = get_home([initial_peps[date] for date in chronological])
 
-    return render_template('residue.html',
+    return render_template('home.html',
             title = 'Filtered by Residue: ' + var,
-            peptoid_codes = peptoid_codes,
-            peptoid_urls = peptoid_urls,
-            images = images,
-            residue = residue
+            peptoid_codes = properties[0],
+            peptoid_urls = properties[1],
+            peptoid_titles = properties[2],
+            peptoid_sequences = properties[3],
+            images = properties[4]
         )
 
 #author route for author. If name entered has a space search by both words for first name and last name.
@@ -162,12 +165,8 @@ def residue(var):
 @app.route('/author/<var>')
 def author(var):
     initial_peps = {}
-    name_split = []
-    peptoid_codes = []
-    peptoid_urls = []
-    images = []
-    space = " "
-    if space in var:
+    
+    if " " in var:
         name_split = var.split()
         first_name = name_split[0]
         last_name = name_split[1]
@@ -186,77 +185,61 @@ def author(var):
     chronological = sorted(chronological, reverse = True)
 
     #generating peptoids according to sorted list date keys
-    for date in chronological:
-        p = initial_peps[date]
-        peptoid_codes.append(p.code)
-        peptoid_urls.append(url_for('peptoid',code=p.code))
-        images.append(url_for('static', filename = p.image))
-    
+    properties = get_home([initial_peps[date] for date in chronological])
+
     return render_template('home.html',
             title = 'Filtered by Author: ' + var,
-            peptoid_codes = peptoid_codes,
-            peptoid_urls = peptoid_urls,
-            images = images
+            peptoid_codes = properties[0],
+            peptoid_urls = properties[1],
+            peptoid_titles = properties[2],
+            peptoid_sequences = properties[3],
+            images = properties[4]
         )
 
 #experiment route for Peptoid.experimet = var, returns home.html (gallery view), if no peptoid found returns a 404
 @app.route('/experiment/<var>')
 def experiment(var):
-    peptoid_codes = []
-    peptoid_urls = []
-    images = []
-    for p in Peptoid.query.order_by(Peptoid.release.desc()).filter_by(experiment = var).all():
-        peptoid_codes.append(p.code)
-        peptoid_urls.append(url_for('peptoid',code=p.code))
-        images.append(url_for('static', filename = p.image))
+    properties = get_home([p for p in Peptoid.query.order_by(Peptoid.release.desc()).filter_by(experiment = var).all()])
     
-    if len(peptoid_codes) == 0:
+    if len(properties[0]) == 0:
         abort(404)
     
     return render_template('home.html',
             title = 'Filtered by Experiment: ' + var,
-            peptoid_codes = peptoid_codes,
-            peptoid_urls = peptoid_urls,
-            images = images
+            peptoid_codes = properties[0],
+            peptoid_urls = properties[1],
+            peptoid_titles = properties[2],
+            peptoid_sequences = properties[3],
+            images = properties[4]
         )
 
 #doi route for Peptoid.doi = var, returns home.html (gallery view), if no peptoid found returns a 404
 @app.route('/doi/<var>')
 def doi(var):
     var = var.replace('$','/')
-    peptoid_codes = []
-    peptoid_urls = []
-    images = []
     
-    for p in Peptoid.query.order_by(Peptoid.release.desc()).filter_by(doi = var).all():
-        peptoid_codes.append(p.code)
-        peptoid_urls.append(url_for('peptoid',code=p.code))
-        images.append(url_for('static', filename = p.image))
+    properties = get_home([p for p in Peptoid.query.order_by(Peptoid.release.desc()).filter_by(doi = var).all()])
 
-    if len(peptoid_codes) == 0:
+    if len(properties[0]) == 0:
         abort(404)
     
     return render_template('home.html',
             title = 'Filtered by DOI: ' + var,
-            peptoid_codes = peptoid_codes,
-            peptoid_urls = peptoid_urls,
-            images = images
+            peptoid_codes = properties[0],
+            peptoid_urls = properties[1],
+            peptoid_titles = properties[2],
+            peptoid_sequences = properties[3],
+            images = properties[4]
         )
 
 #sequence route for Peptoid residues in a sequence
 @app.route('/sequence/<var>')
 def sequence(var):
     initial_peps = {}
-    peptoid_codes = []
-    peptoid_urls = []
-    images = []
-
-    #getting sequence from input
-    sequence = var
 
     #getting peptoids with the same equence
     for p in Peptoid.query.all():
-        if sequence == ",".join([r.nomenclature for r in p.peptoid_residue]):
+        if var == ",".join([r.nomenclature for r in p.peptoid_residue]):
             initial_peps[p.release] = p
 
     #making chron order of keys
@@ -266,36 +249,28 @@ def sequence(var):
     chronological = sorted(chronological, reverse = True)
 
     #appending peptoids according to reverse chron order
-    for date in chronological:
-        p = initial_peps[date]
-        peptoid_codes.append(p.code)
-        peptoid_urls.append(url_for('peptoid',code=p.code))
-        images.append(url_for('static', filename = p.image))
+    properties = get_home([initial_peps[date] for date in chronological])
     
-    if len(peptoid_codes) == 0:
+    if len(properties[0]) == 0:
         abort(404)
 
     #returning home
     return render_template('home.html',
-            title = 'Filtered by Sequence: ' + sequence,
-            peptoid_codes = peptoid_codes,
-            peptoid_urls = peptoid_urls,
-            images = images
+            title = 'Filtered by Sequence: ' + var,
+            peptoid_codes = properties[0],
+            peptoid_urls = properties[1],
+            peptoid_titles = properties[2],
+            peptoid_sequences = properties[3],
+            images = properties[4]
         )
 
 @app.route('/author-list/<var>')
 def author_list(var):
     initial_peps = {}
-    peptoid_codes = []
-    peptoid_urls = []
-    images = []
-
-    #getting sequence from input
-    author_list = var
 
     #getting peptoids with the same equence
     for p in Peptoid.query.all():
-        if author_list == ",".join([a.last_name for a in p.peptoid_author]):
+        if var == ",".join([a.last_name for a in p.peptoid_author]):
             initial_peps[p.release] = p
 
     #making chron order of keys
@@ -305,42 +280,36 @@ def author_list(var):
     chronological = sorted(chronological, reverse = True)
 
     #appending peptoids according to reverse chron order
-    for date in chronological:
-        p = initial_peps[date]
-        peptoid_codes.append(p.code)
-        peptoid_urls.append(url_for('peptoid',code=p.code))
-        images.append(url_for('static', filename = p.image))
+    properties = get_home([initial_peps[date] for date in chronological])
     
-    if len(peptoid_codes) == 0:
+    if len(properties[0]) == 0:
         abort(404)
 
     #returning home
     return render_template('home.html',
-            title = 'Filtered by Author List: ' + author_list,
-            peptoid_codes = peptoid_codes,
-            peptoid_urls = peptoid_urls,
-            images = images
+            title = 'Filtered by Author List: ' + var,
+            peptoid_codes = properties[0],
+            peptoid_urls = properties[1],
+            peptoid_titles = properties[2],
+            peptoid_sequences = properties[3],
+            images = properties[4]
         )
 
 #filtering according to topology
 @app.route('/top/<var>')
 def topology(var):
-    peptoid_codes = []
-    peptoid_urls = []
-    images = []
-    for p in Peptoid.query.order_by(Peptoid.release.desc()).filter_by(topology = var).all():
-        peptoid_codes.append(p.code)
-        peptoid_urls.append(url_for('peptoid',code=p.code))
-        images.append(url_for('static', filename = p.image))
-    
-    if len(peptoid_codes) == 0:
+    properties = get_home([p for p in Peptoid.query.order_by(Peptoid.release.desc()).filter_by(topology = var).all()])
+
+    if len(properties[0]) == 0:
         abort(404)
     
     return render_template('home.html',
             title = 'Filtered by Topology: ' + var,
-            peptoid_codes = peptoid_codes,
-            peptoid_urls = peptoid_urls,
-            images = images
+            peptoid_codes = properties[0],
+            peptoid_urls = properties[1],
+            peptoid_titles = properties[2],
+            peptoid_sequences = properties[3],
+            images = properties[4]
         )
 
 #about route returns about.html template
