@@ -16,6 +16,7 @@ def get_home(peptoids):
     peptoid_titles = []
     peptoid_sequences = []
     images = []
+    csds = []
     
     for p in peptoids:
         peptoid_codes.append(p.code)
@@ -26,8 +27,9 @@ def get_home(peptoids):
         for residue in p.peptoid_residue:
             residues.append(residue)
         peptoid_sequences.append(", ".join([r.nomenclature for r in residues]))
+        csds.append("https://www.ccdc.cam.ac.uk/structures/Search?Doi={doi}&DatabaseToSearch=Published".format(doi=p.doi))
 
-    return [peptoid_codes, peptoid_urls, peptoid_titles, peptoid_sequences, images]
+    return [peptoid_codes, peptoid_urls, peptoid_titles, peptoid_sequences, images, csds]
 
 
 #custom 404 error handler
@@ -48,7 +50,8 @@ def home():
             peptoid_urls = properties[1],
             peptoid_titles = properties[2],
             peptoid_sequences = properties[3],
-            images = properties[4]
+            images = properties[4],
+            csds = properties[5]
         )
 
 #route for all residues renders residues.html
@@ -156,7 +159,8 @@ def residue(var):
             peptoid_urls = properties[1],
             peptoid_titles = properties[2],
             peptoid_sequences = properties[3],
-            images = properties[4]
+            images = properties[4],
+            csds = properties[5]
         )
 
 #author route for author. If name entered has a space search by both words for first name and last name.
@@ -193,7 +197,8 @@ def author(var):
             peptoid_urls = properties[1],
             peptoid_titles = properties[2],
             peptoid_sequences = properties[3],
-            images = properties[4]
+            images = properties[4],
+            csds = properties[5]
         )
 
 #experiment route for Peptoid.experimet = var, returns home.html (gallery view), if no peptoid found returns a 404
@@ -210,7 +215,8 @@ def experiment(var):
             peptoid_urls = properties[1],
             peptoid_titles = properties[2],
             peptoid_sequences = properties[3],
-            images = properties[4]
+            images = properties[4],
+            csds = properties[5]
         )
 
 #doi route for Peptoid.doi = var, returns home.html (gallery view), if no peptoid found returns a 404
@@ -229,7 +235,8 @@ def doi(var):
             peptoid_urls = properties[1],
             peptoid_titles = properties[2],
             peptoid_sequences = properties[3],
-            images = properties[4]
+            images = properties[4],
+            csds = properties[5]
         )
 
 #sequence route for Peptoid residues in a sequence
@@ -261,7 +268,8 @@ def sequence(var):
             peptoid_urls = properties[1],
             peptoid_titles = properties[2],
             peptoid_sequences = properties[3],
-            images = properties[4]
+            images = properties[4],
+            csds = properties[5]
         )
 
 @app.route('/author-list/<var>')
@@ -292,7 +300,8 @@ def author_list(var):
             peptoid_urls = properties[1],
             peptoid_titles = properties[2],
             peptoid_sequences = properties[3],
-            images = properties[4]
+            images = properties[4],
+            csds = properties[5]
         )
 
 #filtering according to topology
@@ -309,7 +318,8 @@ def topology(var):
             peptoid_urls = properties[1],
             peptoid_titles = properties[2],
             peptoid_sequences = properties[3],
-            images = properties[4]
+            images = properties[4],
+            csds = properties[5]
         )
 
 #about route returns about.html template

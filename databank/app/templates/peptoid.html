@@ -8,7 +8,7 @@
 
 {# body of cards with a grid system for the first main card #}
 {% block app_content %}
-<div class="jumbotron">
+<div class="jumbotron" style = "margin-bottom:0;">
     <h2 class="display-4">{{ title }}</h2>
     <p>This is a detailed list of advanced information about peptoid {{ code }}</p>
     <hr class="my-4">
@@ -16,13 +16,7 @@
 </div>
 <br>
     <div class = container>
-        <div class = "row">
-            <div class = "col-sm">
-                <div class = "col text-center">
-                    <img src="{{image}}" class = 'img-responsive' style = "margin: 0 auto;">
-                </div>
-            </div>
-        </div>
+        <img src="{{image}}" class = 'img-responsive' style = "margin: auto; height:50%">
     </div>
 <br>
     <div class="card" style = 'width: 75%;

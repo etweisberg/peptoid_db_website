@@ -19,17 +19,27 @@ block styles %} {{super()}}
 <div class="container">
   <div class="row block-center">
     {% for i in range(peptoid_codes.__len__())%}
+    {% if i == (peptoid_codes.__len__()-1) %}
+    <div class = col-sm-6>
+    {% else %}
     <div class="col-sm">
+    {% endif %}
+    <div class = "header">
+      <h2>{{ peptoid_codes[i] }}</h2>
+    </div>
       <div class="fall-item fall-effect">
         <img src="{{images[i]}}" />
         <div class="mask">
-          <h2>{{ peptoid_codes[i] }}</h2>
           <h3>{{ peptoid_titles[i] }}</h3>
+          <h4>{{ peptoid_sequences[i] }}</h4>
           <hr class="my-4" />
           <p style="font-size: 1.5rem; font-weight: 300;">
-            For more information click below
+            For more information click "Read More." To view the structure in the CSD click "CSD."
           </p>
-          <a href="{{ peptoid_urls[i] }}" class="btn btn-default">Read More</a>
+          <div class = 'btn-group' role = 'group' aria-label="Peptoid Pages">
+            <a href="{{ peptoid_urls[i] }}" class="btn btn-primary">Read More</a>
+            <a href = "{{ csds[i] }}" class = "btn btn-primary">CSD</a>
+          </div>
         </div>
       </div>
       </div>
@@ -37,7 +47,8 @@ block styles %} {{super()}}
     </div>
     <hr />
     <div class="row">
-      {% endif %} {% endfor %}
+      {% endif %} 
+      {% endfor %}
     </div>
     <br />
     <br />
