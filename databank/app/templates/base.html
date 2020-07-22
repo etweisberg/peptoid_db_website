@@ -1,40 +1,40 @@
 <html>
-  <head><link rel="shortcut icon" href="{{url_for('static', filename='icon.ico')}}"></head>
-  {% extends 'bootstrap/base.html' %}
-  {% block title %}
-  {% if title %}{{ title }}{% else %}Welcome to the PeptoidDB{% endif %}
-  {% endblock %}
-    <body>
-        {% block navbar %}
-        <nav class="navbar navbar-default">
-          <div class="container">
-            <div class="navbar-header navbar-center">
-              <a class="navbar-brand" href="{{ url_for('home') }}">PeptoidDB</a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-center">
-                  <li><a href="{{ url_for('search') }}">Explore</a></li>
-                  <li><a href="{{ url_for('residues') }}">Residues</a></li>
-                  <li><a href="{{ url_for('about') }}">About</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        {% endblock %}
-  {% block content %}
+  <head>
+    <link
+      rel="shortcut icon"
+      href="{{url_for('static', filename='icon.ico')}}"
+    />
+  </head>
+  {% extends 'bootstrap/base.html' %} {% block title %} {% if title %}{{ title
+  }}{% else %}Welcome to the PeptoidDB{% endif %} {% endblock %}
+  <body>
+    {% block navbar %}
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header navbar-center">
+          <a class="navbar-brand" href="{{ url_for('home') }}">PeptoidDB</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-center">
+            <li><a href="{{ url_for('search') }}">Explore</a></li>
+            <li><a href="{{ url_for('residues') }}">Residues</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% endblock %} {% block content %}
     <div class="container">
-      <div class="alert alert-danger" role="alert">This is is a technical demonstration. The information presented is not accurate.</div>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-info" role="alert">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
-        {% endwith %}
-
-        {# application content needs to be provided in the app_content block #}
-        {% block app_content %}{% endblock %} 
+      <div class="alert alert-danger" role="alert">
+        This is is a technical demonstration. The information presented is not
+        accurate.
+      </div>
+      {% with messages = get_flashed_messages() %} {% if messages %} {% for
+      message in messages %}
+      <div class="alert alert-info" role="alert">{{ message }}</div>
+      {% endfor %} {% endif %} {% endwith %} {# application content needs to be
+      provided in the app_content block #} {% block app_content %}{% endblock %}
     </div>
-  {% endblock %}
-    </body>
+    {% endblock %}
+  </body>
 </html>

@@ -17,9 +17,9 @@ block styles %} {{super()}}
 </div>
 {% block additional_info %}{% endblock %}
 <div class="container">
-  <div class="row">
+  <div class="row block-center">
     {% for i in range(peptoid_codes.__len__())%}
-    <div class="col-sm-6">
+    <div class="col-sm">
       <div class="fall-item fall-effect">
         <img src="{{images[i]}}" />
         <div class="mask">
