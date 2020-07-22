@@ -1,44 +1,47 @@
-{% extends "base.html" %}
-
-{# importing styles from bootstrap-grid.css #}
-{% block styles %}
-{{super()}}
-<link rel="stylesheet" href="{{url_for('static', filename='bootstrap-grid.css')}}">
-<link rel="stylesheet" href="{{url_for('static', filename='images.css')}}">
-{% endblock %}
-
-{# home page content #}
-{% block app_content %}
-        <div class="jumbotron">
-                <h1 class="display-4">{{ title }}</h1>
-                <p>Peptoid Data Bank - Browse peptoid structures</p>
-                <hr class="my-4">
-                <p style="font-size: 1.5rem; font-weight: 300;">Utilize the search option, "Explore," to filter the database by specific peptoid properties</p>
+{% extends "base.html" %} {# importing styles from bootstrap-grid.css #} {%
+block styles %} {{super()}}
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='bootstrap-grid.css')}}"
+/>
+<link rel="stylesheet" href="{{url_for('static', filename='images.css')}}" />
+{% endblock %} {# home page content #} {% block app_content %}
+<div class="jumbotron">
+  <h1 class="display-4">{{ title }}</h1>
+  <p>Peptoid Data Bank - Browse peptoid structures</p>
+  <hr class="my-4" />
+  <p style="font-size: 1.5rem; font-weight: 300;">
+    Utilize the search option, "Explore," to filter the database by specific
+    peptoid properties
+  </p>
+</div>
+{% block additional_info %}{% endblock %}
+<div class="container">
+  <div class="row">
+    {% for i in range(peptoid_codes.__len__())%}
+    <div class="col-sm-6">
+      <div class="fall-item fall-effect">
+        <img src="{{images[i]}}" />
+        <div class="mask">
+          <h2>{{ peptoid_codes[i] }}</h2>
+          <h3>{{ peptoid_titles[i] }}</h3>
+          <hr class="my-4" />
+          <p style="font-size: 1.5rem; font-weight: 300;">
+            For more information click below
+          </p>
+          <a href="{{ peptoid_urls[i] }}" class="btn btn-default">Read More</a>
         </div>
-        {% block additional_info %}{% endblock %}
-        <div class="container">
-                <div class="row">
-                        {% for i in range(peptoid_codes.__len__())%}
-                                <div class="col-sm-6 overlay-item overlay-effect">
-                                        <img src="{{images[i]}}">
-                                        <div class="mask" style = "margin: 0 auto;">
-                                                <div class = "text-center">
-                                                <h3>{{ peptoid_codes[i] }}</h3>
-                                                <h2>{{ peptoid_titles[i] }}</h2>                                                                 
-                                                <hr class="my-4">
-                                                <p style="font-size: 1.5rem; font-weight: 300;">If you would like to view more information about this peptoid please see the button below</p>
-                                                <a href="{{ peptoid_urls[i] }}" class="btn btn-default">Read More</a>
-                                                </div>
-                                        </div>
-                                </div>
-                        {% if (i+1) % 2 == 0 and i != (peptoid_codes.__len__()-1)%}
-                                </div> 
-                                <hr>
-                                <div class = 'row'>
-                        {% endif %}
-                {% endfor %}
-         </div>
-         <br>
-         <br>
-         <br>
-{% endblock %}
+      </div>
+      </div>
+      {% if (i+1) % 2 == 0 and i != (peptoid_codes.__len__()-1)%}
+    </div>
+    <hr />
+    <div class="row">
+      {% endif %} {% endfor %}
+    </div>
+    <br />
+    <br />
+    <br />
+    {% endblock %}
+  </div>
+</div>
