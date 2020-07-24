@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-sm">
                         <div class="col text-left">
-                            <a class="btn btn-primary" href = {{ url_for('experiment',var = peptoid.experiment) }}>{{ experiment }}</a>
+                            <a class="btn btn-primary" href = {{ url_for('routes.experiment',var = peptoid.experiment) }}>{{ experiment }}</a>
                         </div>
                     </div>
                 </div>
@@ -116,7 +116,7 @@
                     <div class = "col text-center">
                     <div class = 'btn-group' role = 'group' aria-label="Residues">
                     {% for auth in authors %}
-                    <a class="btn btn-primary" href = {{ url_for('author',var = auth.first_name + ' ' + auth.last_name) }}>{{ auth.first_name }} {{ auth.last_name }}</a>
+                    <a class="btn btn-primary" href = {{ url_for('routes.author',var = auth.first_name + ' ' + auth.last_name) }}>{{ auth.first_name }} {{ auth.last_name }}</a>
                     {% endfor %}
                     </div>
                     </div>
@@ -159,7 +159,7 @@
                 <div class = "col text-center">
                     <div class = 'btn-group' role = 'group' aria-label="Residues">
                     {% for res in residues %}
-                    <a class="btn btn-primary" href = {{ url_for('residue',var = res.nomenclature) }}>{{ res.nomenclature }}</a>
+                    <a class="btn btn-primary" href = {{ url_for('routes.residue',var = res.nomenclature) }}>{{ res.nomenclature }}</a>
                     {% endfor %}
                     </div>
                 </div>

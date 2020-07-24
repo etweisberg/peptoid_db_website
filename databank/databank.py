@@ -1,6 +1,9 @@
 #top level definition of Flask application instance
-from app import app, db
+from app import create_app, db
 from app.models import Peptoid, Author, Residue
+
+
+app = create_app()
 
 #making a shell context for database work
 @app.shell_context_processor

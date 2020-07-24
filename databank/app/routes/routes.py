@@ -1,14 +1,11 @@
 # importing important route-related flask functions
 from flask import render_template, flash, redirect, url_for, abort
-# importing flask application from app module
-from app import app
 # importing form for searching database
-from app.forms import SearchForm, AdvancedQuery
+from app.routes.forms import SearchForm
 # importing database models
 from app.models import Peptoid, Author, Residue
-# #for query dictionary
-# import json
-# import re
+#importing blueprint
+from app.routes import bp
 
 def get_home(peptoids):
     peptoid_codes = []
@@ -21,7 +18,7 @@ def get_home(peptoids):
     for p in peptoids:
         peptoid_codes.append(p.code)
         peptoid_titles.append(p.title)
-        peptoid_urls.append(url_for('peptoid',code=p.code))
+        peptoid_urls.append(url_for('routes.peptoid',code=p.code))
         images.append(url_for('static',filename = p.image))
         residues = []
         for residue in p.peptoid_residue:
@@ -31,18 +28,10 @@ def get_home(peptoids):
 
     return [peptoid_codes, peptoid_urls, peptoid_titles, peptoid_sequences, images, csds]
 
-
-#custom 404 error handler
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html', title="oops"), 404
-
 # base route
-
-
-@app.route('/')
+@bp.route('/')
 # home route displaying all petoids in reverse chron order using home.html template
-@app.route('/home')
+@bp.route('/home')
 def home():
     properties = get_home([p for p in Peptoid.query.order_by(Peptoid.release.desc()).all()])
     return render_template('home.html',
@@ -56,7 +45,7 @@ def home():
         )
 
 # route for all residues renders residues.html
-@app.route('/residues')
+@bp.route('/residues')
 def residues():
     title = 'Residues'
     residues = [r for r in Residue.query.all()]
@@ -64,7 +53,7 @@ def residues():
 # search route renders the form using the search.html template and the SearchForm() from forms.py
 # if the user has submitted the form they are redirected to the route for the serial choice with
 # var = their search box input
-@app.route('/search', methods=['GET', 'POST'])
+@bp.route('/search', methods=['GET', 'POST'])
 def search():
     form = SearchForm()
     if form.validate_on_submit():
@@ -73,7 +62,7 @@ def search():
         var = form.search.data
         if '/' in var:
             var = var.replace('/', '$')
-        return redirect(url_for(form.option.data, var=var))
+        return redirect(url_for('routes.'+form.option.data, var=var))
     return render_template('search.html',
     title='Search',
     form=form,
@@ -81,7 +70,7 @@ def search():
     description='Peptoid Data Bank - Explore by property')
 
 # #UNUSED route for advanced query boxes
-# @app.route('/advanced-query',methods=['GET','POST'])
+# @bp.route('/advanced-query',methods=['GET','POST'])
 # def advanced_query():
 #     form = AdvancedQuery()
 #     if form.validate_on_submit():
@@ -100,7 +89,7 @@ def search():
 #     )
 
 # route for each peptoid for a given code renders peptoid.html
-@app.route('/peptoid/<code>')
+@bp.route('/peptoid/<code>')
 def peptoid(code):
     # data passed to front end
     peptoid = Peptoid.query.filter_by(code=code).first_or_404()
@@ -140,7 +129,7 @@ def peptoid(code):
     )
 
 # residue route for residue, nomenclature = var, returns home.html (gallery view)
-@app.route('/residue/<var>')
+@bp.route('/residue/<var>')
 def residue(var):
     initial_peps = {}
     residue = Residue.query.filter_by(nomenclature = var).first_or_404()
@@ -168,7 +157,7 @@ def residue(var):
 # author route for author. If name entered has a space search by both words for first name and last name.
 # if name entered is just one word check if it is an author's first name or last name
 # returns home.html (gallery view)
-@app.route('/author/<var>')
+@bp.route('/author/<var>')
 def author(var):
     initial_peps = {}
     
@@ -204,7 +193,7 @@ def author(var):
         )
 
 # experiment route for Peptoid.experimet = var, returns home.html (gallery view), if no peptoid found returns a 404
-@app.route('/experiment/<var>')
+@bp.route('/experiment/<var>')
 def experiment(var):
     properties = get_home([p for p in Peptoid.query.order_by(Peptoid.release.desc()).filter_by(experiment = var).all()])
     
@@ -222,7 +211,7 @@ def experiment(var):
         )
 
 # doi route for Peptoid.doi = var, returns home.html (gallery view), if no peptoid found returns a 404
-@app.route('/doi/<var>')
+@bp.route('/doi/<var>')
 def doi(var):
     var = var.replace('$','/')
     
@@ -242,7 +231,7 @@ def doi(var):
         )
 
 # sequence route for Peptoid residues in a sequence
-@app.route('/sequence/<var>')
+@bp.route('/sequence/<var>')
 def sequence(var):
     initial_peps = {}
 
@@ -274,7 +263,7 @@ def sequence(var):
             csds = properties[5]
         )
 
-@app.route('/author-list/<var>')
+@bp.route('/author-list/<var>')
 def author_list(var):
     initial_peps = {}
 
@@ -307,7 +296,7 @@ def author_list(var):
         )
 
 # filtering according to topology
-@app.route('/top/<var>')
+@bp.route('/top/<var>')
 def topology(var):
     properties = get_home([p for p in Peptoid.query.order_by(Peptoid.release.desc()).filter_by(topology = var).all()])
 
@@ -325,6 +314,6 @@ def topology(var):
         )
 
 # about route returns about.html template
-@app.route('/about')
+@bp.route('/about')
 def about():
     return render_template('about.html', title="About us")

@@ -20,10 +20,10 @@ class SearchForm(FlaskForm):
     search = StringField('Enter a search term', validators=[DataRequired()])
     submit = SubmitField('Go')
 
-class AdvancedQuery(FlaskForm):
-    sequence = StringField('Sequence')
-    residue = StringField('Residues')
-    author = StringField('Authors')
-    topology = StringField('Topologies')
-    expriment = StringField('Experiments')
-    submit = SubmitField('Go')
+# class AdvancedQuery(FlaskForm):
+#     sequence = StringField('Sequence')
+#     residue = StringField('Residues')
+#     author = StringField('Authors')
+#     topology = StringField('Topologies')
+#     expriment = StringField('Experiments')
+#     submit = SubmitField('Go')
