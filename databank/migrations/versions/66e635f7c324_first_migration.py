@@ -1,8 +1,8 @@
-"""first migration new
+"""first migration
 
-Revision ID: 8a1136a17f34
+Revision ID: 66e635f7c324
 Revises: 
-Create Date: 2020-07-14 22:39:36.280816
+Create Date: 2020-07-24 20:41:51.413597
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '8a1136a17f34'
+revision = '66e635f7c324'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -27,17 +27,15 @@ def upgrade():
     op.create_index(op.f('ix_author_first_name'), 'author', ['first_name'], unique=True)
     op.create_index(op.f('ix_author_last_name'), 'author', ['last_name'], unique=True)
     op.create_table('peptoid',
-    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('code', sa.String(length=16), nullable=False),
     sa.Column('image', sa.Text(), nullable=True),
     sa.Column('title', sa.Text(), nullable=True),
-    sa.Column('code', sa.String(length=16), nullable=True),
     sa.Column('release', sa.DateTime(), nullable=True),
     sa.Column('experiment', sa.Text(), nullable=True),
     sa.Column('doi', sa.String(length=32), nullable=True),
     sa.Column('topology', sa.String(length=1), nullable=True),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('code')
     )
-    op.create_index(op.f('ix_peptoid_code'), 'peptoid', ['code'], unique=True)
     op.create_index(op.f('ix_peptoid_doi'), 'peptoid', ['doi'], unique=True)
     op.create_index(op.f('ix_peptoid_experiment'), 'peptoid', ['experiment'], unique=False)
     op.create_index(op.f('ix_peptoid_image'), 'peptoid', ['image'], unique=True)
@@ -60,13 +58,13 @@ def upgrade():
     sa.Column('peptoid_id', sa.Integer(), nullable=False),
     sa.Column('author_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['author_id'], ['author.id'], ),
-    sa.ForeignKeyConstraint(['peptoid_id'], ['peptoid.id'], ),
+    sa.ForeignKeyConstraint(['peptoid_id'], ['peptoid.code'], ),
     sa.PrimaryKeyConstraint('peptoid_id', 'author_id')
     )
     op.create_table('peptoid-residue',
     sa.Column('peptoid_id', sa.Integer(), nullable=False),
     sa.Column('residue_id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['peptoid_id'], ['peptoid.id'], ),
+    sa.ForeignKeyConstraint(['peptoid_id'], ['peptoid.code'], ),
     sa.ForeignKeyConstraint(['residue_id'], ['residue.id'], ),
     sa.PrimaryKeyConstraint('peptoid_id', 'residue_id')
     )
@@ -88,7 +86,6 @@ def downgrade():
     op.drop_index(op.f('ix_peptoid_image'), table_name='peptoid')
     op.drop_index(op.f('ix_peptoid_experiment'), table_name='peptoid')
     op.drop_index(op.f('ix_peptoid_doi'), table_name='peptoid')
-    op.drop_index(op.f('ix_peptoid_code'), table_name='peptoid')
     op.drop_table('peptoid')
     op.drop_index(op.f('ix_author_last_name'), table_name='author')
     op.drop_index(op.f('ix_author_first_name'), table_name='author')
