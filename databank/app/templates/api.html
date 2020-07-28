@@ -1,0 +1,119 @@
+{% extends "base.html" %} {% block styles %} {{super()}}
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='bootstrap-grid.css')}}"
+/>
+{% endblock %} {% import 'bootstrap/wtf.html' as wtf %} {% block app_content %}
+<div class="jumbotron">
+  <h1 class="display-4">PeptoidDB API</h1>
+  <p>Peptoid Data Bank - Our API</p>
+  <hr class="my-4" />
+  <p style="font-size: 1.5rem; font-weight: 300;">
+    Our API allows peptoid researchers to retrieve data directly from our
+    database in their own programs and scripts. Researchers are encouraged to
+    use this tool for chemoinformatic data collection, but should be advised
+    that requests are limitted to 1 per minute.
+  </p>
+</div>
+<div
+  class="card"
+  style="
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    padding: 1rem !important;
+    margin-bottom: 3rem !important;
+    background-color: #f8f9fa !important;
+    border-radius: 0.25rem !important;
+  "
+>
+  <div class="card-body">
+    <h1>Routes</h1>
+    <h4>
+      <div class="row">
+        <div class="col-sm">
+          <div class="col text-left">
+            <code>'api/peptoids/{CODE}'</code>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="col text-left">
+            <h4>Returns a JSON object of a peptoid's properties</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="col text-left">
+            <code>'api/peptoids/{CODE}/residues'</code>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="col text-left">
+            <h4>Returns a JSON object for a peptoid's residues</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="col text-left">
+            <code>'api/peptoids/{CODE}/authors'</code>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="col text-left">
+            <h4>Returns a JSON object for a peptoid's authors</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="col text-left">
+            <code>'api/peptoids'</code>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="col text-left">
+            <h4>
+              Returns a JSON object of URLs for all peptoids in the database
+            </h4>
+          </div>
+        </div>
+      </div>
+    </h4>
+  </div>
+</div>
+<div>
+  <script src="https://gist.github.com/etweisberg/5189e27d66b109124c9a2bdbc7d1e1d3.js"></script>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-8">
+      <h1>Request all peptoids</h1>
+      <a
+        target="_blank"
+        class="btn btn-default"
+        href="{{ url_for('api.get_peptoids') }}"
+        >Request</a
+      >
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-8">
+      <h1>Request peptoid information</h1>
+      {{ wtf.quick_form(form) }}
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+<br />
+<br />
+<br />
+{% endblock %}

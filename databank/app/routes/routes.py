@@ -1,7 +1,7 @@
 # importing important route-related flask functions
 from flask import render_template, flash, redirect, url_for, abort
 # importing form for searching database
-from app.routes.forms import SearchForm
+from app.routes.forms import SearchForm, ApiRequest
 # importing database models
 from app.models import Peptoid, Author, Residue
 #importing blueprint
@@ -317,3 +317,14 @@ def topology(var):
 @bp.route('/about')
 def about():
     return render_template('about.html', title="About us")
+
+@bp.route('/api', methods=['GET', 'POST'])
+def api():
+    form = ApiRequest()
+    flash('1 request per minute LIMIT!')
+    if form.validate_on_submit():
+        var = form.search.data
+        if '/' in var:
+            var = var.replace('/', '$')
+        return redirect(url_for('api.get_peptoid', code=var))
+    return render_template('api.html', title ="PeptoidDB API", form = form)

@@ -20,6 +20,10 @@ class SearchForm(FlaskForm):
     search = StringField('Enter a search term', validators=[DataRequired()])
     submit = SubmitField('Go')
 
+class ApiRequest(FlaskForm):
+    search = StringField('Enter peptoid code', validators=[DataRequired()])
+    submit = SubmitField('Request')
+
 # class AdvancedQuery(FlaskForm):
 #     sequence = StringField('Sequence')
 #     residue = StringField('Residues')
