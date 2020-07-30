@@ -321,7 +321,6 @@ def about():
 @bp.route('/api', methods=['GET', 'POST'])
 def api():
     form = ApiRequest()
-    flash('1 request per minute LIMIT!')
     if form.validate_on_submit():
         var = form.search.data
         if '/' in var:
