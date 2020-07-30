@@ -14,10 +14,11 @@
     use this tool for chemoinformatic data collection, but should be advised
     that requests are limitted to 1 per minute. If REST API's aren't your cup of
     tea and you don't want to follow our predefined routes, we also offer a
-    GraphQL API, which you can visually by clicking below or at /graphql.
+    GraphQL API, which you can explore by clicking below or at the route
+    <code>/graphql</code>.
   </p>
 </div>
-<div class="container">
+<div class="container" style="padding-bottom: 30px;">
   <div class="row">
     <div class="col text-center">
       <a
@@ -46,54 +47,51 @@
   <div class="card-body">
     <h1>Routes</h1>
     <h4>
-      <div class="row">
-        <div class="col-sm">
+      <div class="row" style="padding-bottom: 20px;">
+        <div class="col-sm text-left">
           <div class="col text-left">
-            <code>'api/peptoids/{CODE}'</code>
+            <mark>'api/peptoids/{CODE}'</mark>
           </div>
         </div>
         <div class="col-sm">
           <div class="col text-left">
-            <h4>Returns a JSON object of a peptoid's properties</h4>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm">
-          <div class="col text-left">
-            <code>'api/peptoids/{CODE}/residues'</code>
-          </div>
-        </div>
-        <div class="col-sm">
-          <div class="col text-left">
-            <h4>Returns a JSON object for a peptoid's residues</h4>
+            Returns a JSON object of a peptoid's properties
           </div>
         </div>
       </div>
-
-      <div class="row">
+      <div class="row" style="padding-bottom: 20px;">
         <div class="col-sm">
           <div class="col text-left">
-            <code>'api/peptoids/{CODE}/authors'</code>
+            <mark>'api/peptoids/{CODE}/residues'</mark>
           </div>
         </div>
         <div class="col-sm">
           <div class="col text-left">
-            <h4>Returns a JSON object for a peptoid's authors</h4>
+            Returns a JSON object for a peptoid's residues
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row" style="padding-bottom: 20px;">
         <div class="col-sm">
           <div class="col text-left">
-            <code>'api/peptoids'</code>
+            <mark>'api/peptoids/{CODE}/authors'</mark>
           </div>
         </div>
         <div class="col-sm">
           <div class="col text-left">
-            <h4>
-              Returns a JSON object of URLs for all peptoids in the database
-            </h4>
+            Returns a JSON object for a peptoid's authors
+          </div>
+        </div>
+      </div>
+      <div class="row" style="padding-bottom: 20px;">
+        <div class="col-sm">
+          <div class="col text-left">
+            <mark>'api/peptoids'</mark>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="col text-left">
+            Returns a JSON object of URLs for all peptoids in the database
           </div>
         </div>
       </div>
