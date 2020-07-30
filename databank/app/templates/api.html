@@ -12,8 +12,23 @@
     Our API allows peptoid researchers to retrieve data directly from our
     database in their own programs and scripts. Researchers are encouraged to
     use this tool for chemoinformatic data collection, but should be advised
-    that requests are limitted to 1 per minute.
+    that requests are limitted to 1 per minute. If REST API's aren't your cup of
+    tea and you don't want to follow our predefined routes, we also offer a
+    GraphQL API, which you can visually by clicking below or at /graphql.
   </p>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <a
+        type="button"
+        class="btn btn-primary btn-lg"
+        href="{{url_for('graphql')}}"
+        target="_blank"
+        >GraphQL API</a
+      >
+    </div>
+  </div>
 </div>
 <div
   class="card"

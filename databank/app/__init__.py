@@ -7,6 +7,7 @@ from flask_bootstrap import Bootstrap
 from flask import Blueprint
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+from flask_graphql import GraphQLView
 
 #flask app factory pattern
 app = Flask(__name__)
@@ -25,5 +26,8 @@ app.register_blueprint(errors_bp)
 from app.routes import bp as routes_bp
 app.register_blueprint(routes_bp)
 
-#importing routes and models from app module
+#importing models from app module
 from app import models
+from .schema import schema
+
+app.add_url_rule('/graphql', view_func=GraphQLView.as_view('graphql', schema=schema, graphiql=True))
