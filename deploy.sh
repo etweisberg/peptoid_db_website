@@ -3,7 +3,7 @@ set -e
 IMAGE="etweisberg/databank"
 GIT_VERSION=$(git describe --always --abbrev --tags --long)
 
-docker build -d ${IMAGE}:${GIT_VERSION} databank
+docker build -t ${IMAGE}:${GIT_VERSION} databank
 docker tag ${IMAGE}:${GIT_VERSION} ${IMAGE}:latest
 
 echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
