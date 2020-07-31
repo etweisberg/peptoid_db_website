@@ -1,6 +1,12 @@
 language: python
+
 services:
     - docker
+
+install:
+    - pip install -r databank/requirements.txt
+
+script:
 
 deploy:
   # Build Docker container and push to Docker Hub
