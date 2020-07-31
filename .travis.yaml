@@ -1,3 +1,6 @@
+services:
+    - docker
+
 deploy:
   # Build Docker container and push to Docker Hub
   provider: script
