@@ -1,4 +1,11 @@
 {% extends "base.html" %} {% block app_content %}
-<h1>Looks like there were no results...</h1>
-<p><a class="btn btn-primary" href="{{ url_for('search') }}">Search</a></p>
+<div class="jumbotron">
+    <h1 class="display-4">ERROR</h1>
+    <p>Peptoid Data Bank - Not Found Error</p>
+    <hr class="my-4" />
+    <p style="font-size: 1.5rem; font-weight: 300;">
+      Unfortunately what you're looking for doesn't exist. Click below search for something else!
+    </p>
+    <p><a class="btn btn-primary" href="{{ url_for('routes.search') }}">Search</a></p>
+  </div>
 {% endblock %}

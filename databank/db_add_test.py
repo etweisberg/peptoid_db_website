@@ -2,7 +2,6 @@ import datetime
 from app import app, db
 from app.models import Peptoid, Author, Residue
 
-
 #instantiating two residue examples
 Nspe = Residue(nomenclature='Nspe',pep_type = 'alpha',CSD = 'BABTAA',SMILES='C1=CC=C(C=C1)C[N+](=CC2=CC=CC=C2)[O-]')
 NLeu = Residue(nomenclature='NLeu',pep_type = 'beta',CSD = 'BABTAA',SMILES='C1=CC=C(C=C1)C[N+](=CC2=CC=CC=C2)[O-]')
