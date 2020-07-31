@@ -23,19 +23,49 @@ Further, Miguel Grinberg's [Flask mega tutorial](https://blog.miguelgrinberg.com
   - There is no need to import the app, database, or any classes from the schema
   - Simply query the database and change the properties of objects
 ## Add a residue
-1. Checkout a new branch from the repository
+1. Checkout a new branch from the repository using `git checkout -b <branch-name>`
 2. Clear the database by running python db_clear.py in the base directory
 3. Edit the database population script with the new residue and any new relationships that need to be added
      - Define the residue with the short name and specify all properties
      - Ex. `Nspe = Residue(nomenclature='Nspe',pep_type = 'alpha',CSD = 'BABTAA',SMILES='C1=CC=C(C=C1)C[N+](=CC2=CC=CC=C2)[O-]')`
+     - Append this new object to the peptoid_author list for any peptoid object necessary
+     - Ex. `pep1.peptoid_residue.append(Nspe)`
+        - You can also identify the peptoid object by performing a query, such as `Peptoid.query.filter_by(code=<some_code>).first().peptoid_residue.append(Nspe)`. This may make maintaining the database simpler
 4. Run the new database population script
 5. Test the changes by running `flask run` in the databank directory
 6. Push changes and create a pull request
 7. Once merged (preferably reviewed) follow deployment protocol
 ## Add an author
-
+1. Checkout a new branch from the repository using `git checkout -b <branch-name>`
+2. Clear the database by running python db_clear.py in the base directory
+3. Edit the database population script with the new author and add relationships
+    - Define the author with first and last name
+    - Ex. `EW = Author(first_name='Ethan',last_name='Weisberg')
+    - Append this new object to the `peptoid_author` list for any peptoid objects necessary
+    - Ex.`pep1.peptoid_author.append(EW)`
+        - You can also identify the peptoid object by performing a query, such as `Peptoid.query.filter_by(code=<some_code>).first().peptoid_author.append(EW)`. This may make maintaining the database simpler
+4. Run the new database population script
+5. Test the changes by running `flask run` in the databank directory
+6. Push changes and create a pull request
+7. Once merged (preferably reviewed) follow deployment protocol
 ## Add a peptoid
-
+1. Checkout a new branch from the repository using `git checkout -b <branch-name>`
+2. Clear the database by running python db_clear.py in the base directory
+3. Edit the database population script with the new peptoid and add relationships
+    - Define the peptoid with:
+      - code
+      - image
+      - title
+      - release
+      - experiment
+      - doi
+      - topology
+    - Append authors to the `peptoid_author` list
+    - Append residues to the `peptoid_residue` list
+4. Run the new database population script
+5. Test the changes by running `flask run` in the databank directory
+6. Push changes and create a pull request
+7. Once merged (preferably reviewed) follow deployment protocol
 # How to containerize application with Docker and deploy to the server
 ## Build an image
 
