@@ -11,6 +11,7 @@ docker push ${IMAGE}:${GIT_VERSION}
 
 #ssh commands
 ssh -i ${SSH_KEY} root@159.89.232.85
+yes
 
 docker stop current-container
 docker rm current-container
