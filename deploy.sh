@@ -12,6 +12,9 @@ docker push ${IMAGE}:${GIT_VERSION}
 #ssh commands
 touch temp_key
 echo ${SSH_KEY} > temp_key
+chmod 600 temp_key
+echo ${PUBLIC_KEY} > pub
+chmod 644 pub
 ssh -i temp_key root@159.89.232.85
 
 docker stop current-container
