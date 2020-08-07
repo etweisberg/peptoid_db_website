@@ -12,6 +12,7 @@ services:
 
 install:
     - pip install -r databank/requirements.txt
+    - sudo apt-get install sshpass
 script: pytest -q databank/tests.py
 
 deploy:
