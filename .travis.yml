@@ -16,6 +16,6 @@ deploy:
     branch: master
 before_install:
 - eval "$(ssh-agent -s)"
-- chmod 600 ./deploy_key
+- chmod 600 etweisberg/databank/deploy_key
 - echo -e "Host 159.89.232.85\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-- ssh-add ./deploy_key
+- ssh-add etweisberg/databank/deploy_key

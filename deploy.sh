@@ -10,7 +10,7 @@ echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdi
 docker push ${IMAGE}:${GIT_VERSION}
 
 #ssh commands
-ssh -i ./deploy_key root@159.89.232.85
+ssh -i etweisberg/databank/deploy_key root@159.89.232.85
 
 docker stop current-container
 docker rm current-container
