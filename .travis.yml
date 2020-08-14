@@ -1,21 +1,18 @@
 language: python
 python:
-- '3.8'
-addons:
-  ssh_known_hosts:
-  - 159.89.232.85
+    - "3.8"
+
 services:
-- docker
+    - docker
+
 install:
-- pip install -r databank/requirements.txt
+    - pip install -r databank/requirements.txt
+
 script: pytest -q databank/tests.py
+
 deploy:
+  # Build Docker container and push to Docker Hub
   provider: script
   script: bash deploy.sh
   on:
     branch: master
-before_install:
-- eval "$(ssh-agent -s)"
-- chmod 600 etweisberg/databank/deploy_key
-- echo -e "Host 159.89.232.85\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-- ssh-add etweisberg/databank/deploy_key
