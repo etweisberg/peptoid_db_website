@@ -16,7 +16,8 @@
 </div>
 
 {% for residue in residues%}
-<div class="card" style = 'width: 100%;
+<a id= {{ residue.nomenclature }} style='pointer-events: none; cursor: default;'>    
+    <div class="card" style = 'width: 100%;
         margin-right: auto;
         margin-left: auto;
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
@@ -65,5 +66,6 @@
         </div>
         </div>
         </div>
+</a>
 {% endfor %}
 {% endblock %}

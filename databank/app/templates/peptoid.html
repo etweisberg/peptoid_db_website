@@ -159,7 +159,7 @@
                 <div class = "col text-center">
                     <div class = 'btn-group' role = 'group' aria-label="Residues">
                     {% for res in residues %}
-                    <a class="btn btn-primary" href = {{ url_for('routes.residue',var = res.nomenclature) }}>{{ res.nomenclature }}</a>
+                    <a class="btn btn-primary" href ='{{ url_for('routes.residues') }}#{{res.nomenclature}}'>{{ res.nomenclature }}</a>
                     {% endfor %}
                     </div>
                 </div>
