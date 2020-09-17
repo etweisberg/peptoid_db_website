@@ -26,6 +26,7 @@
         border-radius: 0.25rem !important;'>
         <div class="card-body">
             <h3><mark>{{ residue.nomenclature }}</mark></h3>
+            <img src="{{url_for('static',filename=residue.nomenclature + '.png')}}" class = 'img-responsive' style = "margin: auto; height:35%">
             <div class="container">
                 <div class="row">
                     <div class="col-sm">
