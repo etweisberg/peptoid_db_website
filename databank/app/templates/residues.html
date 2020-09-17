@@ -16,7 +16,8 @@
 </div>
 
 {% for residue in residues%}
-<div class="card" style = 'width: 100%;
+<a id= {{ residue.nomenclature }} style='pointer-events: none; cursor: default;'>    
+    <div class="card" style = 'width: 100%;
         margin-right: auto;
         margin-left: auto;
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
@@ -25,6 +26,7 @@
         border-radius: 0.25rem !important;'>
         <div class="card-body">
             <h3><mark>{{ residue.nomenclature }}</mark></h3>
+            <img src="{{url_for('static',filename=residue.nomenclature + '.png')}}" class = 'img-responsive' style = "margin: auto; height:35%">
             <div class="container">
                 <div class="row">
                     <div class="col-sm">
@@ -65,5 +67,6 @@
         </div>
         </div>
         </div>
+</a>
 {% endfor %}
 {% endblock %}
