@@ -25,11 +25,11 @@ peptoid_residue = db.Table('peptoid-residue',
 
 class Peptoid(db.Model):
     code = db.Column(db.String(16), primary_key=True)
-    image = db.Column(db.Text, index=True, unique=True)
-    title = db.Column(db.Text, index=True, unique=True)
-    release = db.Column(db.DateTime, index=True, unique=True)
+    image = db.Column(db.Text, index=True, unique=False)
+    title = db.Column(db.Text, index=True, unique=False)
+    release = db.Column(db.DateTime, index=True, unique=False)
     experiment = db.Column(db.Text, index=True, unique=False)
-    doi = db.Column(db.String(32), index=True, unique=True)
+    doi = db.Column(db.String(32), index=True, unique=False)
     topology = db.Column(db.String(1), index=True, unique=False)
 
     peptoid_author = db.relationship('Author', secondary=peptoid_author, lazy='dynamic',
