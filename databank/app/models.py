@@ -61,8 +61,8 @@ class Peptoid(db.Model):
 # authors table: first name and last name
 class Author(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.Text, index=True, unique=True)
-    last_name = db.Column(db.Text, index=True, unique=True)
+    first_name = db.Column(db.Text, index=True, unique=False)
+    last_name = db.Column(db.Text, index=True, unique=False)
 
     def to_dict(self):
         data = {
