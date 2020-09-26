@@ -28,17 +28,17 @@ block styles %} {{super()}}
       <h2>{{ peptoid_codes[i] }}</h2>
     </div>
       <div class="fall-item fall-effect">
-        <img src="{{images[i]}}" />
+        <img src="{{url_for('static', filename='pep.png')}}" />
         <div class="mask">
           <h3>{{ peptoid_titles[i] }}</h3>
           <h4>{{ peptoid_sequences[i] }}</h4>
           <hr class="my-4" />
           <p style="font-size: 1.5rem; font-weight: 300;">
-            For more information click "Read More." To view the structure in the CSD click "CSD."
+            For more information click "Read More." To view structural data click "Data".
           </p>
           <div class = 'btn-group' role = 'group' aria-label="Peptoid Pages">
             <a href="{{ peptoid_urls[i] }}" class="btn btn-primary">Read More</a>
-            <a href = "{{ csds[i] }}" class = "btn btn-primary" target = "_blank">CSD</a>
+            <a href = "{{ data[i] }}" class = "btn btn-primary" target = "_blank">Data</a>
           </div>
         </div>
       </div>

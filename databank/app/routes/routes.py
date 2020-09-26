@@ -13,20 +13,23 @@ def get_home(peptoids):
     peptoid_titles = []
     peptoid_sequences = []
     images = []
-    csds = []
+    data = []
     
     for p in peptoids:
         peptoid_codes.append(p.code)
         peptoid_titles.append(p.title)
         peptoid_urls.append(url_for('routes.peptoid',code=p.code))
-        images.append(url_for('static',filename = p.image))
+        # images.append(url_for('static',filename = p.code + '.png'))
         residues = []
         for residue in p.peptoid_residue:
             residues.append(residue)
         peptoid_sequences.append(", ".join([r.nomenclature for r in residues]))
-        csds.append("https://www.ccdc.cam.ac.uk/structures/Search?Doi={doi}&DatabaseToSearch=Published".format(doi=p.doi))
+        if p.experiment == 'X-Ray Diffraction':
+            data.append("https://www.doi.org/{}".format(p.struct_doi))
+        else:
+            data.append("https://www.doi.org/{}".format(p.pub_doi))
 
-    return [peptoid_codes, peptoid_urls, peptoid_titles, peptoid_sequences, images, csds]
+    return [peptoid_codes, peptoid_urls, peptoid_titles, peptoid_sequences, images, data]
 
 # base route
 @bp.route('/')
@@ -41,7 +44,7 @@ def home():
             peptoid_titles = properties[2],
             peptoid_sequences = properties[3],
             images = properties[4],
-            csds = properties[5]
+            data = properties[5]
         )
 
 # route for all residues renders residues.html
@@ -99,7 +102,10 @@ def peptoid(code):
     release = str(peptoid.release.month) + "/" + \
                   str(peptoid.release.day) + "/" + str(peptoid.release.year)
     experiment = peptoid.experiment
-    doi = peptoid.doi
+    if experiment == 'X-Ray Diffraction':
+        data=peptoid.struct_doi
+    else:
+        data=peptoid.pub_doi
 
     # lists of objects also passed to front end
     authors = []
@@ -121,7 +127,7 @@ def peptoid(code):
         code=code,
         release=release,
         experiment=experiment,
-        doi=doi,
+        data=data,
         authors=authors,
         residues=residues,
         sequence=sequence,
@@ -151,7 +157,7 @@ def residue(var):
             peptoid_titles = properties[2],
             peptoid_sequences = properties[3],
             images = properties[4],
-            csds = properties[5]
+            data = properties[5]
         )
 
 # author route for author. If name entered has a space search by both words for first name and last name.
@@ -160,11 +166,11 @@ def residue(var):
 @bp.route('/author/<var>')
 def author(var):
     initial_peps = {}
-    
-    if " " in var:
-        name_split = var.split()
-        first_name = name_split[0]
-        last_name = name_split[1]
+
+    if "," in var:
+        name_split = var.split(',')
+        last_name = name_split[0]
+        first_name = name_split[1]
         author = Author.query.filter_by(first_name = first_name, last_name = last_name).first_or_404()
     else:
         author = Author.query.filter((Author.first_name == var) | (Author.last_name == var)).first_or_404()
@@ -189,7 +195,7 @@ def author(var):
             peptoid_titles = properties[2],
             peptoid_sequences = properties[3],
             images = properties[4],
-            csds = properties[5]
+            data = properties[5]
         )
 
 # experiment route for Peptoid.experimet = var, returns home.html (gallery view), if no peptoid found returns a 404
@@ -207,15 +213,15 @@ def experiment(var):
             peptoid_titles = properties[2],
             peptoid_sequences = properties[3],
             images = properties[4],
-            csds = properties[5]
+            data = properties[5]
         )
 
 # doi route for Peptoid.doi = var, returns home.html (gallery view), if no peptoid found returns a 404
 @bp.route('/doi/<var>')
 def doi(var):
     var = var.replace('$','/')
-    
-    properties = get_home([p for p in Peptoid.query.order_by(Peptoid.release.desc()).filter_by(doi = var).all()])
+    peptoids = Peptoid.query.order_by(Peptoid.release.desc()).filter((Peptoid.struct_doi == var) | (Peptoid.pub_doi == var)).all()
+    properties = get_home([p for p in peptoids])
 
     if len(properties[0]) == 0:
         abort(404)
@@ -227,7 +233,7 @@ def doi(var):
             peptoid_titles = properties[2],
             peptoid_sequences = properties[3],
             images = properties[4],
-            csds = properties[5]
+            data = properties[5]
         )
 
 # sequence route for Peptoid residues in a sequence
@@ -260,7 +266,7 @@ def sequence(var):
             peptoid_titles = properties[2],
             peptoid_sequences = properties[3],
             images = properties[4],
-            csds = properties[5]
+            data = properties[5]
         )
 
 @bp.route('/author-list/<var>')
@@ -292,7 +298,7 @@ def author_list(var):
             peptoid_titles = properties[2],
             peptoid_sequences = properties[3],
             images = properties[4],
-            csds = properties[5]
+            data = properties[5]
         )
 
 # filtering according to topology
@@ -310,7 +316,7 @@ def topology(var):
             peptoid_titles = properties[2],
             peptoid_sequences = properties[3],
             images = properties[4],
-            csds = properties[5]
+            data = properties[5]
         )
 
 # about route returns about.html template
