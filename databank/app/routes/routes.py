@@ -168,7 +168,7 @@ def author(var):
     initial_peps = {}
 
     if "," in var:
-        name_split = var.split(',')
+        name_split = var.split(', ')
         last_name = name_split[0]
         first_name = name_split[1]
         author = Author.query.filter_by(first_name = first_name, last_name = last_name).first_or_404()
