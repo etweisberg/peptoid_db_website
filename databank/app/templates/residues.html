@@ -17,7 +17,7 @@
 </div>
 
 {% for residue in residues%}
-<a id= {{ residue.nomenclature }} style='pointer-events: none; cursor: default; color:black;'>    
+<a id= {{ residue.long_name }} style='pointer-events: none; cursor: default; color:black;'>    
     <div class="card" style = 'width: 100%;
         margin-right: auto;
         margin-left: auto;
@@ -27,7 +27,7 @@
         border-radius: 0.25rem !important;'>
         <div class="card-body">
             <div class = "header">
-            <h2>{{ residue.nomenclature }}</h2>
+            <h2>{{ residue.long_name }}</h2>
             </div>
             <img src="{{url_for('static',filename='residue.png')}}" class = 'img-responsive' style = "margin: auto; height:35%">
             <div class="container">
@@ -55,7 +55,7 @@
                             </div>
                         </div>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                         <div class="col-sm">
                             <div class="col text-left">
                                 <h4>CSD Link</h4>
@@ -66,7 +66,7 @@
                                 <a target = '_blank' class="btn btn-success" href = {{"https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid={code}&DatabaseToSearch=Published".format(code = residue.CSD)}}>CSD</a>
                             </div>
                         </div>
-                </div>
+                </div> -->
         </div>
         </div>
         </div>

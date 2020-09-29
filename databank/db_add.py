@@ -9,9 +9,20 @@ authors =[]
 author_objects ={}
 peptoid_objects = {}
 
-# residue_db = open('Residue.json','r')
-# residue_db = json.loads(residue_db.read())
-# residue_objects = {}
+residue_db = open('Residue.json','r')
+residue_db = json.loads(residue_db.read())
+residue_objects = {}
+
+for res in residue_db:
+    residue_objects[res['Long name']]=Residue(
+        long_name=res['Long name'],
+        short_name=res['Short name'],
+        pep_type=res["Backbone"],
+        SMILES = res["SMILES"]
+    )
+
+for res in residue_objects:
+    db.session.add(residue_objects[res])
 
 for pep in database:
     a = pep["Authors"].split('\n')

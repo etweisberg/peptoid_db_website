@@ -85,11 +85,10 @@ class Author(db.Model):
 
 class Residue(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    nomenclature = db.Column(db.Text, index=True, unique=True)
+    long_name = db.Column(db.Text, index=True, unique=False)
+    short_name = db.Column(db.Text, index=True, unique=False)
     pep_type = db.Column(db.Text, index=True, unique=False)
-    # made false for tech demo
     CSD = db.Column(db.Text, index=True, unique=False)
-    # made false for tech demo
     SMILES = db.Column(db.Text, index=True, unique=False)
 
     def to_dict(self):
@@ -106,4 +105,4 @@ class Residue(db.Model):
         return data
 
     def __repr__(self):
-        return '<Residue {}>'.format(self.nomenclature)
+        return '<Residue {}>'.format(self.long_name)

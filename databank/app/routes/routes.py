@@ -138,7 +138,7 @@ def peptoid(code):
 @bp.route('/residue/<var>')
 def residue(var):
     initial_peps = {}
-    residue = Residue.query.filter_by(nomenclature = var).first_or_404()
+    residue = Residue.query.filter_by((Residue.long_name == var) | (Author.short_name == var)).first_or_404()
     #making dictionary of release date keys and Peptoid values
     for p in residue.peptoids:
         initial_peps[p.release] = p
