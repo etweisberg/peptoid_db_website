@@ -37,9 +37,6 @@ for author in authors:
         last_name=names[0]
     )
 
-# for res in residue_db:
-#     residue_objects[]
-
 for author in author_objects:
     db.session.add(author_objects[author])
 
