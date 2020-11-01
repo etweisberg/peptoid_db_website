@@ -32,6 +32,7 @@ for pep in database:
 
 for author in authors:
     names = author.split(', ')
+    # print(names)
     author_objects[author]=Author(
         first_name=names[1],
         last_name=names[0]
