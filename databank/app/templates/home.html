@@ -7,7 +7,7 @@ block styles %} {{super()}}
 <link rel="stylesheet" href="{{url_for('static', filename='images.css')}}" />
 {% endblock %} {# home page content #} {% block app_content %}
 <div class="jumbotron">
-  <h1 class="display-4">{{ title }}</h1>
+  <h1 class="display-4"> {{ title }} <span class="badge badge-secondary" style='font-size: medium;'>{{ peptoid_codes.__len__() }}</span></h1>
   <p>Peptoid Data Bank - Browse peptoid structures</p>
   <hr class="my-4" />
   <p style="font-size: 1.5rem; font-weight: 300;">
@@ -15,6 +15,7 @@ block styles %} {{super()}}
     peptoid properties
   </p>
 </div>
+
 {% block additional_info %}{% endblock %}
 <div class="container">
   <div class="row block-center">

@@ -72,26 +72,6 @@ def search():
     info='Filter by a specific property. To search for a specific sequence or author list separate residues/author last names by commas.',
     description='Peptoid Data Bank - Explore by property')
 
-# #UNUSED route for advanced query boxes
-# @bp.route('/advanced-query',methods=['GET','POST'])
-# def advanced_query():
-#     form = AdvancedQuery()
-#     if form.validate_on_submit():
-#         query = {'seq':form.sequence.data,
-#             'res':form.residue.data,
-#             'auth':form.author.data,
-#             'top':form.topology.data,
-#             'exp':form.expriment.data}
-#         flash(json.dumps(query))
-#         return redirect(url_for('advanced_results',query = json.dumps(query)))
-#     return render_template('search.html',
-#     title = 'Advanced Query',
-#     form = form,
-#     info = 'Query by multiple properties using AND or OR statements',
-#     description = 'Peptoid Data Bank - Search with Advanced Query'
-#     )
-
-# route for each peptoid for a given code renders peptoid.html
 @bp.route('/peptoid/<code>')
 def peptoid(code):
     # data passed to front end
