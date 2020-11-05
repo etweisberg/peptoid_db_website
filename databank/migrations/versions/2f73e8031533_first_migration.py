@@ -1,8 +1,8 @@
-"""fixing residue columns
+"""first migration
 
-Revision ID: c9b8fb8534ef
+Revision ID: 2f73e8031533
 Revises: 
-Create Date: 2020-09-29 12:48:05.059481
+Create Date: 2020-11-04 21:14:38.117720
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'c9b8fb8534ef'
+revision = '2f73e8031533'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -66,11 +66,10 @@ def upgrade():
     sa.PrimaryKeyConstraint('peptoid_id', 'author_id')
     )
     op.create_table('peptoid-residue',
-    sa.Column('peptoid_id', sa.Integer(), nullable=False),
-    sa.Column('residue_id', sa.Integer(), nullable=False),
+    sa.Column('peptoid_id', sa.Integer(), nullable=True),
+    sa.Column('residue_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['peptoid_id'], ['peptoid.code'], ),
-    sa.ForeignKeyConstraint(['residue_id'], ['residue.id'], ),
-    sa.PrimaryKeyConstraint('peptoid_id', 'residue_id')
+    sa.ForeignKeyConstraint(['residue_id'], ['residue.id'], )
     )
     # ### end Alembic commands ###
 

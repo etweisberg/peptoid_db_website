@@ -17,7 +17,7 @@ residue_objects = {}
 
 print('Establishing residues')
 
-for res in tqdm(residue_db):
+for res in residue_db:
     residue_objects[res['Long name']]=Residue(
         long_name=res['Long name'],
         short_name=res['Short name'],
@@ -26,12 +26,12 @@ for res in tqdm(residue_db):
     )
 
 
-for res in residue_objects:
+for res in tqdm(residue_objects):
     db.session.add(residue_objects[res])
 
 print('Collecting authors')
 
-for pep in tqdm(database):
+for pep in database:
     a = pep["Authors"].split('\n')
     for auth in a:
         if auth not in authors:
@@ -45,12 +45,12 @@ for author in authors:
         last_name=names[0]
     )
 
-for author in author_objects:
+for author in tqdm(author_objects):
     db.session.add(author_objects[author])
 
 print('Instantiating peptoids')
 
-for i in tqdm(range(len(database))):
+for i in range(len(database)):
     rel = database[i]["Release"]
     dates = rel.split('/')
     authors = database[i]["Authors"].split('\n')
@@ -68,7 +68,7 @@ for i in tqdm(range(len(database))):
     peptoid_objects[i].peptoid_author.extend([author_objects[a] for a in authors])
     peptoid_objects[i].peptoid_residue.extend([residue_objects[r] for r in residues])
 
-for i in range(len(peptoid_objects)):
+for i in tqdm(range(len(peptoid_objects))):
     db.session.add(peptoid_objects[i])
 
 db.session.commit()

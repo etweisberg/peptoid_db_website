@@ -14,9 +14,9 @@ peptoid_author = db.Table('peptoid-author',
 # peptoid-residue helper table
 peptoid_residue = db.Table('peptoid-residue',
                            db.Column('peptoid_id', db.Integer, db.ForeignKey(
-                               'peptoid.code'), primary_key=True),
+                               'peptoid.code'), unique=False),
                            db.Column('residue_id', db.Integer, db.ForeignKey(
-                               'residue.id'), primary_key=True)
+                               'residue.id'), unique=False)
                            )
 
 # peptoid table: image file name, title to display on page, data base code, release date,

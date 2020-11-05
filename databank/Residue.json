@@ -216,6 +216,15 @@
         "Backbone": "alpha"
     },
     {
+        "Short name": "Ala",
+        "Long name": "Alanine",
+        "SMILES": "*C[C@@H](C(=O)O)N*",
+        "field4": "",
+        "field5": "",
+        "field6": "",
+        "Backbone": "alpha"
+    },
+    {
         "Short name": "N2,6mph",
         "Long name": "N-(2,6-dimethylphenyl)glycine",
         "SMILES": "*N(c1c(C)cccc1(C))CC(=O)*",

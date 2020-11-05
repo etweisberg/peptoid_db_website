@@ -324,7 +324,7 @@
         "Length": "8",
         "Publication doi": "10.1039/C2SC20473H",
         "Release": " 06/18/2012",
-        "Sequence": "N-(propargyl)glycine(triazole:5)\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine\nN-(azidopropyl)glycine(triazole:1)\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine",
+        "Sequence": "N-(propargyl)glycine\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine\nN-(azidopropyl)glycine\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine",
         "Structure doi": "10.5517/ccyg3m3",
         "Title": "Bicyclic Octamer (Two Conformers)",
         "Topology": "M"
@@ -339,7 +339,7 @@
         "Length": "16",
         "Publication doi": "10.1039/C2SC20473H",
         "Release": " 06/18/2012",
-        "Sequence": "N-(propargyl)glycine(triazole:13)\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine\nN-(azidopropyl)glycine(triazole:9)\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine\nTER\nN-(propargyl)glycine(triazole:5)\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine\nN-(azidopropyl)glycine(triazole:1)\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine",
+        "Sequence": "N-(propargyl)glycine\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine\nN-(azidopropyl)glycine\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine\nN-(propargyl)glycine\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine\nN-(azidopropyl)glycine\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine",
         "Structure doi": "10.5517/ccyg3n4",
         "Title": "Multicyclic Hexadecamer (Doubly-Crosslinked Cyclic Octamers)",
         "Topology": "M"

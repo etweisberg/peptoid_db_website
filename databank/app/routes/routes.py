@@ -23,7 +23,7 @@ def get_home(peptoids):
         residues = []
         for residue in p.peptoid_residue:
             residues.append(residue)
-        peptoid_sequences.append(", ".join([r.nomenclature for r in residues]))
+        peptoid_sequences.append(", ".join([r.long_name for r in residues]))
         if p.experiment == 'X-Ray Diffraction':
             data.append("https://www.doi.org/{}".format(p.struct_doi))
         else:
@@ -97,7 +97,7 @@ def peptoid(code):
     for residue in peptoid.peptoid_residue:
         residues.append(residue)
 
-    sequence = ", ".join([r.nomenclature for r in residues])
+    sequence = ", ".join([r.long_name for r in residues])
     author_list = ", ".join([a.last_name for a in authors])
     # rendering html template
     return render_template('peptoid.html',
@@ -114,11 +114,11 @@ def peptoid(code):
         author_list=author_list
     )
 
-# residue route for residue, nomenclature = var, returns home.html (gallery view)
+# residue route for residue, name = var, returns home.html (gallery view)
 @bp.route('/residue/<var>')
 def residue(var):
     initial_peps = {}
-    residue = Residue.query.filter_by((Residue.long_name == var) | (Author.short_name == var)).first_or_404()
+    residue = Residue.query.filter((Residue.long_name == var) | (Residue.short_name == var)).first_or_404()
     #making dictionary of release date keys and Peptoid values
     for p in residue.peptoids:
         initial_peps[p.release] = p
@@ -223,7 +223,7 @@ def sequence(var):
 
     # getting peptoids with the same equence
     for p in Peptoid.query.all():
-        if var == ",".join([r.nomenclature for r in p.peptoid_residue]):
+        if var == ",".join([r.long_name for r in p.peptoid_residue]):
             initial_peps[p.release] = p
 
     # making chron order of keys
