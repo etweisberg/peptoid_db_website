@@ -9,7 +9,7 @@
         "Length": "5",
         "Publication doi": "10.1021/ja037540r",
         "Release": "10/11/2003",
-        "Sequence": "Nsch\nNsch\nNsch\nNsch\nNsch",
+        "Sequence": "(S)-N-(1-cyclohexylethyl)glycine\n(S)-N-(1-cyclohexylethyl)glycine\n(S)-N-(1-cyclohexylethyl)glycine\n(S)-N-(1-cyclohexylethyl)glycine\n(S)-N-(1-cyclohexylethyl)glycine",
         "Structure doi": "10.5517/cc7jql1",
         "Title": "Polyproline Type I-Like Pentamer (a-chiral aliphatic side chains)",
         "Topology": "A"
@@ -24,7 +24,7 @@
         "Length": "9",
         "Publication doi": "10.1021/ja0574318",
         "Release": "1/14/2006",
-        "Sequence": "Nspe\nNspe\nNspe\nNspe\nNspe\nNspe\nNspe\nNspe\nNspe",
+        "Sequence": "(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine",
         "Structure doi": "",
         "Title": "Threaded Loop Nonamer (a-chiral aromatic side chains)",
         "Topology": "A"
@@ -39,7 +39,7 @@
         "Length": "6",
         "Publication doi": "10.1021/ja066960o",
         "Release": " 02/27/2007",
-        "Sequence": "Nme\nNpm\nNme\nNpm\nNme\nNpm",
+        "Sequence": "N-(methoxyethyl)glycine\nN-(phenylmethyl)glycine\nN-(methoxyethyl)glycine\nN-(phenylmethyl)glycine\nN-(methoxyethyl)glycine\nN-(phenylmethyl)glycine",
         "Structure doi": "10.5517/cc9xh6w",
         "Title": "N-Alkyl Cyclic Hexamer",
         "Topology": "C"
@@ -54,7 +54,7 @@
         "Length": "8",
         "Publication doi": "10.1021/ja066960o",
         "Release": " 02/27/2007",
-        "Sequence": "Nme\nNpm\nNme\nNpm\nNme\nNpm\nNme\nNpm",
+        "Sequence": "N-(methoxyethyl)glycine\nN-(phenylmethyl)glycine\nN-(methoxyethyl)glycine\nN-(phenylmethyl)glycine\nN-(methoxyethyl)glycine\nN-(phenylmethyl)glycine\nN-(methoxyethyl)glycine\nN-(phenylmethyl)glycine",
         "Structure doi": "10.5517/ccpn8q9",
         "Title": "N-Alkyl Cyclic Octamer",
         "Topology": "C"
@@ -69,7 +69,7 @@
         "Length": "4",
         "Publication doi": "10.1021/ol7030763",
         "Release": "02/06/2008",
-        "Sequence": "betaNpa\nbetaNpa\nbetaNpa\nbetaNpa",
+        "Sequence": "N-(propargyl)beta-alanine\nN-(propargyl)beta-alanine\nN-(propargyl)beta-alanine\nN-(propargyl)beta-alanine",
         "Structure doi": "10.5517/ccr0q1h",
         "Title": "Cyclic β-Peptoid Tetramer (propargyl side chains)",
         "Topology": "C"
@@ -114,7 +114,7 @@
         "Length": "6",
         "Publication doi": "10.1021/ja804580n",
         "Release": "11/17/2008",
-        "Sequence": "Nspe\nNspe\nNph\nNspe\nNspe\nNph",
+        "Sequence": "(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\nN-(phenyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\nN-(phenyl)glycine",
         "Structure doi": "",
         "Title": "N-Aryl/N-Alkyl Cyclic Hexamer",
         "Topology": "C"
@@ -129,7 +129,7 @@
         "Length": "2",
         "Publication doi": "10.1021/ja804580n",
         "Release": "11/17/2008",
-        "Sequence": "N-(4-hydroxy-3-nitrophenyl)glycine\nNph",
+        "Sequence": "N-(4-hydroxy-3-nitrophenyl)glycine\nN-(phenyl)glycine",
         "Structure doi": "10.5517/cc1jxq7d",
         "Title": "N-Aryl Linear Dimer",
         "Topology": "A"
@@ -144,7 +144,7 @@
         "Length": "3",
         "Publication doi": "10.1021/jo101075a",
         "Release": " 08/19/2010",
-        "Sequence": "Nph\nN-(2-acetamidophenyl)glycine\nN-(2-hydroxyphenyl)glycine",
+        "Sequence": "N-(phenyl)glycine\nN-(2-acetamidophenyl)glycine\nN-(2-hydroxyphenyl)glycine",
         "Structure doi": "10.5517/ccw92t1",
         "Title": "ortho-Substituted N-Aryl Linear Trimer",
         "Topology": "A"
@@ -189,7 +189,7 @@
         "Length": "8",
         "Publication doi": "10.1007/s00726-011-0887-1",
         "Release": "04/02/2011",
-        "Sequence": "Nspe\nN-(benzoxyethyl)beta-alanine\nNspe\nbetaNspe\nNspe\nN-(benzoxyethyl)beta-alanine\nNspe\nbetaNspe",
+        "Sequence": "(S)-N-(1-phenylethyl)glycine\nN-(benzoxyethyl)beta-alanine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)beta-alanine\n(S)-N-(1-phenylethyl)glycine\nN-(benzoxyethyl)beta-alanine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)beta-alanine",
         "Structure doi": "10.5517/ccwbpql",
         "Title": "Cyclic α,β-Peptoid Octamer",
         "Topology": "C"
@@ -204,7 +204,7 @@
         "Length": "2",
         "Publication doi": "10.1021/ja2028684",
         "Release": " 06/02/2011",
-        "Sequence": "",
+        "Sequence": "N-(2-methylphenyl)glycine\nN-(2-(methoxycarbonyl)phenyl)glycine",
         "Structure doi": "10.5517/ccy39z9",
         "Title": "N-Aryl Linear Dimer Atropisomer (1)",
         "Topology": "A"
@@ -219,7 +219,7 @@
         "Length": "2",
         "Publication doi": "10.1021/ja2028684",
         "Release": " 06/02/2011",
-        "Sequence": "",
+        "Sequence": "N-(2-iodophenyl)glycine\nN-(2-(methoxycarbonyl)phenyl)glycine",
         "Structure doi": "10.5517/ccy3b0c",
         "Title": "N-Aryl Linear Dimer Atropisomer (2)",
         "Topology": "A"
@@ -234,7 +234,7 @@
         "Length": "3",
         "Publication doi": "10.1021/ja2028684",
         "Release": " 06/02/2011",
-        "Sequence": "",
+        "Sequence": "N-(2-tert-butylphenyl)glycine\nN-(2-iodophenyl)glycine\nN-(2-(methoxycarbonyl)phenyl)glycine",
         "Structure doi": "10.5517/ccy3b1d",
         "Title": "N-Aryl Linear Trimer Enanotiomeric Pair",
         "Topology": "A"
@@ -249,7 +249,7 @@
         "Length": "2",
         "Publication doi": "10.1021/ja204755p",
         "Release": "08/24/2011",
-        "Sequence": "Ns1npe\nNs1npe",
+        "Sequence": "(S)-N-(1-Naphthylethyl)glycine\n(S)-N-(1-Naphthylethyl)glycine",
         "Structure doi": "10.5517/ccvftmp",
         "Title": "N-1-Naphthylethyl Linear Dimer",
         "Topology": "A"
@@ -264,7 +264,7 @@
         "Length": "3",
         "Publication doi": "10.1021/ja204755p",
         "Release": "08/24/2011",
-        "Sequence": "Ns1npe\nNs1npe\nNs1npe",
+        "Sequence": "(S)-N-(1-Naphthylethyl)glycine\n(S)-N-(1-Naphthylethyl)glycine\n(S)-N-(1-Naphthylethyl)glycine",
         "Structure doi": "10.5517/ccvftkm",
         "Title": "N-1-Naphthylethyl Linear Trimer",
         "Topology": "A"
@@ -279,7 +279,7 @@
         "Length": "4",
         "Publication doi": "10.1021/ja204755p",
         "Release": " 08/24/2011",
-        "Sequence": "Ns1npe\nNs1npe\nNs1npe\nNs1npe",
+        "Sequence": "(S)-N-(1-Naphthylethyl)glycine\n(S)-N-(1-Naphthylethyl)glycine\n(S)-N-(1-Naphthylethyl)glycine\n(S)-N-(1-Naphthylethyl)glycine",
         "Structure doi": "10.5517/ccvftln",
         "Title": "N-1-Naphthylethyl Helical Tetramer",
         "Topology": "A"
@@ -294,7 +294,7 @@
         "Length": "2",
         "Publication doi": "10.1021/ol203452f",
         "Release": "01/24/2012",
-        "Sequence": "N-(1-naphthyl)glycine\nNs1npe",
+        "Sequence": "N-(1-naphthyl)glycine\n(S)-N-(1-Naphthylethyl)glycine",
         "Structure doi": "10.5517/ccyjdsm",
         "Title": "N-Aryl/N-Alkyl Linear Dimer Atropisomer",
         "Topology": "A"
@@ -309,7 +309,7 @@
         "Length": "6",
         "Publication doi": "10.1021/ol203452f",
         "Release": " 01/24/2012",
-        "Sequence": "Npm\nNpm\nN-(1-naphthyl)glycine\nNpm\nNpm\nN-(1-naphthyl)glycine",
+        "Sequence": "N-(phenylmethyl)glycine\nN-(phenylmethyl)glycine\nN-(1-naphthyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine\nN-(1-naphthyl)glycine",
         "Structure doi": "10.5517/ccyjdtn",
         "Title": "N-Aryl/N-Alkyl Cyclic Hexamer Atropisomer",
         "Topology": "C"
@@ -324,7 +324,7 @@
         "Length": "8",
         "Publication doi": "10.1039/C2SC20473H",
         "Release": " 06/18/2012",
-        "Sequence": "",
+        "Sequence": "N-(propargyl)glycine(triazole:5)\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine\nN-(azidopropyl)glycine(triazole:1)\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine",
         "Structure doi": "10.5517/ccyg3m3",
         "Title": "Bicyclic Octamer (Two Conformers)",
         "Topology": "M"
@@ -339,7 +339,7 @@
         "Length": "16",
         "Publication doi": "10.1039/C2SC20473H",
         "Release": " 06/18/2012",
-        "Sequence": "",
+        "Sequence": "N-(propargyl)glycine(triazole:13)\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine\nN-(azidopropyl)glycine(triazole:9)\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine\nTER\nN-(propargyl)glycine(triazole:5)\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine\nN-(azidopropyl)glycine(triazole:1)\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine",
         "Structure doi": "10.5517/ccyg3n4",
         "Title": "Multicyclic Hexadecamer (Doubly-Crosslinked Cyclic Octamers)",
         "Topology": "M"
@@ -354,7 +354,7 @@
         "Length": "3",
         "Publication doi": "10.1073/pnas.1209945109",
         "Release": " 07/12/2012",
-        "Sequence": "Nspe\nNspe\nNspe",
+        "Sequence": "(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine",
         "Structure doi": "10.5517/ccywy4w",
         "Title": "Phenylethyl Linear Trimer",
         "Topology": "A"
@@ -369,7 +369,7 @@
         "Length": "9",
         "Publication doi": "10.1073/pnas.1209945109",
         "Release": " 07/12/2012",
-        "Sequence": "Nspe\nNspe\nNspe\nNspe\nNspe\nNspe\nNspe\nNspe\nNspe",
+        "Sequence": "(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine",
         "Structure doi": "10.5517/ccywy3v",
         "Title": "(S)-N-(1-Phenylethyl) Cyclic Nonamer",
         "Topology": "C"
@@ -384,7 +384,7 @@
         "Length": "6",
         "Publication doi": "10.1021/ol3034143",
         "Release": " 01/18/2013",
-        "Sequence": "",
+        "Sequence": "Proline\nN-(methoxyethyl)glycine\nProline\nN-(methoxyethyl)glycine\nProline\nN-(methoxyethyl)glycine",
         "Structure doi": "10.5517/ccz46dp",
         "Title": "Proline Substituted Cyclic Hexamer Sodium Complex",
         "Topology": "C"
@@ -399,7 +399,7 @@
         "Length": "6",
         "Publication doi": "10.1021/ol3034143",
         "Release": " 01/18/2013",
-        "Sequence": "",
+        "Sequence": "N-(methoxyethyl)glycine\nN-(methoxyethyl)glycine\nN-(methoxyethyl)glycine\nN-(methoxyethyl)glycine\nN-(methoxyethyl)glycine\nN-(methoxyethyl)glycine",
         "Structure doi": "10.5517/ccdc.csd.ccz46fq",
         "Title": "N-Methoxyethyl Cyclic Hexamer Sodium Complex",
         "Topology": "C"
@@ -414,7 +414,7 @@
         "Length": "6",
         "Publication doi": "10.1021/ol3034143",
         "Release": " 01/18/2013",
-        "Sequence": "",
+        "Sequence": "N-(methoxyethyl)glycine\nN-(methoxyethyl)glycine\nN-(methoxyethyl)glycine\nN-(methoxyethyl)glycine\nN-(methoxyethyl)glycine\nN-(methoxyethyl)glycine",
         "Structure doi": "10.5517/ccz46gr",
         "Title": "N-Methoxyethyl Cyclic Hexamer",
         "Topology": "C"
@@ -429,7 +429,7 @@
         "Length": "6",
         "Publication doi": "10.1039/C3CC37163H",
         "Release": " 02/12/2013",
-        "Sequence": "",
+        "Sequence": "N-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine\nN-(propargyl)glycine\nN-(methoxyethyl)glycine\nN-(phenyl)glycine\nN-(phenyl)glycine\nN-(propargyl)glycine",
         "Structure doi": "10.5517/ccyspx9",
         "Title": "Cyclic Octamer Nanotube (Reversible Water Loading)",
         "Topology": "C"
@@ -444,7 +444,7 @@
         "Length": "6",
         "Publication doi": "10.1002/anie.201208630",
         "Release": " 04/09/2013",
-        "Sequence": "",
+        "Sequence": "N-(3,5-dimethylphenyl)glycine\n(S)-N-(1-Naphthylethyl)glycine\nN-(2,6-dimethylphenyl)glycine\n(S)-N-(1-Naphthylethyl)glycine\nN-(4-fluorophenyl)glycine\n(S)-N-(1-Naphthylethyl)glycine",
         "Structure doi": "",
         "Title": "N-1-Naphthylethyl/N-Aryl Ribbon Hexamer",
         "Topology": "A"
@@ -459,7 +459,7 @@
         "Length": "2",
         "Publication doi": "10.1002/anie.201208630",
         "Release": " 04/09/2013",
-        "Sequence": "",
+        "Sequence": "N-(phenyl)glycine\n(S)-N-(1-Naphthylethyl)glycine",
         "Structure doi": "10.5517/ccy54s0",
         "Title": "N-1-Naphthylethyl/N-Aryl Linear Dimer",
         "Topology": "A"
@@ -474,7 +474,7 @@
         "Length": "3",
         "Publication doi": "10.1002/anie.201208630",
         "Release": " 04/09/2013",
-        "Sequence": "",
+        "Sequence": "(S)-N-(1-Naphthylethyl)glycine\nN-(phenyl)glycine\n(S)-N-(1-Naphthylethyl)glycine",
         "Structure doi": "10.5517/ccy54rz",
         "Title": "N-1-Naphthylethyl/N-Aryl Linear Trimer",
         "Topology": "A"
@@ -489,7 +489,7 @@
         "Length": "4",
         "Publication doi": "10.1002/anie.201208630",
         "Release": " 04/09/2013",
-        "Sequence": "",
+        "Sequence": "N-(2,6-dimethylphenyl)glycine\n(S)-N-(1-Naphthylethyl)glycine\nN-(phenyl)glycine\n(S)-N-(1-Naphthylethyl)glycine",
         "Structure doi": "10.5517/ccy54qy",
         "Title": "N-1-Naphthylethyl/N-Aryl Ribbon Tetramer",
         "Topology": "A"
@@ -504,7 +504,7 @@
         "Length": "2",
         "Publication doi": "10.1021/ol400820y",
         "Release": " 04/16/2013",
-        "Sequence": "",
+        "Sequence": "N-(tert-butyl)glycine\nN-(tert-butyl)glycine",
         "Structure doi": "10.5517/cc10p865",
         "Title": "N–tert-Butyl Linear Dimer",
         "Topology": "A"
@@ -519,7 +519,7 @@
         "Length": "4",
         "Publication doi": "10.1021/ol401478j",
         "Release": " 06/27/2013",
-        "Sequence": "",
+        "Sequence": "(S)-N-(1-phenylethyl)beta-alanine\nN-(propargyl)beta-alanine\n(S)-N-(1-phenylethyl)beta-alanine\nN-(propargyl)beta-alanine",
         "Structure doi": "10.5517/cc112419",
         "Title": "α,β-Cyclic Tetramer (N-Cα Branched Side Chain)",
         "Topology": "C"
@@ -534,7 +534,7 @@
         "Length": "4",
         "Publication doi": "10.1039/C3CE42456A",
         "Release": "2/10/2014",
-        "Sequence": "",
+        "Sequence": "N-(phenylmethyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine",
         "Structure doi": "10.5517/cc11lfhk",
         "Title": "N-Benzyl Cyclic Tetramer",
         "Topology": "C"
@@ -549,7 +549,7 @@
         "Length": "6",
         "Publication doi": "10.1038/ncomms8013",
         "Release": "5/6/2015",
-        "Sequence": "",
+        "Sequence": "(S)-N-(1-Naphthylehtyl)beta-alanine\n(S)-N-(1-Naphthylehtyl)beta-alanine\n(S)-N-(1-Naphthylehtyl)beta-alanine\n(S)-N-(1-Naphthylehtyl)beta-alanine\n(S)-N-(1-Naphthylehtyl)beta-alanine\n(S)-N-(1-Naphthylehtyl)beta-alanine",
         "Structure doi": "10.5517/ccdc.csd.cc14cy7p",
         "Title": "β-Peptoid Triangular Helix",
         "Topology": "A"
@@ -564,7 +564,7 @@
         "Length": "3",
         "Publication doi": "10.1021/acs.orglett.6b01283",
         "Release": "5/23/2016",
-        "Sequence": "",
+        "Sequence": "(S)-N-(1-Naphthylethyl)glycine\n(R)-N-(1-Naphthylethyl)glycine\n(S)-N-(1-Naphthylethyl)glycine",
         "Structure doi": "10.5517/ccdc.csd.cc1m0v8r",
         "Title": "ω-Strand",
         "Topology": "A"
@@ -579,7 +579,7 @@
         "Length": "6",
         "Publication doi": "10.1107/S2052520617002505",
         "Release": "2/13/2017",
-        "Sequence": "",
+        "Sequence": "N-(methoxyethyl)glycine\nN-(methoxyethyl)glycine\nN-(propargyl)glycine\nN-(methoxyethyl)glycine\nN-(methoxyethyl)glycine\nN-(propargyl)glycine",
         "Structure doi": "10.5517/ccdc.csd.cc1mndh5",
         "Title": "Cyclic hexamer with propargyl and methoxyethyl side chains",
         "Topology": "C"
@@ -609,7 +609,7 @@
         "Length": "7",
         "Publication doi": "10.1021/jacs.7b07475",
         "Release": "10/07/2017",
-        "Sequence": "",
+        "Sequence": "N-(tert-butyl)glycine\nN-(tert-butyl)glycine\n(S)-N-(1-tert-butylethyl)glycine\n(S)-N-(1-tert-butylethyl)glycine\n(S)-N-(1-tert-butylethyl)glycine\n(S)-N-(1-tert-butylethyl)glycine\nN-(tert-butyl)glycine\nN-(tert-butyl)glycine",
         "Structure doi": "10.5517/ccdc.csd.cc1pdnc3",
         "Title": "Helical Heptamer (chiral alkyl side chains)",
         "Topology": "A"
@@ -624,7 +624,7 @@
         "Length": "5",
         "Publication doi": "10.1021/jacs.7b07475",
         "Release": "10/07/2017",
-        "Sequence": "",
+        "Sequence": "(S)-N-(1-tert-butylethyl)glycine\n(S)-N-(1-tert-butylethyl)glycine\n(S)-N-(1-tert-butylethyl)glycine\n(S)-N-(1-tert-butylethyl)glycine\n(S)-N-(1-tert-butylethyl)glycine",
         "Structure doi": "10.5517/ccdc.csd.cc1pdnb2",
         "Title": "Helical Pentamer (chiral alkyl side chains)",
         "Topology": "A"
@@ -639,7 +639,7 @@
         "Length": "5",
         "Publication doi": "10.1021/jacs.7b02319",
         "Release": "5/24/2017",
-        "Sequence": "",
+        "Sequence": "(S)-N-(1-Naphthylethyl)glycine\nN-(3,5-dimethylphenyl)glycine\n(R)-N-(1-Naphthylethyl)glycine\nN-(phenyl)glycine\n(S)-N-(1-Naphthylethyl)glycine",
         "Structure doi": "",
         "Title": "Ribbon Pentamer",
         "Topology": "A"
@@ -654,7 +654,7 @@
         "Length": "8",
         "Publication doi": "10.1021/jacs.7b02319",
         "Release": "5/24/2017",
-        "Sequence": "",
+        "Sequence": "N-(2,6-dimethylphenyl)glycine\n(R)-N-(1-Naphthylethyl)glycine\nN-(4-fluorophenyl)glycine\n(S)-N-(1-Naphthylethyl)glycine\nN-(3,5-dimethylphenyl)glycine\n(R)-N-(1-Naphthylethyl)glycine\nN-(phenyl)glycine\n(S)-N-(1-Naphthylethyl)glycine",
         "Structure doi": "",
         "Title": "Square Helical Octamer",
         "Topology": "A"
@@ -669,7 +669,7 @@
         "Length": "3",
         "Publication doi": "10.1021/ol501102b",
         "Release": "5/5/2014",
-        "Sequence": "",
+        "Sequence": "N-(phenylmethyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine",
         "Structure doi": "10.5517/cc12thp2",
         "Title": "Cyclic Trimer (aromatic side chains)",
         "Topology": "C"
@@ -684,7 +684,7 @@
         "Length": "5",
         "Publication doi": "10.1021/ol501102b",
         "Release": "5/5/2014",
-        "Sequence": "",
+        "Sequence": "N-(phenylmethyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine",
         "Structure doi": "10.5517/cc12thlz",
         "Title": "Cyclic Pentamer",
         "Topology": "C"
@@ -699,7 +699,7 @@
         "Length": "4",
         "Publication doi": "10.1021/ol501102b",
         "Release": "5/5/2014",
-        "Sequence": "",
+        "Sequence": "N-(phenylmethyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine",
         "Structure doi": "10.5517/cc12thn1",
         "Title": "Cyclic Tetramer",
         "Topology": "C"
@@ -714,7 +714,7 @@
         "Length": "6",
         "Publication doi": "10.1021/acs.joc.7b00965",
         "Release": "08/1/2017",
-        "Sequence": "",
+        "Sequence": "N-isopropylglycine\nN-isopropylglycine\nN-isopropylglycine\nN-isopropylglycine\nN-isopropylglycine\nN-isopropylglycine",
         "Structure doi": "10.5517/ccdc.csd.cc1ntr07",
         "Title": "Cyclic Hexamer (isopropyl side chains)",
         "Topology": "C"
@@ -729,7 +729,7 @@
         "Length": "6",
         "Publication doi": "10.1021/acs.joc.7b00965",
         "Release": "08/1/2017",
-        "Sequence": "",
+        "Sequence": "N-isopropylglycine\nN-(phenylmethyl)glycine\nN-isopropylglycine\nN-(phenylmethyl)glycine\nN-isopropylglycine\nN-(phenylmethyl)glycine",
         "Structure doi": "10.5517/ccdc.csd.cc1ntr18",
         "Title": "Cyclic Hexamer (benzyl and isopropyl side chains)",
         "Topology": "C"
@@ -744,7 +744,7 @@
         "Length": "6",
         "Publication doi": "10.1021/acs.joc.7b00965",
         "Release": "08/1/2017",
-        "Sequence": "",
+        "Sequence": "N-(phenylmethyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine",
         "Structure doi": "10.5517/ccdc.csd.cc1ntr29",
         "Title": "Cyclic Hexamer (benzyl and tert-butyl side chains)",
         "Topology": "C"
@@ -759,7 +759,7 @@
         "Length": "3",
         "Publication doi": "10.1039/C6CC00375C",
         "Release": "2/17/2016",
-        "Sequence": "",
+        "Sequence": "N-(tert-butyl)glycine\nN-(tert-butyl)glycine\nN-(tert-butyl)glycine",
         "Structure doi": "10.5517/cc1kfp2r",
         "Title": "N-tert-Butyl Linear Trimer",
         "Topology": "A"
@@ -774,7 +774,7 @@
         "Length": "5",
         "Publication doi": "10.1039/C6CC00375C",
         "Release": "2/17/2016",
-        "Sequence": "",
+        "Sequence": "N-(tert-butyl)glycine\nN-(tert-butyl)glycine\nN-(tert-butyl)glycine\nN-(tert-butyl)glycine\nN-(tert-butyl)glycine",
         "Structure doi": "10.5517/cc1kj1ty",
         "Title": "N-tert-Butyl Linear Pentamer",
         "Topology": "A"
@@ -789,7 +789,7 @@
         "Length": "7",
         "Publication doi": "10.1039/c8sc04240c",
         "Release": "11/5/2018",
-        "Sequence": "",
+        "Sequence": "N-(2-carboxyethyl)glycine\nN-(2-aminoethyl)glycine\nN-(2-hydroxyethyl)glycine\n(S)-N-(1-phenylethyl)glycine\nN-carboxymethylglycine\nN-(phenylmethyl)glycine\nAlanine",
         "Structure doi": "",
         "Title": "Cubane-Binding Linear Heptamer",
         "Topology": "A"
@@ -804,7 +804,7 @@
         "Length": "3",
         "Publication doi": "10.1039/c8sc04240c",
         "Release": "11/5/2018",
-        "Sequence": "",
+        "Sequence": "N-carboxymethylglycine\nN-(phenylmethyl)glycine\nAlanine",
         "Structure doi": "",
         "Title": "Cubane-Binding Linear Trimer",
         "Topology": "A"
@@ -819,7 +819,7 @@
         "Length": "2",
         "Publication doi": "10.1021/acs.joc.8b00606",
         "Release": "6/4/2018",
-        "Sequence": "",
+        "Sequence": "N-(phenyl)beta-alanine\nN-(tert-butyl)glycine",
         "Structure doi": "10.5517/ccdc.csd.cc1z77dv",
         "Title": "β-α Dimer",
         "Topology": "A"
@@ -834,7 +834,7 @@
         "Length": "8",
         "Publication doi": "10.1021/acs.cgd.8b01137",
         "Release": "11/30/2018",
-        "Sequence": "",
+        "Sequence": "N-(methoxyethyl)glycine\nN-(propargyl)glycine\nN-(propargyl)glycine\nN-(propargyl)glycine\nN-(methoxyethyl)glycine\nN-(propargyl)glycine\nN-(propargyl)glycine\nN-(propargyl)glycine",
         "Structure doi": "10.5517/ccdc.csd.cc20b0w8",
         "Title": "Cyclic Octamer (propargyl and methoxyethyl side chains)",
         "Topology": "C"
@@ -849,7 +849,7 @@
         "Length": "2",
         "Publication doi": "10.1039/c9cc02335f",
         "Release": "5/29/2019",
-        "Sequence": "",
+        "Sequence": "N-(phenylmethyl)glycine\nN-(phenylmethyl)glycine",
         "Structure doi": "10.5517/ccdc.csd.cc21xl1m",
         "Title": "Linear Dimer (benzyl side chains)",
         "Topology": "A"
@@ -864,7 +864,7 @@
         "Length": "3",
         "Publication doi": "10.1002/anie.201800583",
         "Release": "6/19/2018",
-        "Sequence": "",
+        "Sequence": "N-(phenylmethyl)glycine\nN-(methoxyethyl)glycine\nN-{2-[([2,2’-bipyridin]-6-yl)oxy]ethyl}glycine",
         "Structure doi": "10.5517/ccdc.csd.cc1q8hdw",
         "Title": "Copper(II)-Binding Linear Trimer (methoxyethyl side chain)",
         "Topology": "A"
@@ -879,7 +879,7 @@
         "Length": "3",
         "Publication doi": "10.1002/anie.201800583",
         "Release": "6/19/2018",
-        "Sequence": "",
+        "Sequence": "N-(phenylmethyl)glycine\nN-(2-aminoethyl)glycine\nN-{2-[([2,2’-bipyridin]-6-yl)oxy]ethyl}glycine",
         "Structure doi": "10.5517/ccdc.csd.cc1q8hfx",
         "Title": "Copper(II)-Binding Linear Trimer (aminoethyl side chain)",
         "Topology": "A"
@@ -894,7 +894,7 @@
         "Length": "3",
         "Publication doi": "10.1002/anie.201800583",
         "Release": "6/19/2018",
-        "Sequence": "",
+        "Sequence": "N-(phenylmethyl)glycine\nN-(2-hydroxyethyl)glycine\nN-{2-[([2,2’-bipyridin]-6-yl)oxy]ethyl}glycine",
         "Structure doi": "10.5517/ccdc.csd.cc1pbkdz",
         "Title": "Copper(II)-Binding Linear Trimer (hydroxyethyl side chain)",
         "Topology": "A"
@@ -909,7 +909,7 @@
         "Length": "6",
         "Publication doi": "10.1021/acs.joc.9b01509",
         "Release": "7/24/2019",
-        "Sequence": "",
+        "Sequence": "(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine",
         "Structure doi": "10.5517/ccdc.csd.cc224g3t",
         "Title": "(S)-N-(1-Phenylethyl) Cyclic Hexamer",
         "Topology": "C"
@@ -924,7 +924,7 @@
         "Length": "4",
         "Publication doi": "10.1021/acs.joc.9b01509",
         "Release": "7/24/2019",
-        "Sequence": "",
+        "Sequence": "(S)-N-(1-phenylethyl)glycine\nN-(phenylmethyl)glycine\n(S)-N-(1-phenylethyl)glycine\nN-(phenylmethyl)glycine",
         "Structure doi": "10.5517/ccdc.csd.cc224g4v",
         "Title": "Cyclic Tetramer (alternating chiral and achiral side chains)",
         "Topology": "C"
@@ -939,7 +939,7 @@
         "Length": "8",
         "Publication doi": "10.1021/acs.joc.9b01509",
         "Release": "7/24/2019",
-        "Sequence": "",
+        "Sequence": "(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine\n(S)-N-(1-phenylethyl)glycine",
         "Structure doi": "10.5517/ccdc.csd.cc224g5w",
         "Title": "Square Cyclic Octamer ((S)-N-(1-Phenylethyl) side chains)",
         "Topology": "C"
@@ -954,7 +954,7 @@
         "Length": "4",
         "Publication doi": "10.1021/acs.joc.9b01509",
         "Release": "7/24/2019",
-        "Sequence": "",
+        "Sequence": "(S)-N-(1-phenylethyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine",
         "Structure doi": "10.5517/ccdc.csd.cc224g6x",
         "Title": "Cyclic Tetramer (one chiral side chain)",
         "Topology": "C"

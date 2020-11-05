@@ -3,6 +3,8 @@ import datetime
 from app import app, db
 from app.models import Peptoid, Author, Residue
 
+from tqdm import tqdm
+
 database = open('Structure.json','r')
 database = json.loads(database.read())
 authors =[]
@@ -13,7 +15,9 @@ residue_db = open('Residue.json','r')
 residue_db = json.loads(residue_db.read())
 residue_objects = {}
 
-for res in residue_db:
+print('Establishing residues')
+
+for res in tqdm(residue_db):
     residue_objects[res['Long name']]=Residue(
         long_name=res['Long name'],
         short_name=res['Short name'],
@@ -21,10 +25,13 @@ for res in residue_db:
         SMILES = res["SMILES"]
     )
 
+
 for res in residue_objects:
     db.session.add(residue_objects[res])
 
-for pep in database:
+print('Collecting authors')
+
+for pep in tqdm(database):
     a = pep["Authors"].split('\n')
     for auth in a:
         if auth not in authors:
@@ -41,10 +48,13 @@ for author in authors:
 for author in author_objects:
     db.session.add(author_objects[author])
 
-for i in range(len(database)):
+print('Instantiating peptoids')
+
+for i in tqdm(range(len(database))):
     rel = database[i]["Release"]
     dates = rel.split('/')
     authors = database[i]["Authors"].split('\n')
+    residues = database[i]["Sequence"].split('\n')
     peptoid_objects[i] = Peptoid(
         image='pep.png',
         title=database[i]['Title'],
@@ -56,6 +66,7 @@ for i in range(len(database)):
         topology=database[i]["Topology"]
     )
     peptoid_objects[i].peptoid_author.extend([author_objects[a] for a in authors])
+    peptoid_objects[i].peptoid_residue.extend([residue_objects[r] for r in residues])
 
 for i in range(len(peptoid_objects)):
     db.session.add(peptoid_objects[i])
