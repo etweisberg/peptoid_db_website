@@ -218,7 +218,7 @@
     {
         "Short name": "Ala",
         "Long name": "Alanine",
-        "SMILES": "*C[C@@H](C(=O)O)N*",
+        "SMILES": "*N[C@@H](C)C(=O)*",
         "field4": "",
         "field5": "",
         "field6": "",

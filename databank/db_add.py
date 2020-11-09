@@ -65,7 +65,6 @@ for i in range(len(database)):
         struct_doi=database[i]["Structure doi"],
         topology=database[i]["Topology"]
     )
-    print(peptoid_objects[i])
     peptoid_objects[i].peptoid_author.extend([author_objects[a] for a in authors])
     peptoid_objects[i].peptoid_residue.extend([residue_objects[r] for r in residues])
     db.session.add(peptoid_objects[i])
