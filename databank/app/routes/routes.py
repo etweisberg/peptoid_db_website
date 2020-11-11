@@ -57,7 +57,7 @@ def residues():
 def search():
     form = SearchForm()
     if form.validate_on_submit():
-        flash('{cat} search requested for {term}'.format(cat=form.option.data.upper(), term=form.search.data),
+        flash('{cat} search for <{term}>'.format(cat=form.option.data.upper(), term=form.search.data),
         'success')
         var = form.search.data
         if '/' in var:
