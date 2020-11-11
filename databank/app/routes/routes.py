@@ -20,10 +20,7 @@ def get_home(peptoids):
         peptoid_titles.append(p.title)
         peptoid_urls.append(url_for('routes.peptoid',code=p.code))
         # images.append(url_for('static',filename = p.code + '.png'))
-        residues = []
-        for residue in p.peptoid_residue:
-            residues.append(residue)
-        peptoid_sequences.append(", ".join([r.long_name for r in residues]))
+        peptoid_sequences.append(p.sequence)
         if p.experiment == 'X-Ray Diffraction':
             data.append("https://www.doi.org/{}".format(p.struct_doi))
         else:
@@ -97,7 +94,7 @@ def peptoid(code):
     for residue in peptoid.peptoid_residue:
         residues.append(residue)
 
-    sequence = ", ".join([r.long_name for r in residues])
+    sequence = peptoid.sequence
     author_list = ", ".join([a.last_name for a in authors])
     # rendering html template
     return render_template('peptoid.html',

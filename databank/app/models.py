@@ -32,6 +32,7 @@ class Peptoid(db.Model):
     pub_doi = db.Column(db.String(32), index=True, unique=False)
     struct_doi = db.Column(db.String(32), index=True, unique=False)
     topology = db.Column(db.String(1), index=True, unique=False)
+    sequence = db.Column(db.String(1024), index=True, unique=False)
 
     peptoid_author = db.relationship('Author', secondary=peptoid_author, lazy='dynamic',
                                      backref=db.backref('peptoids'))
@@ -94,7 +95,7 @@ class Residue(db.Model):
     def to_dict(self):
         data = {
             'id': self.id,
-            'nomenclature': self.nomenclature,
+            'nomenclature': self.long_name,
             'type': self.pep_type,
             'CSD ID':self.CSD,
             'SMILES':self.SMILES,

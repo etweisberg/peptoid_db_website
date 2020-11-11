@@ -50,7 +50,7 @@ for author in tqdm(author_objects):
 
 print('Instantiating peptoids')
 
-for i in range(len(database)):
+for i in tqdm(range(len(database))):
     rel = database[i]["Release"]
     dates = rel.split('/')
     authors = database[i]["Authors"].split('\n')
@@ -63,7 +63,8 @@ for i in range(len(database)):
         experiment=database[i]["Experiment"],
         pub_doi=database[i]["Publication doi"],
         struct_doi=database[i]["Structure doi"],
-        topology=database[i]["Topology"]
+        topology=database[i]["Topology"],
+        sequence=", ".join(residues)
     )
     peptoid_objects[i].peptoid_author.extend([author_objects[a] for a in authors])
     peptoid_objects[i].peptoid_residue.extend([residue_objects[r] for r in residues])
