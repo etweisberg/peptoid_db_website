@@ -13,9 +13,7 @@ class SearchForm(FlaskForm):
         ('author','Search by an author'),
         ('topology','Search by a topology type'),
         ('experiment','Search by an experimental technique'),
-        ('doi',"Search by DOI"),
-        ('sequence', "Search for a specific sequence"),
-        ('author_list',"Search for a specific list of authors")
+        ('doi',"Search by DOI")
         ])
     search = StringField('Enter a search term', validators=[DataRequired()])
     submit = SubmitField('Go')

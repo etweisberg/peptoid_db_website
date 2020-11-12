@@ -5,13 +5,13 @@ from app import limiter
 
 
 @bp.route('/peptoids/<code>', methods=['GET'])
-@limiter.limit("1 per minute")
+@limiter.limit("10 per minute")
 def get_peptoid(code):
     return jsonify(Peptoid.query.get_or_404(code).to_dict())
 
 
 @bp.route('/peptoids', methods=['GET'])
-@limiter.limit("1 per minute")
+@limiter.limit("10 per minute")
 def get_peptoids():
     data = {}
     for p in Peptoid.query.all():
@@ -20,7 +20,7 @@ def get_peptoids():
 
 
 @bp.route('/peptoids/<code>/residues', methods=['GET'])
-@limiter.limit("1 per minute")
+@limiter.limit("10 per minute")
 def get_residues(code):
     dict = {}
     i = 1
@@ -31,7 +31,7 @@ def get_residues(code):
 
 
 @bp.route('/peptoids/<code>/authors', methods=['GET'])
-@limiter.limit("1 per minute")
+@limiter.limit("10 per minute")
 def get_authors(code):
     dict = {}
     i = 1
