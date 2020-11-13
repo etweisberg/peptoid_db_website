@@ -16,7 +16,7 @@
 - graphene
 - graphene-sqlalchemy
 
-For simplicity use the following commands to install the required packages with pip
+For simplicity, use the following commands to install the required packages with pip
 ```shell
 cd databank
 pip install -r requirements.txt
