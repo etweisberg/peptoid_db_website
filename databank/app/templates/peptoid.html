@@ -110,11 +110,9 @@
             <div class = 'row'>
                 <div class = "col-sm">
                     <div class = "col text-center">
-                    <div class = 'btn-group' role = 'group' aria-label="Residues">
                     {% for auth in authors %}
-                    <a class="btn btn-primary" href = {{ url_for('routes.author',var = auth.last_name)}}>{{ auth.first_name }} {{ auth.last_name }}</a>
+                    <a class="btn btn-primary" href = {{ url_for('routes.author',var = auth.last_name)}} style = "margin-top:10px;">{{ auth.first_name }} {{ auth.last_name }}</a>
                     {% endfor %}
-                    </div>
                     </div>
                 </div>
             </div>
@@ -153,11 +151,9 @@
         <div class = 'row'>
             <div class = "col-sm">
                 <div class = "col text-center">
-                    <div class = 'btn-group' role = 'group' aria-label="Residues">
                     {% for res in residues %}
-                    <a class="btn btn-primary" href ='{{ url_for('routes.residues') }}#{{res.long_name}}'>{{ res.long_name }}</a>
+                    <a class="btn btn-primary" href ='{{ url_for('routes.residues') }}#{{res.long_name}}' style = "margin-top:10px;">{{ res.long_name }}</a>
                     {% endfor %}
-                    </div>
                 </div>
             </div>
         </div> 

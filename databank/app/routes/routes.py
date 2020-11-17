@@ -100,7 +100,7 @@ def peptoid(code):
         residues.append(residue)
 
     sequence = peptoid.sequence
-    author_list = ", ".join([a.last_name for a in authors])
+    author_list = ", ".join([a.first_name + " " + a.last_name for a in authors])
     # rendering html template
     return render_template('peptoid.html',
         peptoid=peptoid,
