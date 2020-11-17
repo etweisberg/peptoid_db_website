@@ -3,8 +3,6 @@ import datetime
 from app import app, db
 from app.models import Peptoid, Author, Residue
 
-from tqdm import tqdm
-
 database = open('Structure.json','r')
 database = json.loads(database.read())
 authors =[]
@@ -15,7 +13,6 @@ residue_db = open('Residue.json','r')
 residue_db = json.loads(residue_db.read())
 residue_objects = {}
 
-print('Establishing residues')
 
 for res in residue_db:
     residue_objects[res['Long name']]=Residue(
@@ -26,10 +23,9 @@ for res in residue_db:
     )
 
 
-for res in tqdm(residue_objects):
+for res in residue_objects:
     db.session.add(residue_objects[res])
 
-print('Collecting authors')
 
 for pep in database:
     a = pep["Authors"].split('\n')
@@ -45,12 +41,11 @@ for author in authors:
         last_name=names[0]
     )
 
-for author in tqdm(author_objects):
+for author in author_objects:
     db.session.add(author_objects[author])
 
-print('Instantiating peptoids')
 
-for i in tqdm(range(len(database))):
+for i in range(len(database)):
     rel = database[i]["Release"]
     dates = rel.split('/')
     authors = database[i]["Authors"].split('\n')
