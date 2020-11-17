@@ -11,7 +11,8 @@ RUN venv/bin/pip install gunicorn pymysql
 
 COPY app app
 COPY migrations migrations
-COPY db_add.py databank.py config.py boot.sh ./
+COPY app.db app.db
+COPY databank.py config.py boot.sh ./
 RUN chmod a+x boot.sh
 
 ENV FLASK_APP databank.py
