@@ -52,7 +52,7 @@ class Peptoid(db.Model):
                 'self': url_for('api.get_peptoid', code=self.code),
                 'residues': url_for('api.get_residues', code=self.code),
                 'authors': url_for('api.get_authors', code=self.code),
-                'image': url_for('static', filename=self.image)
+                'image': url_for('static', filename=self.code[:5]+'.png')
             }
         }
         return data
