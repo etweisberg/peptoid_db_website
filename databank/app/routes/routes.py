@@ -71,7 +71,7 @@ def search():
     return render_template('search.html',
     title='Search',
     form=form,
-    info='Filter by a specific property. To search for a specific sequence or author list separate residues/author last names by commas.',
+    info='Filter by any property from the choices below.',
     description='Peptoid Data Bank - Explore by property')
 
 @bp.route('/peptoid/<code>')
