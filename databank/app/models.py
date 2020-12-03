@@ -14,9 +14,9 @@ peptoid_author = db.Table('peptoid-author',
 # peptoid-residue helper table
 peptoid_residue = db.Table('peptoid-residue',
                            db.Column('peptoid_id', db.Integer, db.ForeignKey(
-                               'peptoid.code'), primary_key=True),
+                               'peptoid.code'), unique=False),
                            db.Column('residue_id', db.Integer, db.ForeignKey(
-                               'residue.id'), primary_key=True)
+                               'residue.id'), unique=False)
                            )
 
 # peptoid table: image file name, title to display on page, data base code, release date,
@@ -25,12 +25,14 @@ peptoid_residue = db.Table('peptoid-residue',
 
 class Peptoid(db.Model):
     code = db.Column(db.String(16), primary_key=True)
-    image = db.Column(db.Text, index=True, unique=True)
-    title = db.Column(db.Text, index=True, unique=True)
-    release = db.Column(db.DateTime, index=True, unique=True)
+    image = db.Column(db.Text, index=True, unique=False)
+    title = db.Column(db.Text, index=True, unique=False)
+    release = db.Column(db.DateTime, index=True, unique=False)
     experiment = db.Column(db.Text, index=True, unique=False)
-    doi = db.Column(db.String(32), index=True, unique=True)
+    pub_doi = db.Column(db.String(32), index=True, unique=False)
+    struct_doi = db.Column(db.String(32), index=True, unique=False)
     topology = db.Column(db.String(1), index=True, unique=False)
+    sequence = db.Column(db.String(1024), index=True, unique=False)
 
     peptoid_author = db.relationship('Author', secondary=peptoid_author, lazy='dynamic',
                                      backref=db.backref('peptoids'))
@@ -43,13 +45,14 @@ class Peptoid(db.Model):
             'title': self.title,
             'release': self.release,
             'experiment': self.experiment,
-            'doi': self.doi,
+            'pub_doi': self.pub_doi,
+            'struct_doi': self.struct_doi,
             'topology': self.topology,
             '_links': {
                 'self': url_for('api.get_peptoid', code=self.code),
                 'residues': url_for('api.get_residues', code=self.code),
                 'authors': url_for('api.get_authors', code=self.code),
-                'image': url_for('static', filename=self.image)
+                'image': url_for('static', filename=self.code[:5]+'.png')
             }
         }
         return data
@@ -61,8 +64,8 @@ class Peptoid(db.Model):
 # authors table: first name and last name
 class Author(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.Text, index=True, unique=True)
-    last_name = db.Column(db.Text, index=True, unique=True)
+    first_name = db.Column(db.Text, index=True, unique=False)
+    last_name = db.Column(db.Text, index=True, unique=False)
 
     def to_dict(self):
         data = {
@@ -83,17 +86,16 @@ class Author(db.Model):
 
 class Residue(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    nomenclature = db.Column(db.Text, index=True, unique=True)
+    long_name = db.Column(db.Text, index=True, unique=False)
+    short_name = db.Column(db.Text, index=True, unique=False)
     pep_type = db.Column(db.Text, index=True, unique=False)
-    # made false for tech demo
     CSD = db.Column(db.Text, index=True, unique=False)
-    # made false for tech demo
     SMILES = db.Column(db.Text, index=True, unique=False)
 
     def to_dict(self):
         data = {
             'id': self.id,
-            'nomenclature': self.nomenclature,
+            'nomenclature': self.long_name,
             'type': self.pep_type,
             'CSD ID':self.CSD,
             'SMILES':self.SMILES,
@@ -104,4 +106,4 @@ class Residue(db.Model):
         return data
 
     def __repr__(self):
-        return '<Residue {}>'.format(self.nomenclature)
+        return '<Residue {}>'.format(self.long_name)

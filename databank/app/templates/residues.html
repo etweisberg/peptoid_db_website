@@ -4,6 +4,7 @@
 {% block styles %}
 {{super()}}
 <link rel="stylesheet" href="{{url_for('static', filename='bootstrap-grid.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='images.css')}}" />
 {% endblock %}
 
 {% block app_content%}
@@ -16,7 +17,8 @@
 </div>
 
 {% for residue in residues%}
-<div class="card" style = 'width: 100%;
+<a id= {{ residue.long_name }} style='pointer-events: none; cursor: default; color:black;'>    
+    <div class="card" style = 'width: 100%;
         margin-right: auto;
         margin-left: auto;
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
@@ -24,7 +26,10 @@
         background-color: #f8f9fa !important;
         border-radius: 0.25rem !important;'>
         <div class="card-body">
-            <h3><mark>{{ residue.nomenclature }}</mark></h3>
+            <div class = "header">
+            <h2>{{ residue.long_name }}</h2>
+            </div>
+            <img src="{{url_for('static',filename='residue.png')}}" class = 'img-responsive' style = "margin: auto; height:35%">
             <div class="container">
                 <div class="row">
                     <div class="col-sm">
@@ -33,7 +38,7 @@
                         </div>
                     </div>
                     <div class="col-sm">
-                        <div class="col text-left">
+                        <div class="col text-right">
                             <h4>{{ residue.pep_type }}</h4>
                         </div>
                     </div>
@@ -45,25 +50,26 @@
                             </div>
                         </div>
                         <div class="col-sm">
-                            <div class="col text-left">
+                            <div class="col text-right">
                                 <h4>{{ residue.SMILES }}</h4>
                             </div>
                         </div>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                         <div class="col-sm">
                             <div class="col text-left">
                                 <h4>CSD Link</h4>
                             </div>
                         </div>
                         <div class="col-sm">
-                            <div class="col text-left">
+                            <div class="col text-right">
                                 <a target = '_blank' class="btn btn-success" href = {{"https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid={code}&DatabaseToSearch=Published".format(code = residue.CSD)}}>CSD</a>
                             </div>
                         </div>
-                </div>
+                </div> -->
         </div>
         </div>
         </div>
+</a>
 {% endfor %}
 {% endblock %}
