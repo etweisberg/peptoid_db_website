@@ -1,10 +1,7 @@
-# importing important route-related flask functions
+# importing important route-related flask functions, form for searching database, database models, blueprint for routes
 from flask import render_template, flash, redirect, url_for, abort
-# importing form for searching database
 from app.routes.forms import SearchForm, ApiRequest
-# importing database models
 from app.models import Peptoid, Author, Residue
-#importing blueprint
 from app.routes import bp
 
 def get_home(peptoids):
@@ -119,6 +116,8 @@ def peptoid(code):
 # residue route for residue, name = var, returns home.html (gallery view)
 @bp.route('/residue/<var>')
 def residue(var):
+    if var == 'null':
+        return render_template('404.html')
     initial_peps = {}
     residue = Residue.query.filter((Residue.long_name == var) | (Residue.short_name == var)).first_or_404()
     #making dictionary of release date keys and Peptoid values

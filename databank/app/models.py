@@ -41,7 +41,6 @@ class Peptoid(db.Model):
 
     def to_dict(self):
         data = {
-            'id': self.code,
             'title': self.title,
             'release': self.release,
             'experiment': self.experiment,
@@ -69,7 +68,6 @@ class Author(db.Model):
 
     def to_dict(self):
         data = {
-            'id': self.id,
             'first_name': self.first_name,
             'last_name': self.last_name,
             '_links':{}
@@ -94,8 +92,8 @@ class Residue(db.Model):
 
     def to_dict(self):
         data = {
-            'id': self.id,
-            'nomenclature': self.long_name,
+            'full_nomenclature': self.long_name,
+            'short_name': self.short_name,
             'type': self.pep_type,
             'CSD ID':self.CSD,
             'SMILES':self.SMILES,
