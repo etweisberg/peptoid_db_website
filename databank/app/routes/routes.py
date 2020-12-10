@@ -12,7 +12,7 @@ def get_home(peptoids):
     peptoid_sequences = []
     images = []
     data = []
-    
+
     for p in peptoids:
         peptoid_codes.append(p.code)
         peptoid_titles.append(p.title)
@@ -118,18 +118,8 @@ def peptoid(code):
 def residue(var):
     if var == 'null':
         return render_template('404.html')
-    initial_peps = {}
     residue = Residue.query.filter((Residue.long_name == var) | (Residue.short_name == var)).first_or_404()
-    #making dictionary of release date keys and Peptoid values
-    for p in residue.peptoids:
-        initial_peps[p.release] = p
-    #sorting list of datetime keys
-    chronological = []
-    for key in initial_peps.keys():
-        chronological.append(key)
-    chronological = sorted(chronological, reverse = True)
-    #generating list of peptoid proerties using sorted list
-    properties = get_home([initial_peps[date] for date in chronological])
+    properties = get_home([p for p in residue.peptoids])
 
     return render_template('home.html',
             title = 'Filtered by Residue: ' + var,
@@ -146,7 +136,6 @@ def residue(var):
 # returns home.html (gallery view)
 @bp.route('/author/<var>')
 def author(var):
-    initial_peps = {}
 
     if "," in var:
         name_split = var.split(', ')
@@ -156,18 +145,8 @@ def author(var):
     else:
         author = Author.query.filter((Author.first_name == var) | (Author.last_name == var)).first_or_404()
 
-    # making dictionary of release date keys and Peptoid values
-    for p in author.peptoids:
-        initial_peps[p.release] = p
-
-    # sorting list of datetime keys
-    chronological = []
-    for key in initial_peps.keys():
-        chronological.append(key)
-    chronological = sorted(chronological, reverse = True)
-
     #generating peptoids according to sorted list date keys
-    properties = get_home([initial_peps[date] for date in chronological])
+    properties = get_home([p for p in author.peptoids])
 
     return render_template('home.html',
             title = 'Filtered by Author: ' + var,
@@ -183,7 +162,7 @@ def author(var):
 @bp.route('/experiment/<var>')
 def experiment(var):
     properties = get_home([p for p in Peptoid.query.order_by(Peptoid.release.desc()).filter_by(experiment = var).all()])
-    
+
     if len(properties[0]) == 0:
         abort(404)
 
@@ -209,71 +188,6 @@ def doi(var):
 
     return render_template('home.html',
             title = 'Filtered by DOI: ' + var,
-            peptoid_codes = properties[0],
-            peptoid_urls = properties[1],
-            peptoid_titles = properties[2],
-            peptoid_sequences = properties[3],
-            images = properties[4],
-            data = properties[5]
-        )
-
-# sequence route for Peptoid residues in a sequence
-@bp.route('/sequence/<var>')
-def sequence(var):
-    initial_peps = {}
-
-    # getting peptoids with the same equence
-    for p in Peptoid.query.all():
-        if var == ",".join([r.long_name for r in p.peptoid_residue]):
-            initial_peps[p.release] = p
-
-    # making chron order of keys
-    chronological = []
-    for key in initial_peps.keys():
-        chronological.append(key)
-    chronological = sorted(chronological, reverse = True)
-
-    #appending peptoids according to reverse chron order
-    properties = get_home([initial_peps[date] for date in chronological])
-    
-    if len(properties[0]) == 0:
-        abort(404)
-
-    # returning home
-    return render_template('home.html',
-            title = 'Filtered by Sequence: ' + var,
-            peptoid_codes = properties[0],
-            peptoid_urls = properties[1],
-            peptoid_titles = properties[2],
-            peptoid_sequences = properties[3],
-            images = properties[4],
-            data = properties[5]
-        )
-
-@bp.route('/author-list/<var>')
-def author_list(var):
-    initial_peps = {}
-
-    # getting peptoids with the same equence
-    for p in Peptoid.query.all():
-        if var == ",".join([a.last_name for a in p.peptoid_author]):
-            initial_peps[p.release] = p
-
-    # making chron order of keys
-    chronological = []
-    for key in initial_peps.keys():
-        chronological.append(key)
-    chronological = sorted(chronological, reverse = True)
-
-    #appending peptoids according to reverse chron order
-    properties = get_home([initial_peps[date] for date in chronological])
-    
-    if len(properties[0]) == 0:
-        abort(404)
-
-    # returning home
-    return render_template('home.html',
-            title = 'Filtered by Author List: ' + var,
             peptoid_codes = properties[0],
             peptoid_urls = properties[1],
             peptoid_titles = properties[2],

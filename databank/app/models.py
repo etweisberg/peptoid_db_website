@@ -35,9 +35,9 @@ class Peptoid(db.Model):
     sequence = db.Column(db.String(1024), index=True, unique=False)
 
     peptoid_author = db.relationship('Author', secondary=peptoid_author, lazy='dynamic',
-                                     backref=db.backref('peptoids'))
+                                     backref=db.backref('peptoids',order_by='Peptoid.release.desc()'))
     peptoid_residue = db.relationship('Residue', secondary=peptoid_residue, lazy='dynamic',
-                                      backref=db.backref('peptoids'))
+                                      backref=db.backref('peptoids',order_by='Peptoid.release.desc()'))
 
     def to_dict(self):
         data = {
