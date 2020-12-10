@@ -5,7 +5,7 @@
         "SMILES": "*N([C@@H](C)C1CCCCC1)CC(=O)*",
         "field4": "10.1021/ja037540r",
         "CSD": "",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -14,7 +14,7 @@
         "SMILES": "*N([C@H](C)C1CCCCC1)CC(=O)*",
         "field4": "10.1021/ja037540r",
         "CSD": "UMAYEM",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -23,7 +23,7 @@
         "SMILES": "*N([C@@H](C)CC)CC(=O)*",
         "field4": "10.1021/ja037540r",
         "CSD": "",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -32,7 +32,7 @@
         "SMILES": "*N([C@H](C)CC)CC(=O)*",
         "field4": "10.1021/ja037540r",
         "CSD": "",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -41,7 +41,7 @@
         "SMILES": "*N([C@@H](C)c1ccccc1)CC(=O)*",
         "field4": "10.1021/ja0574318",
         "CSD": "",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -50,7 +50,7 @@
         "SMILES": "*N([C@H](C)c1ccccc1)CC(=O)*",
         "field4": "10.1021/ja0574318",
         "CSD": "",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -59,7 +59,7 @@
         "SMILES": "*N(Cc1ccccc1)CC(=O)*",
         "field4": "10.1021/ja066960o",
         "CSD": "HEYZER",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -68,7 +68,7 @@
         "SMILES": "*N(CCOC)CC(=O)*",
         "field4": "10.1021/ja066960o",
         "CSD": "HEYZER",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -77,7 +77,7 @@
         "SMILES": "*N(CCOc1ccccc1)CC(=O)*",
         "field4": "10.1039/B806508J",
         "CSD": "OGAZUS",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -86,7 +86,7 @@
         "SMILES": "*N(c1ccccc1)CC(=O)*",
         "field4": "10.1021/ja804580n",
         "CSD": "GUXMUJ",
-        "field6": "10.5517/ccw92qy",
+        "monomer structure": "10.5517/ccw92qy",
         "Backbone": "alpha"
     },
     {
@@ -95,7 +95,7 @@
         "SMILES": "*N(c1cc(N(=O)=O)c(O)cc1)CC(=O)*",
         "field4": "10.1021/ja804580n",
         "CSD": "GUXMUJ",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -104,7 +104,7 @@
         "SMILES": "*N(c1c(O)cccc1)CC(=O)*",
         "field4": "10.1021/jo101075a",
         "CSD": "UCUCAY",
-        "field6": "10.5517/ccw92s0",
+        "monomer structure": "10.5517/ccw92s0",
         "Backbone": "alpha"
     },
     {
@@ -113,7 +113,7 @@
         "SMILES": "*N(c1c(NC(=O)C)cccc1)CC(=O)*",
         "field4": "10.1021/jo101075a",
         "CSD": "UCUCAY",
-        "field6": "10.5517/ccw92rz",
+        "monomer structure": "10.5517/ccw92rz",
         "Backbone": "alpha"
     },
     {
@@ -122,7 +122,7 @@
         "SMILES": "*N(O)CC(=O)*",
         "field4": "10.1002/bip.21599",
         "CSD": "KAKYOM",
-        "field6": "10.5517/ccvr9nj",
+        "monomer structure": "10.5517/ccvr9nj",
         "Backbone": "alpha"
     },
     {
@@ -131,7 +131,7 @@
         "SMILES": "*N([C@@H](C)C1CCCCC1)CCC(=O)*",
         "field4": "10.1007/s00726-011-0887-1",
         "CSD": "UWUFUO",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "beta"
     },
     {
@@ -140,7 +140,7 @@
         "SMILES": "*N(CCOc1ccccc1)CCC(=O)*",
         "field4": "10.1007/s00726-011-0887-1",
         "CSD": "UWUFUO",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "beta"
     },
     {
@@ -149,7 +149,7 @@
         "SMILES": "*N(c1c(C)cccc1)CC(=O)*",
         "field4": "10.1021/ja2028684",
         "CSD": "GAMWAU",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -158,7 +158,7 @@
         "SMILES": "*N(c1c(I)cccc1)CC(=O)*",
         "field4": "10.1021/ja2028684",
         "CSD": "GAMWEY",
-        "field6": "10.5517/ccy39y8",
+        "monomer structure": "10.5517/ccy39y8",
         "Backbone": "alpha"
     },
     {
@@ -167,7 +167,7 @@
         "SMILES": "*N(c1c(C(C)(C)C)cccc1)CC(=O)*",
         "field4": "10.1021/ja2028684",
         "CSD": "GAMWIC",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -176,7 +176,7 @@
         "SMILES": "*N([C@@H](C)c1cccc2ccccc21)CC(=O)*",
         "field4": "10.1021/ja204755p",
         "CSD": "KALWAX",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -185,7 +185,7 @@
         "SMILES": "*N(c1cccc2ccccc21)CC(=O)*",
         "field4": "10.1021/ol203452f",
         "CSD": "ZATJAH",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -194,7 +194,7 @@
         "SMILES": "*N(CCCN=N=N)CC(=O)*",
         "field4": "10.1039/C2SC20473H",
         "CSD": "VEJGEY",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -203,7 +203,7 @@
         "SMILES": "*N(CC#C)CC(=O)*",
         "field4": "10.1039/C2SC20473H",
         "CSD": "VEJGEY",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -212,7 +212,7 @@
         "SMILES": "*N1CCC[C@@H]1C(=O)*",
         "field4": "10.1021/ol3034143",
         "CSD": "ZEWRIE",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -221,7 +221,7 @@
         "SMILES": "*N[C@@H](C)C(=O)*",
         "field4": "",
         "CSD": "",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -230,7 +230,7 @@
         "SMILES": "*N(c1c(C)cccc1(C))CC(=O)*",
         "field4": "10.1002/anie.201208630",
         "CSD": "",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -239,7 +239,7 @@
         "SMILES": "*N(c1cc(C)cc(C)c1)CC(=O)*",
         "field4": "10.1002/anie.201208630",
         "CSD": "",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -248,7 +248,7 @@
         "SMILES": "*N(c1ccc(F)cc1)CC(=O)*",
         "field4": "10.1002/anie.201208630",
         "CSD": "",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -257,7 +257,7 @@
         "SMILES": "*N(C(C)(C)C)CC(=O)*",
         "field4": "10.1021/ol400820y",
         "CSD": "QICFEP",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -266,7 +266,7 @@
         "SMILES": "*N(CC#C)CCC(=O)*",
         "field4": "10.1021/ol7030763",
         "CSD": "CIYBUI",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "beta"
     },
     {
@@ -275,7 +275,7 @@
         "SMILES": "*N([C@@H](C)c1cccc2ccccc21)CCC(=O)*",
         "field4": "10.1038/ncomms8013",
         "CSD": "ITECOB",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "beta"
     },
     {
@@ -284,7 +284,7 @@
         "SMILES": "*N([C@H](C)c1cccc2ccccc21)CC(=O)*",
         "field4": "10.1021/acs.orglett.6b01283",
         "CSD": "IPUQAN",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -293,7 +293,7 @@
         "SMILES": "*N(CC=C)CC(=O)*",
         "field4": "10.1016/j.tetlet.2003.10.214",
         "CSD": "ASUXOB",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -302,7 +302,7 @@
         "SMILES": "*N([C@@H](C)C(C)(C)C)CC(=O)*",
         "field4": "10.1021/jacs.7b07475",
         "CSD": "ACEVIQ",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -311,7 +311,7 @@
         "SMILES": "*N(C(C)C)CC(=O)*",
         "field4": "10.1021/acs.joc.7b00965",
         "CSD": "QECCXEE",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -320,7 +320,7 @@
         "SMILES": "*N(c1ccccc1)CCC(=O)*",
         "field4": "10.1021/acs.joc.8b00606",
         "CSD": "LIDMET",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "beta"
     },
     {
@@ -329,7 +329,7 @@
         "SMILES": "*N(CC(=O)O)CC(=O)*",
         "field4": "10.1039/c8sc04240c",
         "CSD": "",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -338,7 +338,7 @@
         "SMILES": "*N(CCN)CC(=O)*",
         "field4": "10.1039/c8sc04240c",
         "CSD": "",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -347,7 +347,7 @@
         "SMILES": "*N(CCO)CC(=O)*",
         "field4": "10.1039/c8sc04240c",
         "CSD": "",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -356,7 +356,7 @@
         "SMILES": "*N(CCC(=O)O)CC(=O)*",
         "field4": "10.1039/c8sc04240c",
         "CSD": "",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -365,7 +365,7 @@
         "SMILES": "*N(CCN(C)(C)C)CC(=O)*",
         "field4": "10.1021/jacs.9b10497",
         "CSD": "VOXHIC",
-        "field6": "10.5517/ccdc.csd.cc242d9y",
+        "monomer structure": "10.5517/ccdc.csd.cc242d9y",
         "Backbone": "alpha"
     },
     {
@@ -374,7 +374,7 @@
         "SMILES": "*N(c1c(C(=O)OC)cccc1)CC(=O)*",
         "field4": "10.1021/ja2028684",
         "CSD": "GAMVOH",
-        "field6": "10.5517/ccy39x7",
+        "monomer structure": "10.5517/ccy39x7",
         "Backbone": "alpha"
     },
     {
@@ -383,7 +383,7 @@
         "SMILES": "*N(C(C(C)C))CC(=O)*",
         "field4": "10.1021/acs.joc.7b00965",
         "CSD": "QECXOO",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -392,7 +392,7 @@
         "SMILES": "*N(CCO(c1Nc(c1Ncccc1)ccc1))CC(=O)*",
         "field4": "10.1002/anie.201800583",
         "CSD": "HEZBAS",
-        "field6": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     }
 ]
