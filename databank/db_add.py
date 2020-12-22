@@ -18,7 +18,7 @@ for res in residue_db:
     residue_objects[res['Long name']]=Residue(
         long_name=res['Long name'],
         short_name=res['Short name'],
-        CSD = res['CSD'],
+        monomer_structure=res['monomer structure'],
         pep_type=res["Backbone"],
         SMILES = res["SMILES"]
     )

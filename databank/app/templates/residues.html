@@ -17,7 +17,7 @@
 </div>
 
 {% for residue in residues%}
-<a id={{ residue.long_name }} style='pointer-events: none; cursor: default; color:black;'>
+<a id={{ residue.long_name }} style='pointer-events: none; cursor: default; color:black; text-decoration: none;'>
     <div class="card" style='width: 100%;
         margin-right: auto;
         margin-left: auto;
@@ -68,18 +68,21 @@
                         </div>
                     </div>
                 </div>
+                {% if residue.monomer_structure != '' %}
                 <div class="row">
                     <div class="col-sm">
                         <div class="col text-left">
-                            <h4>CSD Identifier</h4>
+                            <h4>Monomer Structure</h4>
                         </div>
                     </div>
                     <div class="col-sm">
                         <div class="col text-right">
-                            <h4>{{ residue.CSD }}</h4>
-                        </div>
+                            <a target = '_blank' class="btn btn-success" href = {{"https://doi.org/{doi}".format(doi = residue.monomer_structure)}}>{{residue.monomer_structure}}</a>
                     </div>
                 </div>
+              </div>
+              {% else %}
+              {% endif %}
                 <!-- <div class="row">
                         <div class="col-sm">
                             <div class="col text-left">

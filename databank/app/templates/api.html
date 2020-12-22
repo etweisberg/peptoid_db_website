@@ -98,34 +98,40 @@
     </h4>
   </div>
 </div>
-<div>
+<div
+  class="card"
+  style="
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    padding: 1rem !important;
+    margin-bottom: 3rem !important;
+    background-color: #f8f9fa !important;
+    border-radius: 0.25rem !important;
+  "
+>
+<div class="card-body">
   <h1>Code Snippet</h1>
-  <script src="https://gist.github.com/etweisberg/5189e27d66b109124c9a2bdbc7d1e1d3.js"></script>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col"></div>
-    <div class="col-8">
-      <h1>Request all peptoids</h1>
-      <a
-        target="_blank"
-        class="btn btn-default"
-        href="{{ url_for('api.get_peptoids') }}"
-        >Request</a
-      >
-    </div>
-    <div class="col"></div>
+  <div class="row" style="padding-bottom: 20px;">
+  <div class="col text-center">
+    <a
+      type="button"
+      class="btn btn-primary btn-lg"
+      href="https://gist.github.com/etweisberg/5189e27d66b109124c9a2bdbc7d1e1d3#file-api-py"
+      target="_blank"
+      >Python Example</a
+    >
   </div>
 </div>
-<div class="container">
-  <div class="row">
-    <div class="col"></div>
-    <div class="col-8">
-      <h1>Request peptoid information</h1>
-      {{ wtf.quick_form(form) }}
-    </div>
-    <div class="col"></div>
+    <div class="row" style="padding-bottom: 20px;">
+    <div class="col text-center">
+    <iframe height="400px" width="100%" src="https://repl.it/@etweisberg/PeptoidDB-API?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
   </div>
+</div>
+  </div>
+</div>
+</div>
 </div>
 <br />
 <br />

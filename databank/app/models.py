@@ -87,7 +87,7 @@ class Residue(db.Model):
     long_name = db.Column(db.Text, index=True, unique=False)
     short_name = db.Column(db.Text, index=True, unique=False)
     pep_type = db.Column(db.Text, index=True, unique=False)
-    CSD = db.Column(db.Text, index=True, unique=False)
+    monomer_structure = db.Column(db.Text, index=True, unique=False)
     SMILES = db.Column(db.Text, index=True, unique=False)
 
     def to_dict(self):
@@ -95,9 +95,9 @@ class Residue(db.Model):
             'full_nomenclature': self.long_name,
             'short_name': self.short_name,
             'type': self.pep_type,
-            'CSD ID': self.CSD,
-            'SMILES': self.SMILES,
-            '_links': {}
+            'monomer_structure':self.monomer_structure,
+            'SMILES':self.SMILES,
+            '_links':{}
         }
         for p in self.peptoids:
             data['_links'][p.code] = url_for('api.get_peptoid', code=p.code)
