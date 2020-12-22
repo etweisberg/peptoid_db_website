@@ -221,10 +221,4 @@ def about():
 
 @bp.route('/api', methods=['GET', 'POST'])
 def api():
-    form = ApiRequest()
-    if form.validate_on_submit():
-        var = form.search.data
-        if '/' in var:
-            var = var.replace('/', '$')
-        return redirect(url_for('api.get_peptoid', code=var))
-    return render_template('api.html', title ="PeptoidDB API", form = form)
+    return render_template('api.html', title ="PeptoidDB API")
