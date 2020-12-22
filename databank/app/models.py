@@ -35,9 +35,9 @@ class Peptoid(db.Model):
     sequence = db.Column(db.String(1024), index=True, unique=False)
 
     peptoid_author = db.relationship('Author', secondary=peptoid_author, lazy='dynamic',
-                                     backref=db.backref('peptoids',order_by='Peptoid.release.desc()'))
+                                     backref=db.backref('peptoids', order_by='Peptoid.release.desc()'))
     peptoid_residue = db.relationship('Residue', secondary=peptoid_residue, lazy='dynamic',
-                                      backref=db.backref('peptoids',order_by='Peptoid.release.desc()'))
+                                      backref=db.backref('peptoids', order_by='Peptoid.release.desc()'))
 
     def to_dict(self):
         data = {
@@ -70,10 +70,10 @@ class Author(db.Model):
         data = {
             'first_name': self.first_name,
             'last_name': self.last_name,
-            '_links':{}
+            '_links': {}
         }
         for p in self.peptoids:
-            data['_links'][p.code]=url_for('api.get_peptoid',code=p.code)
+            data['_links'][p.code] = url_for('api.get_peptoid', code=p.code)
         return data
 
     def __repr__(self):
@@ -95,12 +95,12 @@ class Residue(db.Model):
             'full_nomenclature': self.long_name,
             'short_name': self.short_name,
             'type': self.pep_type,
-            'CSD ID':self.CSD,
-            'SMILES':self.SMILES,
-            '_links':{}
+            'CSD ID': self.CSD,
+            'SMILES': self.SMILES,
+            '_links': {}
         }
         for p in self.peptoids:
-            data['_links'][p.code]=url_for('api.get_peptoid',code=p.code)
+            data['_links'][p.code] = url_for('api.get_peptoid', code=p.code)
         return data
 
     def __repr__(self):
