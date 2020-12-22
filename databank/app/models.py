@@ -35,13 +35,12 @@ class Peptoid(db.Model):
     sequence = db.Column(db.String(1024), index=True, unique=False)
 
     peptoid_author = db.relationship('Author', secondary=peptoid_author, lazy='dynamic',
-                                     backref=db.backref('peptoids'))
+                                     backref=db.backref('peptoids', order_by='Peptoid.release.desc()'))
     peptoid_residue = db.relationship('Residue', secondary=peptoid_residue, lazy='dynamic',
-                                      backref=db.backref('peptoids'))
+                                      backref=db.backref('peptoids', order_by='Peptoid.release.desc()'))
 
     def to_dict(self):
         data = {
-            'id': self.code,
             'title': self.title,
             'release': self.release,
             'experiment': self.experiment,
@@ -69,13 +68,12 @@ class Author(db.Model):
 
     def to_dict(self):
         data = {
-            'id': self.id,
             'first_name': self.first_name,
             'last_name': self.last_name,
-            '_links':{}
+            '_links': {}
         }
         for p in self.peptoids:
-            data['_links'][p.code]=url_for('api.get_peptoid',code=p.code)
+            data['_links'][p.code] = url_for('api.get_peptoid', code=p.code)
         return data
 
     def __repr__(self):
@@ -89,20 +87,20 @@ class Residue(db.Model):
     long_name = db.Column(db.Text, index=True, unique=False)
     short_name = db.Column(db.Text, index=True, unique=False)
     pep_type = db.Column(db.Text, index=True, unique=False)
-    CSD = db.Column(db.Text, index=True, unique=False)
+    monomer_structure = db.Column(db.Text, index=True, unique=False)
     SMILES = db.Column(db.Text, index=True, unique=False)
 
     def to_dict(self):
         data = {
-            'id': self.id,
-            'nomenclature': self.long_name,
+            'full_nomenclature': self.long_name,
+            'short_name': self.short_name,
             'type': self.pep_type,
-            'CSD ID':self.CSD,
+            'monomer_structure':self.monomer_structure,
             'SMILES':self.SMILES,
             '_links':{}
         }
         for p in self.peptoids:
-            data['_links'][p.code]=url_for('api.get_peptoid',code=p.code)
+            data['_links'][p.code] = url_for('api.get_peptoid', code=p.code)
         return data
 
     def __repr__(self):

@@ -3,13 +3,13 @@ import datetime
 from app import app, db
 from app.models import Peptoid, Author, Residue
 
-database = open('Structure.json','r')
+database = open('Structure.json','r',encoding='utf-8')
 database = json.loads(database.read())
 authors =[]
 author_objects ={}
 peptoid_objects = {}
 
-residue_db = open('Residue.json','r')
+residue_db = open('Residue.json','r',encoding='utf-8')
 residue_db = json.loads(residue_db.read())
 residue_objects = {}
 
@@ -18,6 +18,7 @@ for res in residue_db:
     residue_objects[res['Long name']]=Residue(
         long_name=res['Long name'],
         short_name=res['Short name'],
+        monomer_structure=res['monomer structure'],
         pep_type=res["Backbone"],
         SMILES = res["SMILES"]
     )
