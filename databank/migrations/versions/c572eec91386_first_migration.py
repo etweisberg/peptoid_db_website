@@ -1,8 +1,8 @@
 """first migration
 
-Revision ID: 7b0cc79fb0ff
+Revision ID: c572eec91386
 Revises: 
-Create Date: 2020-11-11 14:20:06.305293
+Create Date: 2020-12-21 22:28:45.071690
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '7b0cc79fb0ff'
+revision = 'c572eec91386'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -51,13 +51,13 @@ def upgrade():
     sa.Column('long_name', sa.Text(), nullable=True),
     sa.Column('short_name', sa.Text(), nullable=True),
     sa.Column('pep_type', sa.Text(), nullable=True),
-    sa.Column('CSD', sa.Text(), nullable=True),
+    sa.Column('monomer_structure', sa.Text(), nullable=True),
     sa.Column('SMILES', sa.Text(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
-    op.create_index(op.f('ix_residue_CSD'), 'residue', ['CSD'], unique=False)
     op.create_index(op.f('ix_residue_SMILES'), 'residue', ['SMILES'], unique=False)
     op.create_index(op.f('ix_residue_long_name'), 'residue', ['long_name'], unique=False)
+    op.create_index(op.f('ix_residue_monomer_structure'), 'residue', ['monomer_structure'], unique=False)
     op.create_index(op.f('ix_residue_pep_type'), 'residue', ['pep_type'], unique=False)
     op.create_index(op.f('ix_residue_short_name'), 'residue', ['short_name'], unique=False)
     op.create_table('peptoid-author',
@@ -82,9 +82,9 @@ def downgrade():
     op.drop_table('peptoid-author')
     op.drop_index(op.f('ix_residue_short_name'), table_name='residue')
     op.drop_index(op.f('ix_residue_pep_type'), table_name='residue')
+    op.drop_index(op.f('ix_residue_monomer_structure'), table_name='residue')
     op.drop_index(op.f('ix_residue_long_name'), table_name='residue')
     op.drop_index(op.f('ix_residue_SMILES'), table_name='residue')
-    op.drop_index(op.f('ix_residue_CSD'), table_name='residue')
     op.drop_table('residue')
     op.drop_index(op.f('ix_peptoid_topology'), table_name='peptoid')
     op.drop_index(op.f('ix_peptoid_title'), table_name='peptoid')
