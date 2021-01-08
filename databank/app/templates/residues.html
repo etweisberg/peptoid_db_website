@@ -56,6 +56,7 @@
                         </div>
                     </div>
                 </div>
+                {% if residue.short_name != 'null' %}
                 <div class="row">
                     <div class="col-sm">
                         <div class="col text-left">
@@ -68,6 +69,7 @@
                         </div>
                     </div>
                 </div>
+                {% endif %}
                 {% if residue.monomer_structure != '' %}
                 <div class="row">
                     <div class="col-sm">
@@ -81,20 +83,7 @@
                     </div>
                 </div>
               </div>
-              {% else %}
               {% endif %}
-                <!-- <div class="row">
-                        <div class="col-sm">
-                            <div class="col text-left">
-                                <h4>CSD Link</h4>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="col text-right">
-                                <a target = '_blank' class="btn btn-success" href = {{"https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid={code}&DatabaseToSearch=Published".format(code = residue.CSD)}}>CSD</a>
-                            </div>
-                        </div>
-                </div> -->
             </div>
         </div>
     </div>

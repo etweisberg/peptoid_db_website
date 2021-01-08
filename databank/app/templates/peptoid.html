@@ -56,6 +56,19 @@
                 <div class="row">
                     <div class="col-sm">
                         <div class="col text-left">
+                            <h4>Publication</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="col text-left">
+                            <a target = '_blank' class="btn btn-success" href = {{"https://doi.org/{doi}".format(doi = publication)}}>{{publication}}</a>
+                        </div>
+                    </div>
+                </div>
+                {% if data != '' %}
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="col text-left">
                             <h4>Data</h4>
                         </div>
                     </div>
@@ -65,6 +78,7 @@
                         </div>
                     </div>
                 </div>
+                {% endif %}
                 <div class="row">
                     <div class="col-sm">
                         <div class="col text-left">
