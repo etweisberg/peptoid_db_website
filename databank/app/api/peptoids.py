@@ -25,7 +25,7 @@ def get_residues(code):
     dict = {}
     i = 1
     for r in Peptoid.query.get_or_404(code).peptoid_residue:
-        dict[i] = r.to_dict()
+        dict[f'Residue {i}'] = r.to_dict()
         i += 1
     return jsonify(dict)
 
@@ -36,6 +36,6 @@ def get_authors(code):
     dict = {}
     i = 1
     for a in Peptoid.query.get_or_404(code).peptoid_author:
-        dict[i] = a.to_dict()
+        dict[f'Author {i}'] = a.to_dict()
         i += 1
     return jsonify(dict)

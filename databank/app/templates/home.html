@@ -7,10 +7,15 @@ block styles %} {{super()}}
 <link rel="stylesheet" href="{{url_for('static', filename='images.css')}}" />
 {% endblock %} {# home page content #} {% block app_content %}
 <div class="jumbotron">
-  <h1 class="display-4"> {{ title }} <span class="badge badge-secondary" style='font-size: medium;'>{{ peptoid_codes.__len__() }}</span></h1>
+  <h1 class="display-4">
+    {{ title }}
+    <span class="badge badge-secondary" style="font-size: medium"
+      >{{ peptoid_codes.__len__() }}</span
+    >
+  </h1>
   <p>Peptoid Data Bank - Browse peptoid structures</p>
   <hr class="my-4" />
-  <p style="font-size: 1.5rem; font-weight: 300;">
+  <p style="font-size: 1.5rem; font-weight: 300">
     Utilize the search option, "Explore," to filter the database by specific
     peptoid properties
   </p>
@@ -19,38 +24,51 @@ block styles %} {{super()}}
 {% block additional_info %}{% endblock %}
 <div class="container">
   <div class="row block-center">
-    {% for i in range(peptoid_codes.__len__())%}
-    {% if i == (peptoid_codes.__len__()-1) %}
-    <div class = col-sm-6>
-    {% else %}
-    <div class="col-sm">
-    {% endif %}
-    <div class = "header">
-      <h2>{{ peptoid_codes[i] }}</h2>
-    </div>
-      <div class="fall-item fall-effect">
-        <img src="{{url_for('static', filename=peptoid_codes[i][:5]+'.png')}}" />
-        <div class="mask">
-          <h3>{{ peptoid_titles[i] }}</h3>
-          <h4>{{ peptoid_sequences[i] }}</h4>
-          <hr class="my-4" />
-          <p style="font-size: 1.5rem; font-weight: 300;">
-            For more information click "Read More." To view structural data click "Data."
-          </p>
-          <div class = 'btn-group' role = 'group' aria-label="Peptoid Pages">
-            <a href="{{ peptoid_urls[i] }}" class="btn btn-primary">Read More</a>
-            <a href = "{{ data[i] }}" class = "btn btn-primary" target = "_blank">Data</a>
+    {% for i in range(peptoid_codes.__len__())%} {% if i ==
+    (peptoid_codes.__len__()-1) %}
+    <div class="col-sm-6">
+      {% else %}
+      <div class="col-sm">
+        {% endif %}
+        <div class="header">
+          <h2>{{ peptoid_codes[i] }}</h2>
+        </div>
+        <div class="fall-item fall-effect">
+          <img
+            src="{{url_for('static', filename=peptoid_codes[i][:5]+'.png')}}"
+          />
+          <div class="mask">
+            <h3>{{ peptoid_titles[i] }}</h3>
+            <h4>{{ peptoid_sequences[i] }}</h4>
+            <hr class="my-4" />
+            <p style="font-size: 1.5rem; font-weight: 300">
+              For more information click "Read More." To view structural data
+              click "Data."
+            </p>
+            <div class="btn-group" role="group" aria-label="Peptoid Pages">
+              <a href="{{ peptoid_urls[i] }}" class="btn btn-primary"
+                >Read More</a
+              >
+              {% if data[i] != '' %}
+              <a href="{{ data[i] }}" class="btn btn-primary" target="_blank"
+                >Data</a
+              >
+              {% else %}
+              <a
+                href="{{ publications[i] }}"
+                class="btn btn-primary"
+                target="_blank"
+                >Publication</a
+              >
+              {% endif %}
+            </div>
           </div>
         </div>
-      </div>
       </div>
       {% if (i+1) % 2 == 0 and i != (peptoid_codes.__len__()-1)%}
     </div>
     <hr />
-    <div class="row">
-      {% endif %} 
-      {% endfor %}
-    </div>
+    <div class="row">{% endif %} {% endfor %}</div>
     <br />
     <br />
     <br />

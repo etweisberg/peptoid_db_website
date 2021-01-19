@@ -4,8 +4,8 @@
         "Long name": "(S)-N-(1-cyclohexylethyl)glycine",
         "SMILES": "*N([C@@H](C)C1CCCCC1)CC(=O)*",
         "field4": "10.1021/ja037540r",
-        "field5": "",
-        "field6": "",
+        "CSD": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -13,8 +13,8 @@
         "Long name": "(R)-N-(1-cyclohexylethyl)glycine",
         "SMILES": "*N([C@H](C)C1CCCCC1)CC(=O)*",
         "field4": "10.1021/ja037540r",
-        "field5": "UMAYEM",
-        "field6": "",
+        "CSD": "UMAYEM",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -22,8 +22,8 @@
         "Long name": "(S)-N-(2-butyl)glycine",
         "SMILES": "*N([C@@H](C)CC)CC(=O)*",
         "field4": "10.1021/ja037540r",
-        "field5": "",
-        "field6": "",
+        "CSD": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -31,8 +31,8 @@
         "Long name": "(R)-N-(2-butyl)glycine",
         "SMILES": "*N([C@H](C)CC)CC(=O)*",
         "field4": "10.1021/ja037540r",
-        "field5": "",
-        "field6": "",
+        "CSD": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -40,8 +40,8 @@
         "Long name": "(S)-N-(1-phenylethyl)glycine",
         "SMILES": "*N([C@@H](C)c1ccccc1)CC(=O)*",
         "field4": "10.1021/ja0574318",
-        "field5": "",
-        "field6": "",
+        "CSD": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -49,8 +49,8 @@
         "Long name": "(R)-N-(1-phenylethyl)glycine",
         "SMILES": "*N([C@H](C)c1ccccc1)CC(=O)*",
         "field4": "10.1021/ja0574318",
-        "field5": "",
-        "field6": "",
+        "CSD": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -58,8 +58,8 @@
         "Long name": "N-(phenylmethyl)glycine",
         "SMILES": "*N(Cc1ccccc1)CC(=O)*",
         "field4": "10.1021/ja066960o",
-        "field5": "HEYZER",
-        "field6": "",
+        "CSD": "HEYZER",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -67,8 +67,8 @@
         "Long name": "N-(methoxyethyl)glycine",
         "SMILES": "*N(CCOC)CC(=O)*",
         "field4": "10.1021/ja066960o",
-        "field5": "HEYZER",
-        "field6": "",
+        "CSD": "HEYZER",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -76,8 +76,8 @@
         "Long name": "N-(benzoxyethyl)glycine",
         "SMILES": "*N(CCOc1ccccc1)CC(=O)*",
         "field4": "10.1039/B806508J",
-        "field5": "OGAZUS",
-        "field6": "",
+        "CSD": "OGAZUS",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -85,8 +85,8 @@
         "Long name": "N-(phenyl)glycine",
         "SMILES": "*N(c1ccccc1)CC(=O)*",
         "field4": "10.1021/ja804580n",
-        "field5": "GUXMUJ",
-        "field6": "10.5517/ccw92qy",
+        "CSD": "GUXMUJ",
+        "monomer structure": "10.5517/ccw92qy",
         "Backbone": "alpha"
     },
     {
@@ -94,8 +94,8 @@
         "Long name": "N-(4-hydroxy-3-nitrophenyl)glycine",
         "SMILES": "*N(c1cc(N(=O)=O)c(O)cc1)CC(=O)*",
         "field4": "10.1021/ja804580n",
-        "field5": "GUXMUJ",
-        "field6": "",
+        "CSD": "GUXMUJ",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -103,8 +103,8 @@
         "Long name": "N-(2-hydroxyphenyl)glycine",
         "SMILES": "*N(c1c(O)cccc1)CC(=O)*",
         "field4": "10.1021/jo101075a",
-        "field5": "UCUCAY",
-        "field6": "10.5517/ccw92s0",
+        "CSD": "UCUCAY",
+        "monomer structure": "10.5517/ccw92s0",
         "Backbone": "alpha"
     },
     {
@@ -112,8 +112,8 @@
         "Long name": "N-(2-acetamidophenyl)glycine",
         "SMILES": "*N(c1c(NC(=O)C)cccc1)CC(=O)*",
         "field4": "10.1021/jo101075a",
-        "field5": "UCUCAY",
-        "field6": "10.5517/ccw92rz",
+        "CSD": "UCUCAY",
+        "monomer structure": "10.5517/ccw92rz",
         "Backbone": "alpha"
     },
     {
@@ -121,8 +121,8 @@
         "Long name": "N-hydroxyglycine",
         "SMILES": "*N(O)CC(=O)*",
         "field4": "10.1002/bip.21599",
-        "field5": "KAKYOM",
-        "field6": "10.5517/ccvr9nj",
+        "CSD": "KAKYOM",
+        "monomer structure": "10.5517/ccvr9nj",
         "Backbone": "alpha"
     },
     {
@@ -130,8 +130,8 @@
         "Long name": "(S)-N-(1-phenylethyl)beta-alanine",
         "SMILES": "*N([C@@H](C)C1CCCCC1)CCC(=O)*",
         "field4": "10.1007/s00726-011-0887-1",
-        "field5": "UWUFUO",
-        "field6": "",
+        "CSD": "UWUFUO",
+        "monomer structure": "",
         "Backbone": "beta"
     },
     {
@@ -139,8 +139,8 @@
         "Long name": "N-(benzoxyethyl)beta-alanine",
         "SMILES": "*N(CCOc1ccccc1)CCC(=O)*",
         "field4": "10.1007/s00726-011-0887-1",
-        "field5": "UWUFUO",
-        "field6": "",
+        "CSD": "UWUFUO",
+        "monomer structure": "",
         "Backbone": "beta"
     },
     {
@@ -148,8 +148,8 @@
         "Long name": "N-(2-methylphenyl)glycine",
         "SMILES": "*N(c1c(C)cccc1)CC(=O)*",
         "field4": "10.1021/ja2028684",
-        "field5": "GAMWAU",
-        "field6": "",
+        "CSD": "GAMWAU",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -157,8 +157,8 @@
         "Long name": "N-(2-iodophenyl)glycine",
         "SMILES": "*N(c1c(I)cccc1)CC(=O)*",
         "field4": "10.1021/ja2028684",
-        "field5": "GAMWEY",
-        "field6": "10.5517/ccy39y8",
+        "CSD": "GAMWEY",
+        "monomer structure": "10.5517/ccy39y8",
         "Backbone": "alpha"
     },
     {
@@ -166,8 +166,8 @@
         "Long name": "N-(2-tert-butylphenyl)glycine",
         "SMILES": "*N(c1c(C(C)(C)C)cccc1)CC(=O)*",
         "field4": "10.1021/ja2028684",
-        "field5": "GAMWIC",
-        "field6": "",
+        "CSD": "GAMWIC",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -175,8 +175,8 @@
         "Long name": "(S)-N-(1-Naphthylethyl)glycine",
         "SMILES": "*N([C@@H](C)c1cccc2ccccc21)CC(=O)*",
         "field4": "10.1021/ja204755p",
-        "field5": "KALWAX",
-        "field6": "",
+        "CSD": "KALWAX",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -184,8 +184,8 @@
         "Long name": "N-(1-naphthyl)glycine",
         "SMILES": "*N(c1cccc2ccccc21)CC(=O)*",
         "field4": "10.1021/ol203452f",
-        "field5": "ZATJAH",
-        "field6": "",
+        "CSD": "ZATJAH",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -193,8 +193,8 @@
         "Long name": "N-(azidopropyl)glycine",
         "SMILES": "*N(CCCN=N=N)CC(=O)*",
         "field4": "10.1039/C2SC20473H",
-        "field5": "VEJGEY",
-        "field6": "",
+        "CSD": "VEJGEY",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -202,8 +202,8 @@
         "Long name": "N-(propargyl)glycine",
         "SMILES": "*N(CC#C)CC(=O)*",
         "field4": "10.1039/C2SC20473H",
-        "field5": "VEJGEY",
-        "field6": "",
+        "CSD": "VEJGEY",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -211,8 +211,8 @@
         "Long name": "Proline",
         "SMILES": "*N1CCC[C@@H]1C(=O)*",
         "field4": "10.1021/ol3034143",
-        "field5": "ZEWRIE",
-        "field6": "",
+        "CSD": "ZEWRIE",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -220,8 +220,8 @@
         "Long name": "Alanine",
         "SMILES": "*N[C@@H](C)C(=O)*",
         "field4": "",
-        "field5": "",
-        "field6": "",
+        "CSD": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -229,8 +229,8 @@
         "Long name": "N-(2,6-dimethylphenyl)glycine",
         "SMILES": "*N(c1c(C)cccc1(C))CC(=O)*",
         "field4": "10.1002/anie.201208630",
-        "field5": "",
-        "field6": "",
+        "CSD": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -238,8 +238,8 @@
         "Long name": "N-(3,5-dimethylphenyl)glycine",
         "SMILES": "*N(c1cc(C)cc(C)c1)CC(=O)*",
         "field4": "10.1002/anie.201208630",
-        "field5": "",
-        "field6": "",
+        "CSD": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -247,8 +247,8 @@
         "Long name": "N-(4-fluorophenyl)glycine",
         "SMILES": "*N(c1ccc(F)cc1)CC(=O)*",
         "field4": "10.1002/anie.201208630",
-        "field5": "",
-        "field6": "",
+        "CSD": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -256,8 +256,8 @@
         "Long name": "N-(tert-butyl)glycine",
         "SMILES": "*N(C(C)(C)C)CC(=O)*",
         "field4": "10.1021/ol400820y",
-        "field5": "QICFEP",
-        "field6": "",
+        "CSD": "QICFEP",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -265,8 +265,8 @@
         "Long name": "N-(propargyl)beta-alanine",
         "SMILES": "*N(CC#C)CCC(=O)*",
         "field4": "10.1021/ol7030763",
-        "field5": "CIYBUI",
-        "field6": "",
+        "CSD": "CIYBUI",
+        "monomer structure": "",
         "Backbone": "beta"
     },
     {
@@ -274,8 +274,8 @@
         "Long name": "(S)-N-(1-Naphthylehtyl)beta-alanine",
         "SMILES": "*N([C@@H](C)c1cccc2ccccc21)CCC(=O)*",
         "field4": "10.1038/ncomms8013",
-        "field5": "ITECOB",
-        "field6": "",
+        "CSD": "ITECOB",
+        "monomer structure": "",
         "Backbone": "beta"
     },
     {
@@ -283,8 +283,8 @@
         "Long name": "(R)-N-(1-Naphthylethyl)glycine",
         "SMILES": "*N([C@H](C)c1cccc2ccccc21)CC(=O)*",
         "field4": "10.1021/acs.orglett.6b01283",
-        "field5": "IPUQAN",
-        "field6": "",
+        "CSD": "IPUQAN",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -292,8 +292,8 @@
         "Long name": "N-allylglycine",
         "SMILES": "*N(CC=C)CC(=O)*",
         "field4": "10.1016/j.tetlet.2003.10.214",
-        "field5": "ASUXOB",
-        "field6": "",
+        "CSD": "ASUXOB",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -301,8 +301,8 @@
         "Long name": "(S)-N-(1-tert-butylethyl)glycine",
         "SMILES": "*N([C@@H](C)C(C)(C)C)CC(=O)*",
         "field4": "10.1021/jacs.7b07475",
-        "field5": "ACEVIQ",
-        "field6": "",
+        "CSD": "ACEVIQ",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -310,8 +310,8 @@
         "Long name": "N-isopropylglycine",
         "SMILES": "*N(C(C)C)CC(=O)*",
         "field4": "10.1021/acs.joc.7b00965",
-        "field5": "QECCXEE",
-        "field6": "",
+        "CSD": "QECCXEE",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -319,8 +319,8 @@
         "Long name": "N-(phenyl)beta-alanine",
         "SMILES": "*N(c1ccccc1)CCC(=O)*",
         "field4": "10.1021/acs.joc.8b00606",
-        "field5": "LIDMET",
-        "field6": "",
+        "CSD": "LIDMET",
+        "monomer structure": "",
         "Backbone": "beta"
     },
     {
@@ -328,8 +328,8 @@
         "Long name": "N-carboxymethylglycine",
         "SMILES": "*N(CC(=O)O)CC(=O)*",
         "field4": "10.1039/c8sc04240c",
-        "field5": "",
-        "field6": "",
+        "CSD": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -337,8 +337,8 @@
         "Long name": "N-(2-aminoethyl)glycine",
         "SMILES": "*N(CCN)CC(=O)*",
         "field4": "10.1039/c8sc04240c",
-        "field5": "",
-        "field6": "",
+        "CSD": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -346,8 +346,8 @@
         "Long name": "N-(2-hydroxyethyl)glycine",
         "SMILES": "*N(CCO)CC(=O)*",
         "field4": "10.1039/c8sc04240c",
-        "field5": "",
-        "field6": "",
+        "CSD": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -355,8 +355,8 @@
         "Long name": "N-(2-carboxyethyl)glycine",
         "SMILES": "*N(CCC(=O)O)CC(=O)*",
         "field4": "10.1039/c8sc04240c",
-        "field5": "",
-        "field6": "",
+        "CSD": "",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -364,8 +364,8 @@
         "Long name": "N-(2-(N-trimethylammonium)ethyl)glycine",
         "SMILES": "*N(CCN(C)(C)C)CC(=O)*",
         "field4": "10.1021/jacs.9b10497",
-        "field5": "VOXHIC",
-        "field6": "10.5517/ccdc.csd.cc242d9y",
+        "CSD": "VOXHIC",
+        "monomer structure": "10.5517/ccdc.csd.cc242d9y",
         "Backbone": "alpha"
     },
     {
@@ -373,8 +373,8 @@
         "Long name": "N-(2-(methoxycarbonyl)phenyl)glycine",
         "SMILES": "*N(c1c(C(=O)OC)cccc1)CC(=O)*",
         "field4": "10.1021/ja2028684",
-        "field5": "GAMVOH",
-        "field6": "10.5517/ccy39x7",
+        "CSD": "GAMVOH",
+        "monomer structure": "10.5517/ccy39x7",
         "Backbone": "alpha"
     },
     {
@@ -382,8 +382,8 @@
         "Long name": "N-(sec-butyl)glycine",
         "SMILES": "*N(C(C(C)C))CC(=O)*",
         "field4": "10.1021/acs.joc.7b00965",
-        "field5": "QECXOO",
-        "field6": "",
+        "CSD": "QECXOO",
+        "monomer structure": "",
         "Backbone": "alpha"
     },
     {
@@ -391,8 +391,8 @@
         "Long name": "N-{2-[([2,2’-bipyridin]-6-yl)oxy]ethyl}glycine",
         "SMILES": "*N(CCO(c1Nc(c1Ncccc1)ccc1))CC(=O)*",
         "field4": "10.1002/anie.201800583",
-        "field5": "HEZBAS",
-        "field6": "",
+        "CSD": "HEZBAS",
+        "monomer structure": "",
         "Backbone": "alpha"
     }
 ]
