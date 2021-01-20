@@ -3,6 +3,7 @@ import datetime
 from app import app, db
 from app.models import Peptoid, Author, Residue
 from tqdm import tqdm
+from termcolor import colored
 
 database = open('Structure.json','r',encoding='utf-8')
 database = json.loads(database.read())
@@ -17,8 +18,8 @@ residue_objects = {}
 print('Retrieving Residues...')
 for res in tqdm(residue_db):
     if res['Long name'] == '':
-        print('Invalid Residue Long Name')
-        break
+        print(colored(f'Invalid Residue Long Name in:\n\n\t\t{res}','red'))
+        exit()
     residue_objects[res['Long name']]=Residue(
         long_name=res['Long name'],
         short_name=res['Short name'],
@@ -31,14 +32,14 @@ print('Adding Residues to DB...')
 for res in tqdm(residue_objects):
     db.session.add(residue_objects[res])
 
-print('Retrieving Authors 1/2...')
+print('Retrieving Author Lists...')
 for pep in tqdm(database):
     a = pep["Authors"].split('\n')
-    for auth in tqdm(a):
+    for auth in a:
         if auth not in authors:
             authors.append(auth)
 
-print('Retrieving Authors 2/2...')
+print('Retrieving Authors...')
 for author in tqdm(authors):
     names = author.split(', ')
     # print(names)
@@ -57,10 +58,6 @@ for i in tqdm(range(len(database))):
     dates = rel.split('/')
     authors = database[i]["Authors"].split('\n')
     residues = database[i]["Sequence"].split('\n')
-    for r in tqdm(residues):
-        if r not in residue_objects:
-            print(f'Residue {r} missing from Residue.json')
-            break
     peptoid_objects[i] = Peptoid(
         image='pep.png',
         title=database[i]['Title'],
@@ -73,8 +70,14 @@ for i in tqdm(range(len(database))):
         sequence=", ".join(residues)
     )
     peptoid_objects[i].peptoid_author.extend([author_objects[a] for a in authors])
-    peptoid_objects[i].peptoid_residue.extend([residue_objects[r] for r in residues])
+    try:
+        peptoid_objects[i].peptoid_residue.extend([residue_objects[r] for r in residues])
+    except:
+        for r in residues:
+            if r not in residue_objects:
+                print(colored(f'Residue.json Missing Definition of: {r}','red'))
+                exit()
     db.session.add(peptoid_objects[i])
 
-print('Committing changes...')
+print(colored('Committing changes...','green'))
 db.session.commit()
