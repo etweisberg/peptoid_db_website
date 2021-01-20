@@ -2,6 +2,7 @@ import json
 import datetime
 from app import app, db
 from app.models import Peptoid, Author, Residue
+from tqdm import tqdm
 
 database = open('Structure.json','r',encoding='utf-8')
 database = json.loads(database.read())
@@ -13,8 +14,11 @@ residue_db = open('Residue.json','r',encoding='utf-8')
 residue_db = json.loads(residue_db.read())
 residue_objects = {}
 
-
-for res in residue_db:
+print('Retrieving Residues...')
+for res in tqdm(residue_db):
+    if res['Long name'] == '':
+        print('Invalid Residue Long Name')
+        break
     residue_objects[res['Long name']]=Residue(
         long_name=res['Long name'],
         short_name=res['Short name'],
@@ -23,18 +27,19 @@ for res in residue_db:
         SMILES = res["SMILES"]
     )
 
-
-for res in residue_objects:
+print('Adding Residues to DB...')
+for res in tqdm(residue_objects):
     db.session.add(residue_objects[res])
 
-
-for pep in database:
+print('Retrieving Authors 1/2...')
+for pep in tqdm(database):
     a = pep["Authors"].split('\n')
-    for auth in a:
+    for auth in tqdm(a):
         if auth not in authors:
             authors.append(auth)
 
-for author in authors:
+print('Retrieving Authors 2/2...')
+for author in tqdm(authors):
     names = author.split(', ')
     # print(names)
     author_objects[author]=Author(
@@ -42,15 +47,20 @@ for author in authors:
         last_name=names[0]
     )
 
-for author in author_objects:
+print('Adding Authors to DB...')
+for author in tqdm(author_objects):
     db.session.add(author_objects[author])
 
-
-for i in range(len(database)):
+print('Retrieving and Adding Peptoids to DB...')
+for i in tqdm(range(len(database))):
     rel = database[i]["Release"]
     dates = rel.split('/')
     authors = database[i]["Authors"].split('\n')
     residues = database[i]["Sequence"].split('\n')
+    for r in tqdm(residues):
+        if r not in residue_objects:
+            print(f'Residue {r} missing from Residue.json')
+            break
     peptoid_objects[i] = Peptoid(
         image='pep.png',
         title=database[i]['Title'],
@@ -66,4 +76,5 @@ for i in range(len(database)):
     peptoid_objects[i].peptoid_residue.extend([residue_objects[r] for r in residues])
     db.session.add(peptoid_objects[i])
 
+print('Committing changes...')
 db.session.commit()
