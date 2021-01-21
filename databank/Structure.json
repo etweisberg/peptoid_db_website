@@ -954,7 +954,7 @@
         "Length": "4",
         "Publication doi": "10.1021/acs.joc.9b01509",
         "Release": "7/24/2019",
-        "Sequence": "(S)-N-(1-phenylethyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine",
+        "Sequence": "1234\n(S)-N-(1-phenylethyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine\nN-(phenylmethyl)glycine",
         "Structure doi": "10.5517/ccdc.csd.cc224g6x",
         "Title": "Cyclic Tetramer (one chiral side chain)",
         "Topology": "C"
