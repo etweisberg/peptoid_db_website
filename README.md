@@ -73,7 +73,6 @@ Add a new object to `Structure.json` with the following format:
 ```json
 {
     "Authors": "<Last, First\n ... \nLast, First>",
-    "Citation": "<Citation>",
     "Code": "<Peptoid Data Bank code>",
     "Experiment": "<Technique structure solved using>",
     "Publication doi": "<Publication DOI>",

@@ -59,7 +59,6 @@ for i in tqdm(range(len(database))):
     authors = database[i]["Authors"].split('\n')
     residues = database[i]["Sequence"].split('\n')
     peptoid_objects[i] = Peptoid(
-        image='pep.png',
         title=database[i]['Title'],
         code=database[i]['Code'],
         release=datetime.date(int(dates[2]),int(dates[0]),int(dates[1])),
