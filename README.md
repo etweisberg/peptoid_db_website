@@ -89,3 +89,11 @@ Run `python db_add.py` to add all of your changes to the database
 Use `flask shell` or `flask run` to examine the changes you made.
 
 # How to containerize application with Docker and deploy to the server
+Docker containerization is used to deploy the application, so one must first [install docker](https://docs.docker.com/get-docker/).
+1. enter `databank` folder
+2. run the command `docker build -t <image-tag>:latest .` to build a docker image with the image-tag of your choice
+3. test the build by performing `docker run -d -p 80:5000 <image-tag>:latest`, which will run the image on port 80, listening to port 5000
+4. view the image being run locally with docker by typing `localhost` into a browser
+5. if everything works, push that docker image to the remote repository using `docker push <image-tag>:latest`
+
+You will then be able to use the `docker pull` command once on the webserver hosting the application to get the image onto that server. There, `docker run` can be used to run the image on the webserver, thereby deploying the application.
