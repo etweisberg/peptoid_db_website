@@ -1,8 +1,8 @@
 """first migration
 
-Revision ID: c572eec91386
+Revision ID: a738a7d2db79
 Revises: 
-Create Date: 2020-12-21 22:28:45.071690
+Create Date: 2021-01-20 19:34:56.179908
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'c572eec91386'
+revision = 'a738a7d2db79'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -28,7 +28,6 @@ def upgrade():
     op.create_index(op.f('ix_author_last_name'), 'author', ['last_name'], unique=False)
     op.create_table('peptoid',
     sa.Column('code', sa.String(length=16), nullable=False),
-    sa.Column('image', sa.Text(), nullable=True),
     sa.Column('title', sa.Text(), nullable=True),
     sa.Column('release', sa.DateTime(), nullable=True),
     sa.Column('experiment', sa.Text(), nullable=True),
@@ -39,7 +38,6 @@ def upgrade():
     sa.PrimaryKeyConstraint('code')
     )
     op.create_index(op.f('ix_peptoid_experiment'), 'peptoid', ['experiment'], unique=False)
-    op.create_index(op.f('ix_peptoid_image'), 'peptoid', ['image'], unique=False)
     op.create_index(op.f('ix_peptoid_pub_doi'), 'peptoid', ['pub_doi'], unique=False)
     op.create_index(op.f('ix_peptoid_release'), 'peptoid', ['release'], unique=False)
     op.create_index(op.f('ix_peptoid_sequence'), 'peptoid', ['sequence'], unique=False)
@@ -92,7 +90,6 @@ def downgrade():
     op.drop_index(op.f('ix_peptoid_sequence'), table_name='peptoid')
     op.drop_index(op.f('ix_peptoid_release'), table_name='peptoid')
     op.drop_index(op.f('ix_peptoid_pub_doi'), table_name='peptoid')
-    op.drop_index(op.f('ix_peptoid_image'), table_name='peptoid')
     op.drop_index(op.f('ix_peptoid_experiment'), table_name='peptoid')
     op.drop_table('peptoid')
     op.drop_index(op.f('ix_author_last_name'), table_name='author')
